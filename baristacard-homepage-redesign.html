@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Loyalty Cards for Coffee Shops | BaristaCard — Free</title>
+<meta name="description" content="Give your café a free digital loyalty card in 5 minutes. No app needed, no printing costs. Used by independent coffee shops in 29 countries. Start free today.">
+<meta property="og:locale" content="en_GB">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS ── */
+  :root {
+    --espresso:   #140600;
+    --dark-roast: #261008;
+    --americano:  #3D1A08;
+    --filter:     #6B3015;
+    --caramel:    #96511E;
+    --flat-white: #BF7840;
+    --latte:      #CFA070;
+    --cappuccino: #E2C090;
+    --oat-milk:   #EED8B0;
+    --cream:      #FAF2E4;
+    --white:      #FFFFFF;
+
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans:  'DM Sans', system-ui, sans-serif;
+
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-pill: 100px;
+
+    --shadow-card: 0 2px 12px rgba(20,6,0,.10), 0 8px 32px rgba(20,6,0,.06);
+    --shadow-lift: 0 8px 32px rgba(20,6,0,.18), 0 2px 8px rgba(20,6,0,.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--espresso);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── UTILITIES ── */
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 96px 0; }
+  .section--tight { padding: 64px 0; }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--caramel);
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    background: rgba(150,81,30,.12);
+    color: var(--caramel);
+    border: 1px solid rgba(150,81,30,.2);
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: .01em;
+    border-radius: var(--radius-pill);
+    padding: 14px 28px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-primary {
+    background: var(--espresso);
+    color: var(--cream);
+    box-shadow: 0 4px 16px rgba(20,6,0,.28);
+  }
+  .btn-primary:hover { background: var(--dark-roast); box-shadow: var(--shadow-lift); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--espresso);
+    border: 1.5px solid rgba(20,6,0,.25);
+  }
+  .btn-secondary:hover { border-color: var(--espresso); background: rgba(20,6,0,.04); }
+
+  .btn-ghost {
+    background: rgba(250,242,228,.15);
+    color: var(--cream);
+    border: 1.5px solid rgba(250,242,228,.3);
+  }
+  .btn-ghost:hover { background: rgba(250,242,228,.25); }
+
+  .btn-lg { padding: 18px 36px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250,242,228,.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(20,6,0,.08);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav__logo {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--espresso);
+    text-decoration: none;
+    letter-spacing: .01em;
+  }
+  .nav__logo span { color: var(--caramel); }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav__links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--filter);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .nav__links a:hover { color: var(--espresso); }
+
+  .nav__actions { display: flex; align-items: center; gap: 12px; }
+
+  .nav__signin {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--filter);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .nav__signin:hover { color: var(--espresso); }
+
+  /* ── HERO ── */
+  .hero {
+    background: radial-gradient(ellipse 120% 80% at 60% 0%, var(--americano) 0%, var(--dark-roast) 45%, var(--espresso) 100%);
+    color: var(--cream);
+    padding: 100px 0 80px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23CFA070' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .hero__trust-bar .tag {
+    background: rgba(207,160,112,.15);
+    color: var(--latte);
+    border-color: rgba(207,160,112,.25);
+  }
+
+  .hero__headline {
+    font-family: var(--font-serif);
+    font-size: clamp(40px, 5vw, 62px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+
+  .hero__headline em {
+    font-style: italic;
+    color: var(--latte);
+  }
+
+  .hero__sub {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--cappuccino);
+    margin-bottom: 36px;
+    max-width: 460px;
+  }
+
+  .hero__ctas {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .hero__micro {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(226,192,144,.7);
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .hero__micro span::before {
+    content: '✓ ';
+    color: var(--latte);
+    font-weight: 600;
+  }
+
+  /* Founder quote in hero */
+  .hero__quote {
+    margin-top: 40px;
+    padding: 20px 24px;
+    background: rgba(250,242,228,.07);
+    border: 1px solid rgba(250,242,228,.12);
+    border-left: 3px solid var(--caramel);
+    border-radius: var(--radius-md);
+  }
+
+  .hero__quote p {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--cappuccino);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .hero__quote-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero__quote-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--filter);
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid rgba(207,160,112,.3);
+  }
+
+  .hero__quote-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .hero__quote-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--latte);
+    letter-spacing: .04em;
+  }
+
+  /* Right panel */
+  .hero__demo-wrap {
+    position: relative;
+  }
+
+  .hero__testimonial {
+    background: var(--cream);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-lift), 0 0 0 1px rgba(20,6,0,.06);
+    color: var(--espresso);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .hero__testimonial-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 12px;
+  }
+
+  .hero__testimonial-stars span {
+    color: var(--caramel);
+    font-size: 16px;
+  }
+
+  .hero__testimonial blockquote {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--dark-roast);
+    margin-bottom: 16px;
+  }
+
+  .hero__testimonial-person {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--cappuccino);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--filter);
+    flex-shrink: 0;
+  }
+
+  .hero__testimonial-person-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--espresso);
+  }
+
+  .hero__testimonial-person-role {
+    font-size: 13px;
+    color: var(--caramel);
+  }
+
+  .hero__stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .hero__stat {
+    background: rgba(250,242,228,.1);
+    border: 1px solid rgba(250,242,228,.15);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    text-align: center;
+  }
+
+  .hero__stat-num {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--latte);
+    line-height: 1;
+  }
+
+  .hero__stat-label {
+    font-size: 12px;
+    color: var(--cappuccino);
+    margin-top: 4px;
+  }
+
+  /* ── WHY FREE BANNER ── */
+  .why-free {
+    background: var(--oat-milk);
+    border-bottom: 1px solid rgba(20,6,0,.08);
+    padding: 18px 0;
+  }
+
+  .why-free__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .why-free__text {
+    font-size: 14px;
+    color: var(--filter);
+  }
+
+  .why-free__text strong {
+    color: var(--espresso);
+    font-weight: 600;
+  }
+
+  /* ── COMPARISON ── */
+  .comparison {
+    background: var(--cream);
+  }
+
+  .section-header { text-align: center; margin-bottom: 56px; }
+
+  .section-header h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--espresso);
+    margin: 12px 0 16px;
+  }
+
+  .section-header p {
+    font-size: 17px;
+    color: var(--filter);
+    max-width: 540px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .comparison__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .comparison__card {
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    border: 1.5px solid transparent;
+  }
+
+  .comparison__card--old {
+    background: white;
+    border-color: rgba(20,6,0,.1);
+    opacity: .85;
+  }
+
+  .comparison__card--new {
+    background: var(--espresso);
+    border-color: var(--americano);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comparison__card--new::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(150,81,30,.35) 0%, transparent 70%);
+  }
+
+  .comparison__card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .comparison__card--old .comparison__card-label { color: var(--caramel); }
+  .comparison__card--new .comparison__card-label { color: var(--latte); }
+
+  .comparison__card h3 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .comparison__card--old h3 { color: var(--espresso); }
+  .comparison__card--new h3 { color: var(--cream); }
+
+  .comparison__list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+
+  .comparison__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .comparison__item-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .comparison__card--old .comparison__item-icon {
+    background: rgba(150,81,30,.12);
+    color: var(--caramel);
+  }
+
+  .comparison__card--old .comparison__item { color: var(--filter); }
+
+  .comparison__card--new .comparison__item-icon {
+    background: rgba(207,160,112,.2);
+    color: var(--latte);
+  }
+
+  .comparison__card--new .comparison__item { color: var(--cappuccino); }
+  .comparison__card--new .comparison__item strong { color: var(--cream); font-weight: 500; }
+
+  /* ── FEATURES ── */
+  .features { background: white; }
+
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--cream);
+    border: 1px solid rgba(20,6,0,.07);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+
+  .feature-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--espresso);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .feature-card h3 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--espresso);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .feature-card p {
+    font-size: 14px;
+    color: var(--filter);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .feature-card__quote {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(20,6,0,.08);
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--caramel);
+    line-height: 1.5;
+  }
+
+  /* ── 3 STEPS ── */
+  .steps {
+    background: var(--espresso);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23CFA070' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  }
+
+  .steps .section-header h2 { color: var(--cream); }
+  .steps .section-header p { color: var(--cappuccino); }
+  .steps .eyebrow { color: var(--latte); }
+
+  .steps__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step {
+    text-align: center;
+    padding: 40px 24px;
+    border-radius: var(--radius-lg);
+    background: rgba(250,242,228,.05);
+    border: 1px solid rgba(250,242,228,.1);
+  }
+
+  .step__num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--caramel);
+    color: var(--cream);
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .step h3 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--cappuccino);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .steps__cta {
+    text-align: center;
+    margin-top: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── PRICING ── */
+  .pricing { background: white; }
+
+  .pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .price-card {
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    border: 1.5px solid rgba(20,6,0,.1);
+    background: white;
+    position: relative;
+  }
+
+  .price-card--featured {
+    background: var(--espresso);
+    border-color: var(--americano);
+    transform: scale(1.03);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .price-card__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--caramel);
+    color: var(--cream);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: var(--radius-pill);
+  }
+
+  .price-card__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .price-card h3 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .price-card__price {
+    font-family: var(--font-serif);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-card__price sup {
+    font-size: 22px;
+    vertical-align: top;
+    margin-top: 8px;
+    margin-right: 2px;
+  }
+
+  .price-card__per {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .price-card__desc {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .price-card__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 28px;
+  }
+
+  .price-card__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .price-card__feature::before {
+    content: '✓';
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Light cards */
+  .price-card .price-card__label { color: var(--caramel); }
+  .price-card h3 { color: var(--espresso); }
+  .price-card .price-card__price { color: var(--espresso); }
+  .price-card .price-card__per { color: var(--filter); }
+  .price-card .price-card__desc { color: var(--filter); }
+  .price-card .price-card__feature { color: var(--filter); }
+  .price-card .price-card__feature::before { color: var(--caramel); }
+
+  /* Dark featured card */
+  .price-card--featured .price-card__label { color: var(--latte); }
+  .price-card--featured h3 { color: var(--cream); }
+  .price-card--featured .price-card__price { color: var(--cream); }
+  .price-card--featured .price-card__per { color: var(--cappuccino); }
+  .price-card--featured .price-card__desc { color: var(--cappuccino); }
+  .price-card--featured .price-card__feature { color: var(--cappuccino); }
+  .price-card--featured .price-card__feature::before { color: var(--latte); }
+
+  .pricing__footer {
+    text-align: center;
+    margin-top: 36px;
+    font-size: 14px;
+    color: var(--filter);
+  }
+
+  /* ── AI SECTION ── */
+  .ai-section { background: var(--oat-milk); }
+
+  .ai-section__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .ai-section__content h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--espresso);
+    line-height: 1.2;
+    margin: 12px 0 16px;
+  }
+
+  .ai-section__content p {
+    font-size: 15px;
+    color: var(--filter);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .ai-features { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+
+  .ai-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .ai-feature__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: var(--espresso);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .ai-feature__text h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-bottom: 4px;
+  }
+
+  .ai-feature__text p {
+    font-size: 13px;
+    color: var(--filter);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .ai-section__visual {
+    background: var(--espresso);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-lift);
+  }
+
+  .ai-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .ai-chat__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(250,242,228,.1);
+    margin-bottom: 4px;
+  }
+
+  .ai-chat__dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--caramel);
+  }
+
+  .ai-chat__title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--latte);
+    letter-spacing: .04em;
+  }
+
+  .ai-bubble {
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 90%;
+  }
+
+  .ai-bubble--ai {
+    background: rgba(250,242,228,.08);
+    border: 1px solid rgba(250,242,228,.12);
+    color: var(--cappuccino);
+    align-self: flex-start;
+  }
+
+  .ai-bubble--insight {
+    background: rgba(150,81,30,.25);
+    border: 1px solid rgba(150,81,30,.4);
+    color: var(--oat-milk);
+    align-self: flex-start;
+  }
+
+  .ai-bubble--insight strong { color: var(--latte); font-weight: 600; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: radial-gradient(ellipse 100% 100% at 50% 0%, var(--americano) 0%, var(--espresso) 70%);
+    color: var(--cream);
+    text-align: center;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23CFA070' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  }
+
+  .final-cta__inner { position: relative; z-index: 1; }
+
+  .final-cta h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--cream);
+    margin: 12px 0 16px;
+  }
+
+  .final-cta h2 em { font-style: italic; color: var(--latte); }
+
+  .final-cta p {
+    font-size: 17px;
+    color: var(--cappuccino);
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .final-cta__ctas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .final-cta__micro {
+    font-size: 13px;
+    color: rgba(226,192,144,.6);
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .final-cta__micro span::before {
+    content: '✓ ';
+    color: var(--latte);
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--espresso);
+    color: var(--cappuccino);
+    padding: 60px 0 32px;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer__brand p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(226,192,144,.6);
+    margin-top: 12px;
+    max-width: 260px;
+    font-weight: 300;
+  }
+
+  .footer__logo {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .footer__logo span { color: var(--caramel); }
+
+  .footer__col h4 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--latte);
+    margin-bottom: 16px;
+  }
+
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer__links a {
+    font-size: 14px;
+    color: rgba(226,192,144,.6);
+    text-decoration: none;
+    transition: color .15s;
+    font-weight: 300;
+  }
+  .footer__links a:hover { color: var(--latte); }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(250,242,228,.08);
+    padding-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: rgba(226,192,144,.45);
+  }
+
+  .footer__bottom a { color: rgba(226,192,144,.45); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--latte); }
+
+  /* ── ANNOTATIONS (for dev handoff) ── */
+  .annotation {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    background: #3B82F6;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero__left > * {
+    animation: fadeUp .7s ease both;
+  }
+  .hero__left > *:nth-child(1) { animation-delay: .05s; }
+  .hero__left > *:nth-child(2) { animation-delay: .15s; }
+  .hero__left > *:nth-child(3) { animation-delay: .25s; }
+  .hero__left > *:nth-child(4) { animation-delay: .35s; }
+  .hero__left > *:nth-child(5) { animation-delay: .45s; }
+  .hero__left > *:nth-child(6) { animation-delay: .55s; }
+
+  .hero__demo-wrap {
+    animation: fadeUp .8s ease .3s both;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero__inner,
+    .comparison__grid,
+    .features__grid,
+    .steps__grid,
+    .testimonials__grid,
+    .ai-section__inner { grid-template-columns: 1fr; }
+
+    .pricing__grid { grid-template-columns: 1fr 1fr; }
+    .price-card--featured { transform: none; }
+
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+
+    .nav__links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .pricing__grid,
+    .footer__grid { grid-template-columns: 1fr; }
+
+    .hero { padding: 64px 0 48px; }
+  }
+
+  /* Divider rule */
+  .rule {
+    width: 48px;
+    height: 2px;
+    background: var(--caramel);
+    border: none;
+    margin: 0 auto 16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">Barista<span>Card</span></a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get Started Free</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+
+      <!-- Left -->
+      <div class="hero__left">
+        <div class="annotation">✦ Audit fix: outcome-led headline</div>
+        <div class="hero__trust-bar">
+          <span class="tag">68 cafés registered</span>
+          <span class="tag">29 countries</span>
+        </div>
+
+        <h1 class="hero__headline">
+          Turn one-time visitors into <em>loyal regulars.</em> Free.
+        </h1>
+
+        <p class="hero__sub">
+          Stop losing regulars to the Starbucks down the road. BaristaCard gives your independent café the same loyalty tools the big chains have — in under 5 minutes, completely free.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="/auth/register" class="btn btn-primary btn-lg">Get Started Free</a>
+          <a href="#how-it-works" class="btn btn-ghost btn-lg">See How It Works</a>
+        </div>
+
+        <div class="hero__micro">
+          <span>No credit card required</span>
+          <span>First venue free forever</span>
+          <span>5-minute setup</span>
+        </div>
+
+        <div class="annotation" style="margin-top:20px;">✦ Audit fix: founder trust + why-free above fold</div>
+        <div class="hero__quote">
+          <p>"Every local café deserves a loyalty system as good as Starbucks — one that keeps regulars coming back and helps coffee lovers discover the best spots in their neighbourhood. That's exactly what we're building."</p>
+          <div class="hero__quote-author">
+            <div class="hero__quote-avatar">
+              <img src="https://baristacard.com/images/founder.jpg" alt="Alex Filatov, Founder" onerror="this.style.display='none'">
+            </div>
+            <div>
+              <div class="hero__quote-name">Alex Filatov — Founder, BaristaCard</div>
+              <div style="font-size:11px;color:rgba(207,160,112,.6);margin-top:2px;">We earn a small fee when you sell subscriptions. You only pay when we make you money.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="hero__demo-wrap">
+        <!-- TESTIMONIAL PLACEHOLDER — add a real quote here once collected -->
+        <div class="hero__stat-row" style="margin-bottom:0">
+          <div class="hero__stat">
+            <div class="hero__stat-num">68</div>
+            <div class="hero__stat-label">cafés registered</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-num">29</div>
+            <div class="hero__stat-label">countries</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY FREE BANNER ═══ -->
+<div class="why-free">
+  <div class="container">
+    <div class="why-free__inner">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--caramel)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
+      <p class="why-free__text">
+        <strong>Why is it free?</strong> We earn a small processing fee when you sell subscriptions or product cards. <strong>You only pay when BaristaCard is making you money.</strong> No hidden charges, no data selling.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COMPARISON ═══ (moved to position 2 per audit) -->
+<section class="comparison section">
+  <div class="container">
+    <div class="section-header">
+      <div class="annotation">✦ Audit fix: comparison moved to section 2</div>
+      <span class="eyebrow">The Switch</span>
+      <hr class="rule">
+      <h2>Why cafés are ditching paper stamp cards</h2>
+      <p>Your regulars lose their paper card. You lose them. And you never even knew why — because paper gives you zero data on who's coming back, when, and what would bring them in more often.</p>
+    </div>
+
+    <div class="comparison__grid">
+      <!-- Old -->
+      <div class="comparison__card comparison__card--old">
+        <div class="comparison__card-label">Paper Loyalty Cards</div>
+        <h3>The old way</h3>
+        <ul class="comparison__list">
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✕</div>
+            Customers forget cards at home
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✕</div>
+            Expensive to print and replace
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✕</div>
+            No data on who your regulars are
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✕</div>
+            Easy to forge or lose
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✕</div>
+            Can't update deals without reprinting
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✕</div>
+            No way to reach customers between visits
+          </li>
+        </ul>
+      </div>
+
+      <!-- New -->
+      <div class="comparison__card comparison__card--new">
+        <div class="comparison__card-label">BaristaCard Digital</div>
+        <h3 style="color:var(--cream);">The better way</h3>
+        <ul class="comparison__list">
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✓</div>
+            <span><strong>Always in Apple & Google Wallet</strong> — never forgotten</span>
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✓</div>
+            <span><strong>Free for your first venue</strong> — zero printing costs, ever</span>
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✓</div>
+            <span><strong>Full analytics</strong> — know exactly who your best customers are</span>
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✓</div>
+            <span><strong>Secure & verified</strong> — can't be forged or duplicated</span>
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✓</div>
+            <span><strong>Change deals instantly</strong> — no reprinting needed</span>
+          </li>
+          <li class="comparison__item">
+            <div class="comparison__item-icon">✓</div>
+            <span><strong>Broadcast offers</strong> — message your regulars directly</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="features section" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">What You Get</span>
+      <hr class="rule">
+      <h2>Everything your café needs to build loyalty</h2>
+      <p>Three tools in one — pick what works for your café, use them together for the best results.</p>
+    </div>
+
+    <div class="features__grid">
+      <div class="feature-card">
+        <div class="feature-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--latte)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
+        </div>
+        <h3>Stamp Cards</h3>
+        <p>Digital stamp cards that live in Apple & Google Wallet. Customers never forget their card, you track every visit automatically.</p>
+        <div class="feature-card__quote">"Customers come back because they're 3 stamps away from a free coffee."</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--latte)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><line x1="9" x2="9" y1="12" y2="12.01"/><line x1="12" x2="12" y1="12" y2="12.01"/><line x1="15" x2="15" y1="12" y2="12.01"/></svg>
+        </div>
+        <h3>Prepaid Product Cards</h3>
+        <p>Sell coffee bundles upfront — 10 coffees for the price of 9. Immediate cash flow for your café, guaranteed return visits.</p>
+        <div class="feature-card__quote">"A customer with 8 prepaid coffees is coming back 8 times, no matter what."</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--latte)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+        </div>
+        <h3>Monthly Subscriptions</h3>
+        <p>Offer a flat-rate monthly coffee plan — e.g. £25/month for a daily coffee. Recurring revenue you can actually count on.</p>
+        <div class="feature-card__quote">"Subscribers visit 4× more than walk-ins. That's loyalty you can build a business on."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3 STEPS ═══ -->
+<section class="steps section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow" style="color:var(--latte);">Getting Started</span>
+      <hr class="rule">
+      <h2>Up and running in 3 steps</h2>
+      <p style="color:var(--cappuccino);">No tech skills required. If you can send an email, you can set this up.</p>
+    </div>
+
+    <div class="steps__grid">
+      <div class="step">
+        <div class="step__num">1</div>
+        <h3>Sign Up Free</h3>
+        <p>Create your account with Google, Facebook, or email. No credit card required to start.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <h3>Create Your Café</h3>
+        <p>Add your café name, logo, and address — and we'll automatically design your loyalty card for you. Pick a deal from our templates and you're ready. Takes 3 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <h3>Share Your QR Code</h3>
+        <p>Download your QR code and pop it on your counter. Your customers simply scan it with their phone camera — no app needed, no instructions required.</p>
+      </div>
+    </div>
+
+    <div class="steps__cta">
+      <a href="/auth/register" class="btn btn-primary btn-lg" style="background:var(--caramel);color:var(--cream);">Get Started Free</a>
+      <div style="margin-top:14px;font-size:13px;color:rgba(226,192,144,.55);">
+        <span style="margin-right:20px;">✓ Setup takes 5 minutes</span>
+        <span style="margin-right:20px;">✓ First venue free forever</span>
+        <span>✓ No credit card needed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="pricing section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Pricing</span>
+      <hr class="rule">
+      <h2>Start free. Grow when you're ready.</h2>
+      <p>Simple pricing that scales with your business. Your first venue is free forever — no catch.</p>
+    </div>
+
+    <div class="pricing__grid">
+      <!-- Starter -->
+      <div class="price-card">
+        <div class="price-card__label">Start Here</div>
+        <h3>Starter</h3>
+        <div class="price-card__price"><sup>£</sup>0</div>
+        <div class="price-card__per">/month forever</div>
+        <p class="price-card__desc">Everything you need for one location. No credit card, no time limit.</p>
+        <ul class="price-card__features">
+          <li class="price-card__feature">1 venue</li>
+          <li class="price-card__feature">Unlimited stamp cards</li>
+          <li class="price-card__feature">Unlimited product cards</li>
+          <li class="price-card__feature">Unlimited subscriptions</li>
+          <li class="price-card__feature">Apple & Google Wallet</li>
+          <li class="price-card__feature">Last 30 days analytics</li>
+          <li class="price-card__feature">Digital tipping</li>
+          <li class="price-card__feature">1 broadcast/week</li>
+          <li class="price-card__feature">3 gift rewards/month</li>
+        </ul>
+        <a href="/pricing/select?plan=free" class="btn btn-secondary" style="width:100%;justify-content:center;">Get Started Free</a>
+      </div>
+
+      <!-- Basic — featured -->
+      <div class="price-card price-card--featured">
+        <div class="price-card__badge">Most Popular</div>
+        <div class="price-card__label">Growing Cafés</div>
+        <h3>Basic</h3>
+        <div class="price-card__price"><sup>£</sup>9</div>
+        <div class="price-card__per">/month</div>
+        <p class="price-card__desc">For cafés ready to grow. Full analytics history and more locations.</p>
+        <ul class="price-card__features">
+          <li class="price-card__feature">Up to 5 venues</li>
+          <li class="price-card__feature">Everything in Starter</li>
+          <li class="price-card__feature">Full analytics history</li>
+          <li class="price-card__feature">3 broadcasts/week per venue</li>
+          <li class="price-card__feature">10 gift rewards/month</li>
+          <li class="price-card__feature">Multi-location analytics</li>
+          <li class="price-card__feature">Centralised dashboard</li>
+          <li class="price-card__feature">Email support</li>
+        </ul>
+        <a href="/pricing/select?plan=basic" class="btn" style="width:100%;justify-content:center;background:var(--caramel);color:var(--cream);">Get Basic</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="price-card">
+        <div class="price-card__label">Multi-Site</div>
+        <h3>Premium</h3>
+        <div class="price-card__price"><sup>£</sup>29</div>
+        <div class="price-card__per">/month</div>
+        <p class="price-card__desc">For multi-location chains that need advanced reporting and unlimited rewards.</p>
+        <ul class="price-card__features">
+          <li class="price-card__feature">Up to 10 venues</li>
+          <li class="price-card__feature">Everything in Basic</li>
+          <li class="price-card__feature">2 broadcasts/day per venue</li>
+          <li class="price-card__feature">Unlimited gift rewards</li>
+          <li class="price-card__feature">Advanced reporting</li>
+          <li class="price-card__feature">Staff across locations</li>
+        </ul>
+        <a href="/pricing/select?plan=premium" class="btn btn-secondary" style="width:100%;justify-content:center;">Get Premium</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="price-card">
+        <div class="price-card__label">Franchises</div>
+        <h3>Enterprise</h3>
+        <div class="price-card__price" style="font-size:32px;padding-top:8px;">Let's talk</div>
+        <div class="price-card__per" style="margin-bottom:20px;">&nbsp;</div>
+        <p class="price-card__desc">Unlimited venues, dedicated support, and custom integrations for large groups.</p>
+        <ul class="price-card__features">
+          <li class="price-card__feature">Unlimited venues</li>
+          <li class="price-card__feature">Everything in Premium</li>
+          <li class="price-card__feature">Unlimited broadcasts</li>
+          <li class="price-card__feature">Dedicated account manager</li>
+          <li class="price-card__feature">Custom integrations</li>
+        </ul>
+        <a href="/contact" class="btn btn-secondary" style="width:100%;justify-content:center;">Contact Sales</a>
+      </div>
+    </div>
+
+    <div class="pricing__footer">
+      No setup fees &nbsp;·&nbsp; No credit card required &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; First venue always free
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AI SECTION (moved lower per audit) ═══ -->
+<section class="ai-section section">
+  <div class="container">
+    <div class="ai-section__inner">
+      <div class="ai-section__content">
+        <div class="annotation">✦ Audit fix: AI section moved after pricing</div>
+        <span class="eyebrow">AI Advisor</span>
+        <h2>Your café&#8217;s personal business advisor — powered by AI</h2>
+        <p>Once you're set up, BaristaCard's AI analyses your customer patterns and suggests actions — before you even notice the trend yourself.</p>
+        <ul class="ai-features">
+          <li class="ai-feature">
+            <div class="ai-feature__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--latte)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+            </div>
+            <div class="ai-feature__text">
+              <h4>Proactive Insights</h4>
+              <p>Spots at-risk customers and seasonal opportunities before you do.</p>
+            </div>
+          </li>
+          <li class="ai-feature">
+            <div class="ai-feature__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--latte)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="ai-feature__text">
+              <h4>Smart Barista Nudges</h4>
+              <p>When a customer scans, your barista sees personalised suggestions instantly.</p>
+            </div>
+          </li>
+          <li class="ai-feature">
+            <div class="ai-feature__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--latte)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
+            </div>
+            <div class="ai-feature__text">
+              <h4>Tailored to Your Café</h4>
+              <p>Add your location, style, and customer base — the AI adapts to you.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="/learn/owners/ai-advisor" class="btn btn-secondary" style="margin-top:8px;">Learn more about AI Advisor →</a>
+      </div>
+
+      <div class="ai-section__visual">
+        <div class="ai-chat">
+          <div class="ai-chat__header">
+            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#96511E"/></svg>
+            <div class="ai-chat__title">AI Advisor — The Corner Cup</div>
+          </div>
+          <div class="ai-bubble ai-bubble--insight">
+            <strong>At-risk customer alert</strong><br>
+            Emma T. hasn't visited in 18 days — she usually comes in every 5. She's 2 stamps from a free coffee. Consider sending her a nudge?
+          </div>
+          <div class="ai-bubble ai-bubble--ai">
+            Your busiest day this week will likely be Saturday. Last 4 Saturdays you averaged 23% more scans than Tuesday. Consider staffing up.
+          </div>
+          <div class="ai-bubble ai-bubble--insight">
+            <strong>Subscription opportunity</strong><br>
+            14 customers have visited 10+ times this month. They're prime candidates for a £25/month subscription deal.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta__inner">
+      <span class="eyebrow" style="color:var(--latte);">Ready to start?</span>
+      <h2>Your regulars are waiting.<br><em>Let's bring them back.</em></h2>
+      <p>Join 68 independent cafés across 29 countries already using BaristaCard. Free to start, always.</p>
+      <div class="final-cta__ctas">
+        <a href="/auth/register" class="btn btn-primary btn-lg" style="background:var(--caramel);">Get Started Free →</a>
+        <a href="/how-it-works" class="btn btn-ghost btn-lg">See How It Works</a>
+      </div>
+      <div class="final-cta__micro">
+        <span>5-minute setup</span>
+        <span>No credit card</span>
+        <span>First venue free forever</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">Barista<span>Card</span></a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>For Customers</h4>
+        <ul class="footer__links">
+          <li><a href="/find-cafes">Find Participating Cafés</a></li>
+          <li><a href="/earn-rewards">Earn Rewards</a></li>
+          <li><a href="/coffee-beans">Coffee Beans System</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
