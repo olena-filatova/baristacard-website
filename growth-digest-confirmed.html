@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Staying on the Growth Digest | BaristaCard</title>
+  <meta name="description" content="Thanks for confirming — you'll keep receiving the BaristaCard Growth Digest with tips to grow your cafe.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:locale" content="en_GB">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #FAF3EA;
+      --oat: #F0E4D4;
+      --white: #FFFFFF;
+      --ivory: #FFF9F2;
+      --brown: #4A2C2A;
+      --brown-deep: #542915;
+      --tan: #C8A27B;
+      --tan-dark: #B78E63;
+      --green: #7A9E7E;
+      --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --radius-btn: 16px;
+      --radius-card: 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--brown);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    .nav {
+      background: rgba(240,228,212,.92);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(74,44,42,.08);
+    }
+    .nav__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; max-width: 1140px; margin: 0 auto; padding: 0 24px;
+    }
+    .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav__logo-mark {
+      width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+    .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+
+    /* MAIN CONTENT */
+    .content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      padding: 56px 48px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+    }
+    .icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .icon svg { width: 32px; height: 32px; color: white; }
+    h1 {
+      font-size: clamp(24px, 3.6vw, 32px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--brown-deep);
+      margin-bottom: 16px;
+    }
+    .body-text {
+      font-size: 16px;
+      color: rgba(74,44,42,.7);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font); font-weight: 600; font-size: 15px;
+      border-radius: var(--radius-btn); padding: 13px 26px;
+      cursor: pointer; border: none; text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      background: var(--tan); color: var(--ivory);
+      box-shadow: 0 8px 18px rgba(200,162,123,.35);
+    }
+    .btn:hover { background: var(--tan-dark); transform: translateY(-1px); }
+
+    /* FOOTER */
+    .footer {
+      background: var(--oat);
+      border-top: 1px solid rgba(74,44,42,.08);
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(74,44,42,.5);
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="https://baristacard.com" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <div class="nav__logo-text">BaristaCard</div>
+      </a>
+    </div>
+  </nav>
+
+  <main class="content">
+    <div class="card">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h1>You're staying on the list!</h1>
+      <p class="body-text">
+        Thanks for confirming — we'll keep sending you the Growth Digest each month with practical tips, feature updates and ideas to help your cafe grow.
+      </p>
+      <a href="https://baristacard.com" class="btn">Back to BaristaCard</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 BaristaCard. All rights reserved.
+  </footer>
+
+</body>
+</html>
