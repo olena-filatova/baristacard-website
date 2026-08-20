@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Loyalty Schemes and UK GDPR: A Plain-English Guide</title>
+<meta name="description" content="What UK café owners must get right on GDPR and PECR before emailing loyalty customers — plus example sign-up wording.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Café Loyalty Schemes and UK GDPR: A Plain-English Guide">
+<meta property="og:description" content="What UK café owners must get right on GDPR and PECR before emailing loyalty customers — plus example sign-up wording.">
+<link rel="canonical" href="https://baristacard.com/cafe-loyalty-scheme-gdpr-uk">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;
+    --oat:        #F0E4D4;
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;
+    --brown:      #4A2C2A;
+    --brown-deep: #542915;
+    --tan:        #C8A27B;
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;
+    --green-dark: #5C8261;
+    --red:        #C1665A;
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .container--narrow { max-width: 780px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 48px 0 40px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 20px; max-width: 640px;
+  }
+  .hero__meta { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 18px; flex-wrap: wrap; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: var(--white);
+    border: 1.5px solid rgba(74,44,42,.12);
+    border-left: 4px solid var(--tan);
+    border-radius: 14px;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(74,44,42,.75);
+    margin: 26px 0;
+  }
+  .disclaimer strong { color: var(--brown-deep); }
+
+  /* ── ARTICLE PROSE ── */
+  .article { background: var(--cream); padding: 44px 0 72px; }
+  .prose h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--brown-deep);
+    margin: 48px 0 16px;
+  }
+  .prose h2:first-child { margin-top: 0; }
+  .prose h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin: 30px 0 10px;
+  }
+  .prose p { font-size: 16px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 16px; }
+  .prose strong { color: var(--brown-deep); font-weight: 700; }
+  .prose a { color: var(--green-dark); text-decoration: underline; text-underline-offset: 2px; }
+  .prose a:hover { color: var(--brown-deep); }
+  .prose ul, .prose ol { margin: 0 0 18px 22px; }
+  .prose li { font-size: 16px; line-height: 1.7; color: rgba(74,44,42,.85); margin-bottom: 9px; }
+  .prose li::marker { color: var(--tan-dark); font-weight: 700; }
+
+  /* ── CALLOUT CARDS ── */
+  .callout {
+    background: var(--white);
+    border: 1.5px solid rgba(74,44,42,.1);
+    border-radius: var(--radius-card);
+    padding: 26px 28px;
+    margin: 26px 0;
+  }
+  .callout--green { background: rgba(122,158,126,.09); border-color: var(--green); }
+  .callout--warn  { background: rgba(193,102,90,.07); border-color: rgba(193,102,90,.45); }
+  .callout__title { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 12px; }
+  .callout--green .callout__title { color: var(--green-dark); }
+  .callout--warn  .callout__title { color: var(--red); }
+  .callout p:last-child, .callout ul:last-child, .callout ol:last-child { margin-bottom: 0; }
+
+  /* ── EXAMPLE WORDING BLOCK ── */
+  .wording {
+    background: var(--white);
+    border: 2px dashed rgba(200,162,123,.65);
+    border-radius: var(--radius-card);
+    padding: 26px 28px;
+    margin: 24px 0;
+  }
+  .wording__label { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .wording p { font-size: 15.5px; line-height: 1.7; color: var(--brown-deep); margin-bottom: 12px; }
+  .wording p:last-child { margin-bottom: 0; }
+  .wording .wording__field { font-weight: 700; }
+  .wording .wording__note { font-size: 13px; color: rgba(74,44,42,.65); font-style: italic; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .checklist li {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--white); border: 1px solid rgba(74,44,42,.1);
+    border-radius: 14px; padding: 15px 18px; margin: 0;
+    font-size: 15px; line-height: 1.6;
+  }
+  .checklist li::before {
+    content: '☐'; color: var(--green-dark); font-size: 18px; line-height: 1.3; flex-shrink: 0;
+  }
+  .checklist li::marker { content: none; }
+
+  /* ── NUMBERED RISK LIST ── */
+  .risks { list-style: none; margin: 0; counter-reset: risk; display: flex; flex-direction: column; gap: 14px; }
+  .risks li {
+    counter-increment: risk;
+    background: var(--white); border: 1px solid rgba(74,44,42,.1); border-left: 4px solid var(--red);
+    border-radius: 14px; padding: 18px 20px; margin: 0;
+  }
+  .risks li::marker { content: none; }
+  .risks li strong { display: block; margin-bottom: 5px; }
+  .risks li::before {
+    content: counter(risk);
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 8px;
+    background: var(--red); color: var(--ivory);
+    font-size: 13px; font-weight: 700; margin-bottom: 10px;
+  }
+
+  /* ── SOURCES ── */
+  .sources { background: var(--oat); border-radius: var(--radius-card); padding: 26px 28px; margin-top: 44px; }
+  .sources h2 { font-size: 18px !important; margin: 0 0 12px !important; }
+  .sources ul { margin: 0 0 0 20px; }
+  .sources li { font-size: 14px; line-height: 1.6; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+  .final-cta .disclaimer { text-align: left; max-width: 640px; margin: 30px auto 0; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .footer__grid { grid-template-columns: 1fr; }
+    .footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
+    .section { padding: 56px 0; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://baristacard.com/cafe-loyalty-scheme-gdpr-uk#article",
+      "headline": "Café Loyalty Schemes and UK GDPR: What You Must Get Right",
+      "description": "What UK café owners must get right on GDPR and PECR before emailing loyalty customers — plus example sign-up wording.",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-08-20",
+      "author": {
+        "@type": "Person",
+        "name": "Olena Filatova",
+        "jobTitle": "Co-founder, BaristaCard"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BaristaCard",
+        "url": "https://baristacard.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://baristacard.com/cafe-loyalty-scheme-gdpr-uk"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://baristacard.com/cafe-loyalty-scheme-gdpr-uk#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need consent to email customers who joined my loyalty scheme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not always. Under PECR you may email individuals if they specifically consented, or under the soft opt-in if you collected their details while selling or negotiating a sale, you are marketing only your own similar products and services, and you offered an opt-out both at sign-up and in every message. Anything beyond that needs consent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the PECR soft opt-in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The soft opt-in is an exception in PECR regulation 22 that lets you email existing customers without specific consent. All four conditions must be met: you obtained the contact details in the course of a sale or negotiations for a sale, you market only your own similar products and services, you gave an opportunity to opt out when you collected the details, and you give an opt-out in every message that follows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a café make joining a loyalty scheme a condition of a discount?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can require someone to join the scheme to receive scheme rewards, because collecting stamps is what the scheme does. What you cannot do is bundle marketing consent into it. The ICO is clear that consent is not valid where it is a precondition of a service and the processing is not necessary for that service, so marketing consent must be a separate, optional choice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What lawful basis applies to a coffee shop loyalty card?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Running the scheme itself — issuing the card, counting stamps, redeeming a free coffee — is normally contract or legitimate interests. For marketing email, the ICO says that if you rely on consent your lawful basis is likely consent, and if you rely on the soft opt-in your lawful basis is likely legitimate interests."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What records do I need to keep for loyalty scheme consent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The ICO expects you to keep evidence of consent covering who consented, when, how, and what they were told — plus a record of any withdrawal. If you rely on the soft opt-in instead, keep evidence that the details came from a sale or negotiation and that an opt-out was offered at collection."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://baristacard.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://baristacard.com/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Café loyalty schemes and UK GDPR" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span>Café loyalty schemes and UK GDPR
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__tags">
+        <span class="tag">UK GDPR &amp; PECR</span>
+        <span class="tag">Independent café owners</span>
+      </div>
+      <h1 class="hero__headline">Café loyalty schemes and UK GDPR: what you must get right</h1>
+      <p class="hero__sub">
+        You have four hundred people on your loyalty list and you have not emailed a single one of them, because nobody has ever told you plainly whether you are allowed to. Here is the café-shaped version of the rules — what the law actually asks of you, in the order you need it.
+      </p>
+      <div class="hero__meta">
+        <span>Last reviewed: 20 August 2026</span>
+        <span>Reading time: about 9 minutes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUICK ANSWER ═══ -->
+<div class="quick-answer">
+  <div class="container">
+    <div class="quick-answer__inner">
+      <div class="quick-answer__icon">?</div>
+      <p>
+        <strong>The short version:</strong> you can email loyalty customers if they specifically consented, or if you meet the PECR soft opt-in — you took their details while selling to them, you are marketing only your own similar products, and you offered an opt-out both at sign-up and in every message since. Joining the scheme is not, by itself, consent to be marketed to. Keep a record of which basis applies to each person.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE ═══ -->
+<article class="article">
+  <div class="container container--narrow prose">
+
+    <div class="disclaimer">
+      <strong>This is general information, not legal advice.</strong> It is written for independent café owners and reflects published guidance from the Information Commissioner's Office (ICO) as at August 2026. Your circumstances may differ, and the rules change. Where a decision matters to your business, check the ICO's own guidance — linked throughout — or take advice.
+    </div>
+
+    <h2>Do you even need consent to run a stamp card?</h2>
+
+    <p>Start by separating two things that get tangled together, because almost every café owner who is stuck is stuck on this exact confusion.</p>
+
+    <p><strong>Running the scheme</strong> is one activity: issuing a card, counting stamps, knowing that Ahmed has bought eight flat whites and is owed a ninth free. <strong>Marketing to the people in it</strong> is a different activity: sending them an email about your new brunch menu.</p>
+
+    <p>They are not governed by the same rule, and they do not need the same permission. Most of the fear comes from applying the strictest rule — the marketing one — to the whole scheme, and then concluding the whole thing is too risky to touch.</p>
+
+    <h3>Lawful basis in plain English</h3>
+
+    <p>UK GDPR says that whenever you use someone's personal data you need a lawful basis. It is less dramatic than it sounds: it means having a defensible reason, chosen before you start, and being able to say what it was.</p>
+
+    <p>For the scheme mechanics, your reason is usually straightforward. Someone signed up for a stamp card and you are giving them a stamp card, so the processing is either necessary to deliver what you promised them, or it falls under legitimate interests — you are running your side of a scheme they asked to join. Nobody needs to tick a box for you to count their stamps.</p>
+
+    <p>For marketing email, the analysis is different, because a second set of rules applies on top.</p>
+
+    <h3>Where legitimate interests ends and consent begins</h3>
+
+    <p>The extra rules are the Privacy and Electronic Communications Regulations — PECR. They sit alongside UK GDPR and they govern how you contact people electronically: email, text, automated calls.</p>
+
+    <p>The ICO's summary of <a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/" rel="noopener">regulation 22</a> is that you must not send marketing email to individuals unless either they have specifically consented to email from you, or they are an existing customer who bought — or negotiated to buy — a similar product or service from you, and you gave them a simple way to opt out both when you first took their details and in every message since.</p>
+
+    <p>That second route is the soft opt-in, and it is the one most café owners have never heard of.</p>
+
+    <p>Which route you take also decides your lawful basis under UK GDPR. The ICO puts it directly: if you rely on consent to send unsolicited marketing email, your lawful basis is likely to be consent; if you are using the soft opt-in, your lawful basis is likely to be <a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/sending-direct-marketing-choosing-your-lawful-basis/" rel="noopener">legitimate interests</a>.</p>
+
+    <h2>The soft opt-in — the rule most café owners have never heard of</h2>
+
+    <p>The thinking behind it is sensible. If somebody bought from you recently, handed over their email, and was not interested in hearing from you again, they had a chance to say so. The law treats their silence as reasonable grounds to send them something similar — provided you did the groundwork properly.</p>
+
+    <h3>The four conditions you must meet</h3>
+
+    <p>All four. Not three out of four.</p>
+
+    <div class="callout callout--green">
+      <div class="callout__title">The soft opt-in test</div>
+      <ol>
+        <li>You obtained the person's contact details <strong>in the course of a sale, or negotiations for a sale</strong>, of a product or service.</li>
+        <li>You are marketing <strong>only your own similar products and services</strong> — not somebody else's, and not something unrelated to what they came to you for.</li>
+        <li>You gave them <strong>an opportunity to refuse or opt out when you collected the details</strong>.</li>
+        <li>You give them <strong>an opportunity to opt out in every message</strong> that follows.</li>
+      </ol>
+    </div>
+
+    <p>In café terms: someone buying a coffee and joining your stamp card at the till clears condition one comfortably. Emailing them about your new pastry supplier, your Christmas opening hours or a subscription for their regular oat latte clears condition two — it is your café, and it is the kind of thing they came to you for. Conditions three and four are about your sign-up form and your email footer, and they are the two that most schemes fail on, because nobody thought about them at the point the list was built.</p>
+
+    <h3>What the soft opt-in does not cover</h3>
+
+    <ul>
+      <li><strong>People who never bought anything.</strong> The competition entrant, the person who left a card in a bowl, the friend of a friend added to the list. No sale, no soft opt-in.</li>
+      <li><strong>Anybody else's marketing.</strong> If the yoga studio next door wants to reach your list, that needs consent, and specific consent naming them. Your soft opt-in does not travel.</li>
+      <li><strong>Products that are not similar to what you sell.</strong> Coffee, food and your own events are safe territory. Promoting an unrelated venture you also run is not.</li>
+      <li><strong>Text messages sent on a different basis.</strong> The soft opt-in covers electronic mail, which includes SMS — but the four conditions still have to be met for the channel you are actually using.</li>
+    </ul>
+
+    <p>The ICO also notes that where a company taking part in a loyalty scheme wants to send marketing outside the scheme, it needs the individual's clear consent. Worth remembering the first time a supplier asks you to include them in a mailout.</p>
+
+    <div class="callout">
+      <div class="callout__title">One thing that changed recently</div>
+      <p>The Data (Use and Access) Act 2025 added a new soft opt-in for <em>charitable purposes</em> at PECR regulation 22(3A), which lets charities email without consent where certain requirements are met. It is getting a lot of coverage, and it does not apply to a café. If you also run a registered charity, read the ICO's guidance on that separately — the products-and-services soft opt-in above is the one that governs your loyalty list.</p>
+    </div>
+
+    <h2>You cannot make marketing the price of a free coffee</h2>
+
+    <p>Here is the distinction the anxious version of this question usually misses.</p>
+
+    <p>You <em>can</em> require someone to join the scheme in order to get scheme rewards. That is not a data protection problem — collecting stamps is what the scheme does, and you cannot run it without knowing who has how many.</p>
+
+    <p>What you cannot do is bundle marketing consent into that deal. The ICO's position on <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/consent/what-is-valid-consent/" rel="noopener">valid consent</a> is that consent must be freely given, and that you do not have valid consent where it was a precondition of a service but the processing is not necessary for that service. Newsletters are not necessary to run a stamp card. So "tick here to receive our emails" cannot be the same tick as "tick here to join the scheme".</p>
+
+    <p>In practice this means two separate choices on your sign-up, one of which the customer can decline while still getting their stamps. It costs you nothing and it is the single clearest signal that your list was built properly.</p>
+
+    <h2>What your sign-up needs to say</h2>
+
+    <p>Whatever you use — a tablet at the till, a QR code, a paper slip — the sign-up has to tell people who you are, what you will do with their details, and how to stop. Take this and adapt it to your café:</p>
+
+    <div class="wording">
+      <div class="wording__label">Example sign-up wording — copy it, change the name</div>
+      <p class="wording__field">Join the Bramble &amp; Bean loyalty card</p>
+      <p>We will use your email address to run your loyalty card — tracking your stamps and letting you know when a reward is ready. We keep your details for as long as your card is active, and for 24 months after your last visit.</p>
+      <p class="wording__field">☐ I would also like occasional emails about Bramble &amp; Bean — new drinks, food and offers.</p>
+      <p>You can unsubscribe from any email, at any time, using the link at the bottom of it. That will not affect your stamps. We will not share your details with anyone else. See our <a href="/privacy">privacy notice</a> for the full picture, or email hello@brambleandbean.co.uk.</p>
+      <p class="wording__note">Keep the marketing box unticked by default, and keep it separate from the button that joins the scheme. A pre-ticked box is not consent.</p>
+    </div>
+
+    <p>Two details in that block do real work. The retention period — "24 months after your last visit" — answers a question people are entitled to ask and most schemes cannot answer. And the promise that unsubscribing will not affect their stamps is what makes the consent freely given rather than coerced.</p>
+
+    <h2>The records you must be able to produce</h2>
+
+    <p>Compliance is not really about the sign-up form. It is about whether, eleven months later, you can show what happened at that sign-up. The ICO's guidance on consent asks you to keep evidence of <strong>who</strong> consented, <strong>when</strong>, <strong>how</strong>, and <strong>what you told them</strong> at the time.</p>
+
+    <ul>
+      <li><strong>Who</strong> — the person, identifiable from your records.</li>
+      <li><strong>When</strong> — a date and, ideally, a timestamp.</li>
+      <li><strong>How</strong> — tablet at the till, QR sign-up, paper form.</li>
+      <li><strong>What you told them</strong> — the version of the wording that was on screen that day. If you change the wording, keep the old one.</li>
+      <li><strong>Withdrawals</strong> — when somebody unsubscribes, that is part of the record too, and it needs to be as easy to make as the consent was to give.</li>
+    </ul>
+
+    <p>If you rely on the soft opt-in rather than consent, the record is different but no less important: evidence that the details were collected during a sale or a negotiation for one, and that an opt-out was offered at that moment.</p>
+
+    <p>A shoebox of paper slips is not a record you can search. This is the part that quietly decides whether the list you have built is usable or not.</p>
+
+    <h2>Five things that would put you on the wrong side of the ICO</h2>
+
+    <ol class="risks">
+      <li><strong>Buying or borrowing a list.</strong> Bought email lists almost never carry valid consent naming you, and someone else's consent is not transferable. Do not start here.</li>
+      <li><strong>Pre-ticked marketing boxes.</strong> Consent has to be a positive action. A box already ticked when the customer looks at the screen is not one.</li>
+      <li><strong>No unsubscribe link.</strong> Every marketing message needs a simple way out. This is a condition of the soft opt-in and an expectation under consent — there is no route where it is optional.</li>
+      <li><strong>Ignoring an unsubscribe.</strong> Once somebody opts out you must stop, and your systems have to make that stick. This is the complaint people actually make to the ICO.</li>
+      <li><strong>Marketing to people who never bought anything.</strong> Competition entrants and business-card bowls are not customers. Without a sale there is no soft opt-in, so you need consent, and it needs to have been asked for at the time.</li>
+    </ol>
+
+    <h2>A pre-launch checklist</h2>
+
+    <p>Run through this before you send the first email. If every line is ticked, the list you have is a list you can use.</p>
+
+    <ul class="checklist">
+      <li>My sign-up says who we are and what we will do with the person's details.</li>
+      <li>Joining the scheme and agreeing to marketing are two separate choices, and the marketing one is optional and unticked.</li>
+      <li>An opt-out was offered at the moment we collected the details.</li>
+      <li>Every marketing email has a working unsubscribe link.</li>
+      <li>Unsubscribes are actioned automatically, not by someone remembering.</li>
+      <li>I can say, for any person on the list, whether they are there on consent or on the soft opt-in.</li>
+      <li>I have the date, the method and the wording shown for each sign-up.</li>
+      <li>I am only emailing about our own similar products and services.</li>
+      <li>I have a retention period written down, and I apply it.</li>
+      <li>I have a privacy notice, it is linked from the sign-up, and it matches what we actually do.</li>
+      <li>I know who handles a request from a customer to see or delete their data.</li>
+    </ul>
+
+    <div class="callout callout--warn">
+      <div class="callout__title">If you are looking at an existing list</div>
+      <p>A list built without any of this is not necessarily lost, but it does need a decision rather than a hope. Work out, honestly, which people came from a sale with an opt-out offered — those are covered by the soft opt-in. For the rest, the clean route is a single re-permission email asking them to opt in, sent on the basis you can defend, and then deleting the addresses that do not respond. It will shrink the list. It also turns the remainder into something you can use without flinching.</p>
+    </div>
+
+    <div class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li>ICO — <a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/" rel="noopener">Electronic mail marketing (Guide to PECR)</a></li>
+        <li>ICO — <a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-direct-marketing-using-electronic-mail/how-do-we-comply-with-the-pecr-electronic-mail-marketing-rules/" rel="noopener">How do we comply with the PECR electronic mail marketing rules?</a></li>
+        <li>ICO — <a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/sending-direct-marketing-choosing-your-lawful-basis/" rel="noopener">Sending direct marketing: choosing your lawful basis</a></li>
+        <li>ICO — <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/consent/what-is-valid-consent/" rel="noopener">What is valid consent?</a></li>
+        <li>Sprintlaw — <a href="https://sprintlaw.co.uk/articles/gdpr-email-marketing-in-the-uk/" rel="noopener">GDPR and email marketing in the UK</a></li>
+        <li>Sprintlaw — <a href="https://sprintlaw.co.uk/articles/how-to-run-a-legally-compliant-consumer-loyalty-program-in-the-uk/" rel="noopener">How to run a legally compliant consumer loyalty programme in the UK</a></li>
+        <li>Freeths — <a href="https://www.freeths.co.uk/insights-events/legal-articles/2022/loyalty-programs-and-data-protection-a-checklist-for-program-providers/" rel="noopener">Loyalty programmes and data protection: a checklist for programme providers</a></li>
+      </ul>
+    </div>
+
+  </div>
+</article>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>Do I need consent to email customers who joined my loyalty scheme?</h3>
+        <p>Not always. You may email individuals if they specifically consented, or under the soft opt-in if you collected their details while selling or negotiating a sale, you are marketing only your own similar products and services, and you offered an opt-out both at sign-up and in every message. Anything beyond that needs consent.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What is the PECR soft opt-in?</h3>
+        <p>An exception in PECR regulation 22 that lets you email existing customers without specific consent. All four conditions must be met: the details came from a sale or negotiations for a sale, you market only your own similar products and services, you gave an opt-out when you collected the details, and you give an opt-out in every message that follows.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Can a café make joining a loyalty scheme a condition of a discount?</h3>
+        <p>You can require someone to join the scheme to receive scheme rewards — collecting stamps is what the scheme does. What you cannot do is bundle marketing consent into it. The ICO is clear that consent is not valid where it is a precondition of a service and the processing is not necessary for that service, so marketing consent must be a separate, optional choice.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What lawful basis applies to a coffee shop loyalty card?</h3>
+        <p>Running the scheme itself — issuing the card, counting stamps, redeeming a free coffee — is normally contract or legitimate interests. For marketing email, the ICO says that if you rely on consent your lawful basis is likely consent, and if you rely on the soft opt-in your lawful basis is likely legitimate interests.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What records do I need to keep for loyalty scheme consent?</h3>
+        <p>Keep evidence of consent covering who consented, when, how, and what they were told — plus a record of any withdrawal. If you rely on the soft opt-in instead, keep evidence that the details came from a sale or negotiation and that an opt-out was offered at the point of collection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">Build a list you can actually use</span>
+    <h2>Consent captured at sign-up. Kept on file. Ready when you are.</h2>
+    <p>BaristaCard captures consent at sign-up and keeps the record for you — separate marketing opt-in, one-click unsubscribe, and a timestamped log of who agreed to what. So the list you build is one you can actually use.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">See how it works →</a>
+      <a href="/features" class="btn btn-secondary btn-lg">Explore Features</a>
+    </div>
+    <div class="final-cta__micro">
+      <span>5-minute setup</span>
+      <span>No credit card</span>
+      <span>First venue free forever</span>
+    </div>
+    <div class="disclaimer">
+      <strong>A reminder:</strong> this page is general information, not legal advice, and BaristaCard is not a law firm. Our tools are built to make good practice the easy path, but responsibility for how you use your customer data sits with you. Check the <a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/" rel="noopener">ICO's own guidance</a> or take advice on anything that matters to your business.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
