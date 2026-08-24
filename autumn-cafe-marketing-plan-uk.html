@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autumn Café Marketing Plan for UK Independents 2026</title>
+<meta name="description" content="A week-by-week autumn marketing calendar for independent UK cafés — dates, lead times and one retention action per week.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Autumn Café Marketing Plan for UK Independents 2026">
+<meta property="og:description" content="A week-by-week autumn marketing calendar for independent UK cafés — dates, lead times and one retention action per week.">
+<link rel="canonical" href="https://baristacard.com/autumn-cafe-marketing-plan-uk">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;
+    --oat:        #F0E4D4;
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;
+    --brown:      #4A2C2A;
+    --brown-deep: #542915;
+    --tan:        #C8A27B;
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;
+    --green-dark: #5C8261;
+    --red:        #C1665A;
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .container--narrow { max-width: 780px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 48px 0 40px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 20px; max-width: 640px;
+  }
+  .hero__meta { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 18px; flex-wrap: wrap; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: var(--white);
+    border: 1.5px solid rgba(74,44,42,.12);
+    border-left: 4px solid var(--tan);
+    border-radius: 14px;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(74,44,42,.75);
+    margin: 26px 0;
+  }
+  .disclaimer strong { color: var(--brown-deep); }
+
+  /* ── ARTICLE PROSE ── */
+  .article { background: var(--cream); padding: 44px 0 72px; }
+  .prose h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--brown-deep);
+    margin: 48px 0 16px;
+  }
+  .prose h2:first-child { margin-top: 0; }
+  .prose h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin: 30px 0 10px;
+  }
+  .prose p { font-size: 16px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 16px; }
+  .prose strong { color: var(--brown-deep); font-weight: 700; }
+  .prose a { color: var(--green-dark); text-decoration: underline; text-underline-offset: 2px; }
+  .prose a:hover { color: var(--brown-deep); }
+  .prose ul, .prose ol { margin: 0 0 18px 22px; }
+  .prose li { font-size: 16px; line-height: 1.7; color: rgba(74,44,42,.85); margin-bottom: 9px; }
+  .prose li::marker { color: var(--tan-dark); font-weight: 700; }
+
+  /* ── CALLOUT CARDS ── */
+  .callout {
+    background: var(--white);
+    border: 1.5px solid rgba(74,44,42,.1);
+    border-radius: var(--radius-card);
+    padding: 26px 28px;
+    margin: 26px 0;
+  }
+  .callout--green { background: rgba(122,158,126,.09); border-color: var(--green); }
+  .callout--warn  { background: rgba(193,102,90,.07); border-color: rgba(193,102,90,.45); }
+  .callout__title { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 12px; }
+  .callout--green .callout__title { color: var(--green-dark); }
+  .callout--warn  .callout__title { color: var(--red); }
+  .callout p:last-child, .callout ul:last-child, .callout ol:last-child { margin-bottom: 0; }
+
+  /* ── EXAMPLE WORDING BLOCK ── */
+  .wording {
+    background: var(--white);
+    border: 2px dashed rgba(200,162,123,.65);
+    border-radius: var(--radius-card);
+    padding: 26px 28px;
+    margin: 24px 0;
+  }
+  .wording__label { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .wording p { font-size: 15.5px; line-height: 1.7; color: var(--brown-deep); margin-bottom: 12px; }
+  .wording p:last-child { margin-bottom: 0; }
+  .wording .wording__field { font-weight: 700; }
+  .wording .wording__note { font-size: 13px; color: rgba(74,44,42,.65); font-style: italic; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .checklist li {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--white); border: 1px solid rgba(74,44,42,.1);
+    border-radius: 14px; padding: 15px 18px; margin: 0;
+    font-size: 15px; line-height: 1.6;
+  }
+  .checklist li::before {
+    content: '☐'; color: var(--green-dark); font-size: 18px; line-height: 1.3; flex-shrink: 0;
+  }
+  .checklist li::marker { content: none; }
+
+  /* ── NUMBERED RISK LIST ── */
+  .risks { list-style: none; margin: 0; counter-reset: risk; display: flex; flex-direction: column; gap: 14px; }
+  .risks li {
+    counter-increment: risk;
+    background: var(--white); border: 1px solid rgba(74,44,42,.1); border-left: 4px solid var(--red);
+    border-radius: 14px; padding: 18px 20px; margin: 0;
+  }
+  .risks li::marker { content: none; }
+  .risks li strong { display: block; margin-bottom: 5px; }
+  .risks li::before {
+    content: counter(risk);
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 8px;
+    background: var(--red); color: var(--ivory);
+    font-size: 13px; font-weight: 700; margin-bottom: 10px;
+  }
+
+  /* ── SOURCES ── */
+  .sources { background: var(--oat); border-radius: var(--radius-card); padding: 26px 28px; margin-top: 44px; }
+  .sources h2 { font-size: 18px !important; margin: 0 0 12px !important; }
+  .sources ul { margin: 0 0 0 20px; }
+  .sources li { font-size: 14px; line-height: 1.6; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+  .final-cta .disclaimer { text-align: left; max-width: 640px; margin: 30px auto 0; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── KEY DATES TABLE ── */
+  .dates { background: var(--oat); }
+  .dates__scroll { overflow-x: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-card); background: var(--white); }
+  table.dates__table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 700px; font-size: 14px; }
+  .dates__table th, .dates__table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid rgba(74,44,42,.08); vertical-align: top; }
+  .dates__table thead th { font-size: 12px; font-weight: 700; letter-spacing: .03em; color: var(--brown); background: var(--oat); }
+  .dates__table td:first-child, .dates__table th:first-child {
+    font-weight: 700; color: var(--brown-deep); white-space: nowrap; min-width: 150px;
+  }
+  .dates__table tbody tr:last-child td { border-bottom: none; }
+  .dates__lead { color: var(--red); font-weight: 700; white-space: nowrap; }
+  .dates__caption { text-align: center; font-size: 12px; color: rgba(74,44,42,.6); margin-top: 14px; }
+
+  /* ── WEEK BLOCKS ── */
+  .weeks { display: flex; flex-direction: column; gap: 16px; margin: 26px 0 8px; }
+  .week {
+    background: var(--white);
+    border: 1px solid rgba(74,44,42,.1);
+    border-left: 4px solid var(--tan);
+    border-radius: var(--radius-card);
+    padding: 22px 26px;
+  }
+  .week--pivot { border-left-color: var(--brown-deep); background: var(--ivory); }
+  .week h3 { margin: 0 0 6px; font-size: 18px; font-weight: 700; color: var(--brown-deep); }
+  .week__label { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 8px; }
+  .week p { font-size: 15.5px; line-height: 1.7; margin-bottom: 12px; }
+  .week p:last-child { margin-bottom: 0; }
+  .week__retain {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: rgba(122,158,126,.1); border-radius: 12px;
+    padding: 12px 14px; font-size: 14.5px; line-height: 1.6; color: rgba(74,44,42,.9);
+  }
+  .week__retain::before { content: '↻'; color: var(--green-dark); font-weight: 700; font-size: 16px; line-height: 1.4; flex-shrink: 0; }
+  .week__retain strong { color: var(--green-dark); }
+  .week__order { font-size: 13.5px; color: var(--red); font-weight: 600; margin-top: 12px; }
+
+  /* ── SKIP LIST ── */
+  .skips { list-style: none; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .skips li {
+    background: var(--white); border: 1px solid rgba(74,44,42,.1); border-left: 4px solid var(--red);
+    border-radius: 14px; padding: 18px 20px; margin: 0;
+  }
+  .skips li::marker { content: none; }
+  .skips li strong { display: block; margin-bottom: 5px; }
+
+  /* ── PRINT ── */
+  @media print {
+    .nav, .breadcrumb, .final-cta, .footer, .quick-answer { display: none; }
+    .week { break-inside: avoid; page-break-inside: avoid; border: 1px solid #999; }
+    body { background: #fff; }
+    .article { padding: 0; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .footer__grid { grid-template-columns: 1fr; }
+    .footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
+    .section { padding: 56px 0; }
+    .week { padding: 18px 20px; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://baristacard.com/autumn-cafe-marketing-plan-uk#article",
+      "headline": "Autumn Café Marketing: A Week-by-Week Plan for UK Independents (September–November 2026)",
+      "description": "A week-by-week autumn marketing calendar for independent UK cafés — dates, lead times and one retention action per week.",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-08-24",
+      "dateModified": "2026-08-24",
+      "author": {
+        "@type": "Person",
+        "name": "Olena Filatova",
+        "jobTitle": "Co-founder, BaristaCard"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BaristaCard",
+        "url": "https://baristacard.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://baristacard.com/autumn-cafe-marketing-plan-uk"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://baristacard.com/autumn-cafe-marketing-plan-uk#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "When should an independent café launch its autumn drinks menu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Launch in the first full week of September, once schools are back and the weekday rhythm has returned. The chains go earlier — Starbucks confirmed its Pumpkin Spice Latte returns in the US on 25 August 2026 — but they are buying national awareness. An independent has one street to convince, and September is when that street is back at work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should a coffee shop do for autumn marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Work to a calendar rather than a campaign. Order seasonal stock in late August, launch the menu in early September, hold a steady weekly presence through the month, run a family offer for half-term from 26 October, rebuild the afternoon trade once the clocks go back on 25 October, and use November to convert autumn visitors into December regulars. Attach one retention action — capturing the visit — to every week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is pumpkin spice worth it for an independent café?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is worth stocking one recognisable spiced option, because customers order what they can already picture. It is not worth trying to out-pumpkin Starbucks, whose tall PSL sold in the UK last autumn at around £4.90. The independent advantage is a better version of a familiar flavour at your own price, not a novelty nobody can imagine the taste of."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do independent cafés compete with chains in autumn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not on launch date or advertising spend. Independents compete on consistency and memory: the same seasonal presence every week rather than one big push, staff who know the regulars by name, and a loyalty scheme that makes the second visit likelier than the first. The UK independent coffee shop market grew 3.3% to 13,211 outlets in the year to February 2026, so the demand is there — the task is capturing it repeatedly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When do the clocks go back in the UK in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "British Summer Time ends at 2am on Sunday 25 October 2026, when clocks go back one hour. For cafés this is the single biggest trading shift of the autumn: it gets dark in the late afternoon, the after-work walk home stops being pleasant, and afternoon trade has to be actively rebuilt rather than assumed."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://baristacard.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://baristacard.com/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Autumn café marketing plan" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span>Autumn café marketing plan
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__tags">
+        <span class="tag">Seasonal planning</span>
+        <span class="tag">Independent café owners</span>
+      </div>
+      <h1 class="hero__headline">Autumn café marketing: a week-by-week plan for UK independents (September–November 2026)</h1>
+      <p class="hero__sub">
+        Every August the chains announce their autumn menu and you feel a fortnight behind before the season has started. The problem is not that you are slow. It is that they are working to a calendar and you are working to a mood. Here is the calendar — fourteen weeks, real dates, and one thing to do in each of them.
+      </p>
+      <div class="hero__meta">
+        <span>Last reviewed: 24 August 2026</span>
+        <span>Covers: 31 Aug – 6 Dec 2026</span>
+        <span>Reading time: about 11 minutes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUICK ANSWER ═══ -->
+<div class="quick-answer">
+  <div class="container">
+    <div class="quick-answer__inner">
+      <div class="quick-answer__icon">?</div>
+      <p>
+        <strong>The short version:</strong> order seasonal stock in the last week of August, launch your autumn menu in the first full week of September when the weekday rhythm returns, hold a steady weekly presence rather than one big push, run a family offer for half-term from Monday 26 October, rebuild afternoon trade the moment the clocks go back on Sunday 25 October, and spend November turning autumn visitors into December regulars. Attach one retention action to every single week — otherwise you are buying footfall you will never see again.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE ═══ -->
+<article class="article">
+  <div class="container container--narrow prose">
+
+    <h2>Why autumn is the highest-leverage trading period for an independent</h2>
+
+    <p>Summer is a good trade but a disloyal one. The people in your café in August are tourists, people off work, people whose routine has dissolved. They are pleasant to serve and most of them will never come back, because they were never yours to keep.</p>
+
+    <p>Autumn is the opposite. From the first week of September, the same people walk past your door at roughly the same time, five days a week, for fourteen weeks. That is the rarest thing in hospitality: a captive, repeating audience whose habits are being reset in real time. Whoever they buy their first September coffee from has a decent chance of still selling it to them in February.</p>
+
+    <p>That is what makes autumn high-leverage. You are not competing for a transaction. You are competing to be the default in somebody's new routine, and routines get set in the first fortnight. Miss that window and you spend the rest of the season buying back a habit that has already formed 200 metres down the road.</p>
+
+    <p>The demand is there. World Coffee Portal's February 2026 report put the UK independent coffee shop market at 13,211 outlets, up 3.3% over twelve months, with sales of £5.1&nbsp;billion, up 3.8%. The same report is blunt about the disadvantage: independents are more exposed to price inflation than the branded chains, which have far greater economies of scale. You will not win this season by spending. You win it by being organised earlier than the person who is not.</p>
+
+    <div class="callout callout--green">
+      <div class="callout__title">How to use this page</div>
+      <p>The week-by-week sections below are written to be printed and stuck on the back-office wall. Each week has a date, one action, and one retention action. If you do nothing else, do the retention action — it is the part that is still paying you in January.</p>
+    </div>
+
+    <h2>The five dates that shape UK café trade this autumn</h2>
+
+    <p>Everything in the calendar below hangs off five moments. Learn these and you can rebuild the plan yourself in any year.</p>
+
+    <h3>Back-to-school and the return of the weekday commuter rhythm</h3>
+
+    <p>Most schools in England and Wales return in the first week of September 2026 — exact dates are set locally, so check your own authority rather than assuming. Scotland goes back in mid-August, which matters if you trade north of the border: your season has already started. The effect is the same either way. The school run reappears, the 8:15 rush reappears, and the composition of your morning changes overnight from leisure to routine.</p>
+
+    <p>This is the week your regulars are made. Staff it properly even if the previous fortnight was quiet.</p>
+
+    <h3>Seasonal drinks launch — why chains go early and whether you should</h3>
+
+    <p>Starbucks confirmed that the Pumpkin Spice Latte returns in the US on 25 August 2026; at the time of writing the UK date had not been announced, but it has landed around the same point in recent years. The chains launch in August deliberately. A national advertising campaign needs a long runway, and the launch <em>is</em> the campaign.</p>
+
+    <p>You are not running a national campaign. You have one street, and that street is on holiday in August. Launching a spiced latte to an empty pavement wastes the only thing a seasonal drink gives you: the novelty of the first week. Let the chains do the expensive work of reminding the country that autumn drinks exist, then launch into the demand they created, in the first full week of September, when your customers are actually back.</p>
+
+    <div class="callout">
+      <div class="callout__title">On price</div>
+      <p>Starbucks' tall PSL sold in the UK last autumn at around £4.90 hot and £4.95 iced, with prices across the country typically ranging from £4.90 to £6.15. That is not a number to undercut for its own sake — it is a number that tells you the ceiling exists and is high. Price your seasonal drink where your margin needs it, not below a chain that has already trained the market to expect five pounds.</p>
+    </div>
+
+    <h3>Half-term</h3>
+
+    <p>In England, autumn half-term most commonly falls in the week commencing Monday 26 October 2026, though dates are set by local authorities and some areas take a different or longer week. Scottish October breaks are usually earlier in the month and vary by council. Check your local dates in September, not the week before.</p>
+
+    <p>Half-term inverts your trading day. The commuter peak flattens and a mid-morning family peak replaces it. Different drinks, different dwell time, different staffing, different problem: the person paying is a parent and the person deciding is a seven-year-old.</p>
+
+    <h3>Clock change and the shift to afternoon trade</h3>
+
+    <p>British Summer Time ends at 2am on <strong>Sunday 25 October 2026</strong>. This is the largest single change to your trading pattern all season, and the one most owners react to a fortnight late.</p>
+
+    <p>From the Monday, it is dark by late afternoon. The pleasant walk home stops being pleasant, outdoor seating dies, and the 4pm-to-close trade that carried itself in September now has to be earned. Everything about your afternoon — lighting, warmth, what is left in the cabinet, whether the door looks open — becomes a marketing decision.</p>
+
+    <h3>The pre-Christmas run-in</h3>
+
+    <p>From mid-November the season changes character again. Christmas shopping starts, Black Friday lands on <strong>Friday 27 November 2026</strong>, and office teams begin their end-of-year meetings and small celebrations. Your customers' last few visits before the festive break carry disproportionate weight — people remember the end of an experience far more vividly than its middle, and that final November or December visit is what they will be recalling, unconsciously, when they choose where to go in January.</p>
+
+    <div class="dates__scroll" style="margin:26px 0;">
+      <table class="dates__table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>What changes</th>
+            <th>Order / prep by</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mon 31 Aug 2026<br><span style="font-weight:400;font-size:12.5px;color:rgba(74,44,42,.6)">Summer bank holiday (Eng/Wal)</span></td>
+            <td>Last leisure weekend. Quiet Monday for commuter sites, busy for destination sites.</td>
+            <td class="dates__lead">Stock already in</td>
+          </tr>
+          <tr>
+            <td>w/c Mon 7 Sep 2026</td>
+            <td>Weekday rhythm returns in full. Habits reset. Seasonal menu launches here.</td>
+            <td class="dates__lead">Fri 28 Aug</td>
+          </tr>
+          <tr>
+            <td>Sun 25 Oct 2026<br><span style="font-weight:400;font-size:12.5px;color:rgba(74,44,42,.6)">Clocks go back</span></td>
+            <td>Dark afternoons. Outdoor seating ends. Afternoon trade must be rebuilt.</td>
+            <td class="dates__lead">Fri 16 Oct</td>
+          </tr>
+          <tr>
+            <td>w/c Mon 26 Oct 2026<br><span style="font-weight:400;font-size:12.5px;color:rgba(74,44,42,.6)">Half-term (most of England)</span></td>
+            <td>Commuter peak flattens, family mid-morning peak appears. Halloween falls Sat 31 Oct.</td>
+            <td class="dates__lead">Fri 16 Oct</td>
+          </tr>
+          <tr>
+            <td>Fri 27 Nov 2026<br><span style="font-weight:400;font-size:12.5px;color:rgba(74,44,42,.6)">Black Friday</span></td>
+            <td>Shopping footfall spikes on high streets. Festive bookings and office orders begin.</td>
+            <td class="dates__lead">Fri 13 Nov</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dates__caption">Clock change and Black Friday dates are fixed. School dates are set locally — confirm yours before committing to the half-term week.</p>
+
+    <h2>Week-by-week: September</h2>
+
+    <p>September's job is to be present, consistently, while habits are still soft. Nothing here is expensive. All of it depends on doing it in the right week.</p>
+
+    <div class="weeks">
+
+      <div class="week week--pivot">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 31 August 2026 — get the stock in and the story straight</h3>
+        <p>Bank holiday Monday, then the last quiet week of the year. Place your syrup, cup and seasonal-bake orders now — late August is when suppliers start quoting longer lead times. Brief the team on the autumn menu, taste it together, and agree the one sentence everyone says when a customer asks what is new.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> check your loyalty scheme actually works before the rush — scan a card, redeem a reward, confirm sign-up takes under thirty seconds at a busy till.</span></div>
+        <p class="week__order">Order deadline: seasonal syrups, cups and signage must be ordered by Friday 28 August.</p>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 7 September 2026 — launch the autumn menu</h3>
+        <p>Schools are back and the weekday rhythm has returned. Launch on Monday, not Thursday. Put the seasonal drink on a board at eye level outside the door, name a genuine end date for it, and make sure every staff member offers it by name at the till for the first five days. This is your highest-attention week of the season.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> every new face this week gets asked to join the loyalty scheme. September sign-ups are worth more than November ones because they have fourteen weeks left to build a habit.</span></div>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 14 September 2026 — win the school run</h3>
+        <p>The novelty of week one has worn off and the routine is setting. Target the two windows either side of the school day: a quick-serve option for parents at 8:45 and something worth stopping for at 3:15. Keep the seasonal drink visible. Do not add anything new — this week is about repetition, not invention.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> ask lapsed summer regulars, by name, where they have been. A returning customer costs you a sentence; a new one costs you a season.</span></div>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 21 September 2026 — the mid-month presence week</h3>
+        <p>No event, no promotion, nothing to launch. That is the point. Post the same kind of thing you posted last week, at the same rhythm, and keep the board fresh. Familiarity is doing the work here: people come to prefer what they see regularly, and one loud September push buys less than six quiet consistent weeks.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> look at who is one or two stamps from a reward and mention it to them. Progress that is visible gets finished.</span></div>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 28 September 2026 — review and place October orders</h3>
+        <p>Four weeks of autumn data now exist. Which seasonal drink actually sold? What is the split between morning and afternoon? Cut whatever is not moving before you reorder it. Place half-term and clock-change stock orders this week so nothing depends on a mid-October delivery arriving on time.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> count September loyalty sign-ups. If the number is under one a day, the problem is the ask, not the customers.</span></div>
+        <p class="week__order">Confirm your local half-term dates this week — do not assume 26 October.</p>
+      </div>
+
+    </div>
+
+    <h2>Week-by-week: October</h2>
+
+    <p>October contains the two structural events of the season — the clock change and half-term — and they land in consecutive days. Everything in the first three weeks is preparation for that.</p>
+
+    <div class="weeks">
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 5 October 2026 — build the afternoon before you need it</h3>
+        <p>Three weeks until the clocks go back. Give people a reason to come in at 3pm now, while it is still light and the habit forms easily: an afternoon bake, a smaller cup at a smaller price, a corner that is obviously good to sit in. Building afternoon trade in the dark is much harder.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> if your scheme lets you, look at who only ever visits in the morning. Those are the people your afternoon offer is for.</span></div>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 12 October 2026 — plan half-term properly</h3>
+        <p>Two weeks out. Decide now what the family offer is, what it costs you, and who is working. A children's option that a parent can say yes to without negotiating is worth more than a discount. Order Halloween-adjacent stock this week — 31 October falls on a Saturday, which makes it a genuine trading day rather than a decoration.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> write the sign-up line your staff will use with parents. Busy people need one short sentence, not an explanation.</span></div>
+        <p class="week__order">Order deadline: half-term and Halloween stock by Friday 16 October.</p>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 19 October 2026 — the last light week</h3>
+        <p>Clocks go back on Sunday. Do the physical work now: check every light in the room, including the ones nobody has looked at since March, clean the windows, move seating away from cold spots, and make sure the front reads as open from across the road at 4pm. Deal with the outdoor furniture.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> tell your regulars what you are doing for half-term. Announcing it to the people already in the room costs nothing and fills the week.</span></div>
+      </div>
+
+      <div class="week week--pivot">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 26 October 2026 — half-term, dark afternoons, Halloween Saturday</h3>
+        <p>The heaviest week of the season, and the one most often mishandled. The clocks went back on Sunday and the commuter peak has flattened for half-term, so the day has a mid-morning family shape. Staff for late morning, not 8am. Run the family offer, keep the room warm and bright, and treat Saturday 31 October as a full trading day.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> half-term brings in people who are not your weekday regulars. This is the single best sign-up week of the autumn — every family that comes in should leave on the scheme.</span></div>
+      </div>
+
+    </div>
+
+    <div class="callout callout--warn">
+      <div class="callout__title">The half-term trap</div>
+      <p>Half-term footfall is a spike, not a gain. The families filling your room on Wednesday 28 October are on holiday and they will be gone by the following Monday. If the only thing you take from that week is the till total, you have bought a week of trade at full staffing cost and kept nothing. The week is only worth what you capture from it.</p>
+    </div>
+
+    <h2>Week-by-week: November</h2>
+
+    <p>November is conversion month. The season has brought people through the door; these five weeks decide whether any of them are still yours in January.</p>
+
+    <div class="weeks">
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 2 November 2026 — recover the weekday and hold the afternoon</h3>
+        <p>Half-term is over, the commuter peak returns, and it is dark by the time people leave work. Expect a flat week and plan for it rather than panicking. Keep the afternoon offer running — this is the first full week it has to work in the dark, and dropping it wastes October's preparation. Bonfire Night is Thursday 5 November.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> go through the half-term sign-ups. Anyone local who has not returned gets one message with a reason to.</span></div>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 9 November 2026 — order for December</h3>
+        <p>The quietest week of the autumn and the most useful for planning. Place festive stock orders now — December suppliers run out, and January is no substitute. Decide your Christmas drink, whether you are taking office orders, and your opening hours over the break. Remembrance Sunday was 8 November; keep promotional posts respectful early in the week.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> identify your top fifty regulars by visit count. These are the people your December is built on. Know who they are before you need them.</span></div>
+        <p class="week__order">Order deadline: festive stock and packaging by Friday 13 November.</p>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 16 November 2026 — turn on the festive offer early enough to matter</h3>
+        <p>Christmas shopping has started and the chains have been festive for a fortnight. Switch your seasonal menu over now: the autumn drink has had ten weeks and is tired. Put your December opening hours somewhere visible, and start taking office and group orders while diaries are still open.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> anyone who joined in September has had eleven weeks. Check who is close to a reward and make sure they know it — an unredeemed card is a customer you nearly kept.</span></div>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 23 November 2026 — Black Friday weekend</h3>
+        <p>Black Friday falls on Friday 27 November. On or near a shopping street, this is footfall you did not have to create — extend hours if the street is busy, keep the takeaway queue fast, put something obvious in the window. Do not discount coffee: discounting on the busiest day of the month buys nothing you were not already getting.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> Black Friday shoppers are mostly strangers. Strangers who join the scheme become December customers; strangers who do not are a busy day you will never repeat.</span></div>
+      </div>
+
+      <div class="week">
+        <div class="week__label">Week commencing</div>
+        <h3>Monday 30 November 2026 — hand the season over to December</h3>
+        <p>Autumn is done. Before it closes, do the review while you can still remember it: what sold, what did not, which week surprised you, what you would order earlier next year. Write it down now — next August you will need this page more than you need any article. Then give your regulars a proper end to the season.</p>
+        <div class="week__retain"><span><strong>Capture the visit:</strong> count the season. How many people joined between September and now, and how many of them came back more than twice? That ratio is the only real score for the autumn.</span></div>
+      </div>
+
+    </div>
+
+    <h2>The one thing to do in every week: capture the visit</h2>
+
+    <p>Everything above brings people through the door. None of it, by itself, brings them back. That is the gap that quietly eats an independent café's autumn: a season of hard, expensive, well-executed work producing a set of one-off visits from people whose names you never learned.</p>
+
+    <p>A visit you cannot identify is a visit you cannot repeat. If somebody comes in on Halloween Saturday, loves the room, and leaves without joining anything, you have no way of knowing they existed and no way of reaching them in January. Multiply that by a good half-term week and you can see the size of what is being thrown away.</p>
+
+    <p>This is why every week above has a retention action attached rather than a marketing one. The marketing gets you the first visit. The scheme gets you the second, and the second is where the profit is — the first visit had to pay for all the effort of attracting it, and the twentieth costs you almost nothing but a coffee.</p>
+
+    <div class="callout callout--green">
+      <div class="callout__title">Get the mechanics right before September</div>
+      <p>Two things decide whether a loyalty scheme works, and both need settling before the season starts. The first is the number of stamps: too many and nobody finishes, too few and you give away margin you needed. We have worked through the 2026 UK arithmetic in <a href="/how-many-stamps-cafe-loyalty-card">how many stamps a café loyalty card should have</a>. The second is what you are allowed to do with the details you collect — if you plan to email anyone on that list, read <a href="/cafe-loyalty-scheme-gdpr-uk">café loyalty schemes and UK GDPR</a> before your first sign-up, not after your first send.</p>
+    </div>
+
+    <p>One more thing worth doing in November rather than January: the people who were regulars in spring and stopped coming over the summer are still reachable, and they are far cheaper to bring back than a stranger is to acquire. We have written the method up separately in <a href="/win-back-lapsed-cafe-customers">how to win back lapsed café customers</a> — the pre-Christmas run-in is the right moment to run it.</p>
+
+    <h2>What to skip (the autumn ideas that cost more than they return)</h2>
+
+    <p>An honest calendar has to include the things not on it. Each of these turns up in every autumn café listicle and each one, for a single-site independent, usually loses money.</p>
+
+    <ol class="skips">
+      <li><strong>Inventing a signature seasonal drink nobody can picture.</strong> A maple-miso latte gets you a photograph and eleven sales. Customers order what they can already imagine tasting, which is why spiced, caramel, apple and hazelnut sell and cleverness does not. Make a familiar flavour better rather than making an unfamiliar one at all.</li>
+      <li><strong>Discounting coffee to drive autumn footfall.</strong> You are trading margin you cannot spare — the World Coffee Portal report is explicit that independents absorb inflation worse than chains — for volume that leaves when the discount does. A reward earned over several visits costs you the same drink and buys a habit instead of a transaction.</li>
+      <li><strong>One big autumn launch event.</strong> A single Saturday with bunting costs a week of preparation and produces one day of trade. The same effort spread as a consistent weekly presence across ten weeks reaches the same people repeatedly, which is how preference actually forms.</li>
+      <li><strong>Paid social ads with no retention mechanic behind them.</strong> Paying to put a seasonal drink in front of strangers is only worth it if there is something at the end that keeps them. Without a scheme to join, you are renting footfall by the click, every single week, forever.</li>
+      <li><strong>Halloween decoration as a strategy.</strong> Decoration is not an offer. If Saturday 31 October is going to be worth staffing properly, it needs a reason to come in that a parent can say yes to — pumpkins in the window are the backdrop, not the plan.</li>
+      <li><strong>Waiting until October to think about the clock change.</strong> The most expensive item on this list, because it is invisible. Afternoon trade that has not been built by mid-October cannot be recovered in November, and most owners only notice it has gone in the second week of dark evenings.</li>
+    </ol>
+
+    <div class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li>World Coffee Portal — <a href="https://www.worldcoffeeportal.com/analysis/3-key-findings-from-world-coffee-portals-latest-report-on-the-uk-independent-coffee-shop-market/" rel="noopener">3 key findings from the latest report on the UK independent coffee shop market</a> (18 February 2026): 13,211 outlets, up 3.3%; sales £5.1bn, up 3.8%.</li>
+        <li>SquareMeal — <a href="https://www.squaremeal.co.uk/restaurants/news/starbucks-pumpkin-spice-lattes_9314" rel="noopener">Starbucks' Pumpkin Spice Latte 2026: when does the PSL launch in the UK?</a> (updated 4 August 2026): US return confirmed for 25 August 2026, UK date unannounced at time of writing; UK tall PSL priced around £4.90–£4.95 last autumn, £4.90–£6.15 across the country.</li>
+        <li>GOV.UK — <a href="https://www.gov.uk/when-do-the-clocks-change" rel="noopener">When do the clocks change</a>: British Summer Time ends on the last Sunday in October, which is 25 October in 2026.</li>
+        <li>GOV.UK — <a href="https://www.gov.uk/school-term-holiday-dates" rel="noopener">School term and holiday dates</a>: term dates in England are set by local authorities and individual schools, so confirm your own before planning half-term.</li>
+      </ul>
+    </div>
+
+  </div>
+</article>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>When should an independent café launch its autumn drinks menu?</h3>
+        <p>Launch in the first full week of September, once schools are back and the weekday rhythm has returned. The chains go earlier — Starbucks confirmed its Pumpkin Spice Latte returns in the US on 25 August 2026 — but they are buying national awareness. An independent has one street to convince, and September is when that street is back at work.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What should a coffee shop do for autumn marketing?</h3>
+        <p>Work to a calendar rather than a campaign. Order seasonal stock in late August, launch the menu in early September, hold a steady weekly presence through the month, run a family offer for half-term from 26 October, rebuild afternoon trade once the clocks go back on 25 October, and use November to convert autumn visitors into December regulars. Attach one retention action — capturing the visit — to every week.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Is pumpkin spice worth it for an independent café?</h3>
+        <p>It is worth stocking one recognisable spiced option, because customers order what they can already picture. It is not worth trying to out-pumpkin Starbucks, whose tall PSL sold in the UK last autumn at around £4.90. The independent advantage is a better version of a familiar flavour at your own price, not a novelty nobody can imagine the taste of.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How do independent cafés compete with chains in autumn?</h3>
+        <p>Not on launch date or advertising spend. Independents compete on consistency and memory: the same seasonal presence every week rather than one big push, staff who know the regulars by name, and a loyalty scheme that makes the second visit likelier than the first. The UK independent market grew 3.3% to 13,211 outlets in the year to February 2026, so the demand is there — the task is capturing it repeatedly.</p>
+      </div>
+      <div class="faq__item">
+        <h3>When do the clocks go back in the UK in 2026?</h3>
+        <p>British Summer Time ends at 2am on Sunday 25 October 2026, when clocks go back one hour. For cafés this is the biggest trading shift of the autumn: it gets dark in the late afternoon, the after-work walk home stops being pleasant, and afternoon trade has to be actively rebuilt rather than assumed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">Before the season starts</span>
+    <h2>Every autumn visit is a chance to earn a return one</h2>
+    <p>Set up a BaristaCard scheme before September, and the footfall you work for in half-term week is still worth something in January. Sign-up takes seconds at the till, the stamps look after themselves, and you can see who is close to a reward — which is the whole point.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">Start free →</a>
+      <a href="/baristacard-vs-competitors-comparison" class="btn btn-secondary btn-lg">Compare loyalty apps</a>
+    </div>
+    <div class="final-cta__micro">
+      <span>5-minute setup</span>
+      <span>No credit card</span>
+      <span>First venue free forever</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
