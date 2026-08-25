@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Raise Café Prices Without Losing Regulars</title>
+<meta name="description" content="The 2026 UK cost picture, how much to move, what to say on the board, and how to keep your regulars through a price rise.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Raise Café Prices Without Losing Regulars">
+<meta property="og:description" content="The 2026 UK cost picture, how much to move, what to say on the board, and how to keep your regulars through a price rise.">
+<link rel="canonical" href="https://baristacard.com/raise-cafe-prices-without-losing-customers">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;
+    --oat:        #F0E4D4;
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;
+    --brown:      #4A2C2A;
+    --brown-deep: #542915;
+    --tan:        #C8A27B;
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;
+    --green-dark: #5C8261;
+    --red:        #C1665A;
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .container--narrow { max-width: 780px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 48px 0 40px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 20px; max-width: 640px;
+  }
+  .hero__meta { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 18px; flex-wrap: wrap; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: var(--white);
+    border: 1.5px solid rgba(74,44,42,.12);
+    border-left: 4px solid var(--tan);
+    border-radius: 14px;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(74,44,42,.75);
+    margin: 26px 0;
+  }
+  .disclaimer strong { color: var(--brown-deep); }
+
+  /* ── ARTICLE PROSE ── */
+  .article { background: var(--cream); padding: 44px 0 72px; }
+  .prose h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--brown-deep);
+    margin: 48px 0 16px;
+  }
+  .prose h2:first-child { margin-top: 0; }
+  .prose h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin: 30px 0 10px;
+  }
+  .prose p { font-size: 16px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 16px; }
+  .prose strong { color: var(--brown-deep); font-weight: 700; }
+  .prose a { color: var(--green-dark); text-decoration: underline; text-underline-offset: 2px; }
+  .prose a:hover { color: var(--brown-deep); }
+  .prose ul, .prose ol { margin: 0 0 18px 22px; }
+  .prose li { font-size: 16px; line-height: 1.7; color: rgba(74,44,42,.85); margin-bottom: 9px; }
+  .prose li::marker { color: var(--tan-dark); font-weight: 700; }
+
+  /* ── CALLOUT CARDS ── */
+  .callout {
+    background: var(--white);
+    border: 1.5px solid rgba(74,44,42,.1);
+    border-radius: var(--radius-card);
+    padding: 26px 28px;
+    margin: 26px 0;
+  }
+  .callout--green { background: rgba(122,158,126,.09); border-color: var(--green); }
+  .callout--warn  { background: rgba(193,102,90,.07); border-color: rgba(193,102,90,.45); }
+  .callout__title { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 12px; }
+  .callout--green .callout__title { color: var(--green-dark); }
+  .callout--warn  .callout__title { color: var(--red); }
+  .callout p:last-child, .callout ul:last-child, .callout ol:last-child { margin-bottom: 0; }
+
+  /* ── EXAMPLE WORDING BLOCK ── */
+  .wording {
+    background: var(--white);
+    border: 2px dashed rgba(200,162,123,.65);
+    border-radius: var(--radius-card);
+    padding: 26px 28px;
+    margin: 24px 0;
+  }
+  .wording__label { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .wording p { font-size: 15.5px; line-height: 1.7; color: var(--brown-deep); margin-bottom: 12px; }
+  .wording p:last-child { margin-bottom: 0; }
+  .wording .wording__field { font-weight: 700; }
+  .wording .wording__note { font-size: 13px; color: rgba(74,44,42,.65); font-style: italic; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .checklist li {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--white); border: 1px solid rgba(74,44,42,.1);
+    border-radius: 14px; padding: 15px 18px; margin: 0;
+    font-size: 15px; line-height: 1.6;
+  }
+  .checklist li::before {
+    content: '☐'; color: var(--green-dark); font-size: 18px; line-height: 1.3; flex-shrink: 0;
+  }
+  .checklist li::marker { content: none; }
+
+  /* ── NUMBERED RISK LIST ── */
+  .risks { list-style: none; margin: 0; counter-reset: risk; display: flex; flex-direction: column; gap: 14px; }
+  .risks li {
+    counter-increment: risk;
+    background: var(--white); border: 1px solid rgba(74,44,42,.1); border-left: 4px solid var(--red);
+    border-radius: 14px; padding: 18px 20px; margin: 0;
+  }
+  .risks li::marker { content: none; }
+  .risks li strong { display: block; margin-bottom: 5px; }
+  .risks li::before {
+    content: counter(risk);
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 8px;
+    background: var(--red); color: var(--ivory);
+    font-size: 13px; font-weight: 700; margin-bottom: 10px;
+  }
+
+  /* ── SOURCES ── */
+  .sources { background: var(--oat); border-radius: var(--radius-card); padding: 26px 28px; margin-top: 44px; }
+  .sources h2 { font-size: 18px !important; margin: 0 0 12px !important; }
+  .sources ul { margin: 0 0 0 20px; }
+  .sources li { font-size: 14px; line-height: 1.6; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+  .final-cta .disclaimer { text-align: left; max-width: 640px; margin: 30px auto 0; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .footer__grid { grid-template-columns: 1fr; }
+    .footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
+    .section { padding: 56px 0; }
+  }
+  /* At phone width the nav row runs out of room and "Sign In" wraps onto two
+     lines hard against the wordmark, which reads as broken. Give the row a
+     real gap, stop the link wrapping, and let the wordmark shrink first. */
+  @media (max-width: 420px) {
+    .nav__inner { gap: 12px; }
+    .nav__signin { white-space: nowrap; }
+    .nav__logo-text { font-size: 17px; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to put your coffee prices up without losing your regulars",
+  "description": "The 2026 UK cost picture, how much to move, what to say on the board, and how to keep your regulars through a price rise.",
+  "inLanguage": "en-GB",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://baristacard.com/raise-cafe-prices-without-losing-customers"
+  },
+  "datePublished": "2026-08-25",
+  "dateModified": "2026-08-25",
+  "author": {
+    "@type": "Organization",
+    "name": "BaristaCard",
+    "url": "https://baristacard.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BaristaCard",
+    "url": "https://baristacard.com"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Café pricing"
+    },
+    {
+      "@type": "Thing",
+      "name": "Independent coffee shops"
+    },
+    {
+      "@type": "Thing",
+      "name": "UK hospitality costs"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I raise prices at my coffee shop without losing customers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Move a small amount, move it before you are desperate, and explain it in one plain sentence on the board a week before it happens. Protect the one drink your regulars price the whole menu by, and take more on extras, food and larger sizes where the price is not being tracked. Customers accept a rise they can attribute to real costs and resent one that arrives unexplained — so the notice is not decoration, it is the thing that decides the outcome."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should a café increase prices by at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Work it out rather than guessing: add up how much more it costs to run the same café for a year — rates, wages at the new April 2026 bands, employer National Insurance, energy, goods — and divide by the number of drinks you sold. That gives the amount needed to stand still. Round up to the nearest 10p. In practice most independents land between 10p and 20p on a drink; if your arithmetic says 40p or more, the problem is probably not your pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I tell customers why prices have gone up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is the single highest-return thing you will do. People judge a price rise by what they believe caused it. Attributed to genuine cost increases, it reads as fair; unexplained, it gets attributed to you wanting more margin. Four sentences on the board a week beforehand is enough: what is changing, why, what you refused to do instead, and thank you. Do not blame a single villain and do not promise it will not happen again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often can a café raise its prices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once or twice a year is generally accepted; more often than that and customers start keeping score, and \"costs went up\" stops sounding like a reason. Twice-yearly small moves are considerably easier to absorb than one large move every two years, because a small enough change never gets consciously evaluated at all. The exception is a rise less than three months after the last one with nothing visible having changed in between — that reads as drip-pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which menu items should a café raise prices on first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extras, food and larger sizes. Syrups, extra shots, alternative milks and takeaway cups are chosen deliberately rather than habitually, so a 20p move on them is close to invisible. Pastries and sandwiches are re-decided on each visit rather than remembered. Leave the anchor drink — usually the flat white or regular latte — until last, and move it least: it is the only price most regulars could recite, and it is what they judge the whole menu by."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did business rates go up for cafés in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your property, and you need to check rather than assume. From 1 April 2026 there is a permanently lower multiplier for retail, hospitality and leisure — 38.2p for a rateable value under £51,000, against 43.2p for a comparable non-retail business. But the same date brought a revaluation based on April 2024 rents, replacing values based on April 2021 rents. A lower multiplier applied to a higher rateable value can still mean a bigger bill. Multiply your new rateable value by 0.382 and compare it with last year's bill."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span>Raising café prices without losing regulars
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__tags">
+        <span class="tag">Pricing</span>
+        <span class="tag">Independent café owners</span>
+      </div>
+      <h1 class="hero__headline">How to put your coffee prices up without losing your regulars</h1>
+      <p class="hero__sub">You have done the arithmetic and you already know the number has to move. This is the part nobody writes down: how much to move it, what to move, what to say on the board, and how to keep the person who has come in every morning for three years.</p>
+      <div class="hero__meta">
+        <span>Last reviewed: 25 August 2026</span>
+        <span>Reading time: about 11 minutes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUICK ANSWER ═══ -->
+<div class="quick-answer">
+  <div class="container">
+    <div class="quick-answer__inner">
+      <div class="quick-answer__icon">?</div>
+      <p>
+        <strong>The short version:</strong> Raise prices in small steps, sooner than feels comfortable, and say why in one plain sentence on the board. A 10p to 20p move on most of the menu, made once or twice a year and attributed to real costs, is absorbed. A 50p jump made in silence after two years of holding is the one that loses regulars — not because of the money, but because it arrives as a surprise.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE ═══ -->
+<article class="article">
+  <div class="container container--narrow prose">
+
+    <h2>The short answer: smaller, sooner, and explained</h2>
+
+    <p>Most independents get this wrong in the same direction. They hold the price for as long as they possibly can, absorbing every increase out of a margin that was never designed to absorb anything, and then move it all at once in a single visible jump. It feels like the considerate thing to do. It is the version most likely to cost you customers.</p>
+
+    <p>The alternative is unglamorous. Move a smaller amount, move it more often, and tell people plainly that costs have gone up. Three separate things are doing the work there, and it is worth being clear about which is which, because two of them are about arithmetic and one is about how the news arrives.</p>
+
+    <p>The size matters because a small enough change does not get evaluated at all. People do not carry a price list in their heads — they carry a rough sense of what their drink costs. A move that stays inside that fuzziness gets absorbed into it. A move that breaks out of it becomes a decision, and once a customer is making a decision about your café, you are competing against every other café they pass on the way to work.</p>
+
+    <p>The timing matters because the longer you hold, the bigger the eventual move has to be. Two years of absorbed costs do not disappear; they queue up behind the price and arrive together.</p>
+
+    <p>And the explanation matters most of all, for a reason that is well established and consistently underrated. People judge a price rise on <em>why they think you did it</em>, not on how much it was. A rise attributed to costs you did not choose is read as fair. The same rise, unexplained, gets attributed to you deciding to make more money — and that is the version that quietly ends a three-year habit.</p>
+
+    <h2>What actually changed in 2026 (and why absorbing it is no longer possible)</h2>
+
+    <p>Before the mechanics, the substance — because your explanation to customers has to be true, and because it helps to know that the pressure you are under is documented rather than imagined.</p>
+
+    <h3>Business rates: a new multiplier and a new valuation, at the same time</h3>
+
+    <p>1 April 2026 brought two changes at once, and they pull in opposite directions, which is why the outcome differs so much from one café to the next.</p>
+
+    <p>The first is good news. The temporary retail, hospitality and leisure relief that had been rolled over each year since the pandemic has ended, and in its place sits a permanent set of lower multipliers. For 2026 to 2027 the government <a href="https://www.gov.uk/government/publications/effects-of-the-business-rates-retail-hospitality-and-leisure-multipliers-and-high-value-multiplier/effects-of-the-business-rates-retail-hospitality-and-leisure-multipliers-and-high-value-multiplier" rel="noopener">has set the small business retail, hospitality and leisure multiplier at 38.2p</a> for properties with a rateable value under £51,000 — where the overwhelming majority of independent cafés sit — against 43.2p for a non-retail small business. That 5p gap is permanent rather than annual, which is genuinely worth something: it is the first time in years this has been a structural feature rather than a relief someone has to renew.</p>
+
+    <p>The second is where it gets complicated. The same date brought a revaluation. Your rateable value for 2026 is based on what the property would have rented for in <strong>April 2024</strong>; the value it replaced was based on <strong>April 2021</strong> — the bottom of the pandemic rental market. If your high street recovered between those two dates, your rateable value has gone up, and a lower multiplier applied to a higher value can still land you with a bigger bill.</p>
+
+    <div class="callout callout--warn">
+      <div class="callout__title">Do this before you touch the board</div>
+      <p>Find your 2026 rateable value and multiply it by 0.382 (or 0.43 if you are over £51,000). That is your gross annual bill before any small business rate relief you are entitled to. Then compare it with what you actually paid last year. Until you have that one number, you are guessing at the largest fixed cost you have any visibility of — and there is a £3.2 billion transitional relief scheme designed to cap large increases, which you cannot tell whether you fall into without doing the sum.</p>
+    </div>
+
+    <h3>Energy: still nothing like it was</h3>
+
+    <p>This is the cost that people have stopped talking about and have absolutely not stopped paying. Business energy has no price cap; you are on whatever contract you signed, and if you signed during the worst of it you have been carrying that ever since.</p>
+
+    <p>The Office for National Statistics, drawing on the government's own quarterly energy statistics, puts numbers on where the market settled. Average non-domestic electricity went from 14.81p per kilowatt hour at the start of 2021 to a peak of 28.39p at the end of 2023, then <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/output/articles/theimpactofhigherenergycostsonukbusinesses/2021to2024" rel="noopener">fell back to 25.97p — still around 75% above where it started</a>. Gas followed the same shape and remains more than double its early-2021 level.</p>
+
+    <p>For a café that is not an abstraction. An espresso machine drawing power from open to close, a grinder, a fridge, an under-counter freezer, an oven and a dishwasher are your business. "Turn the lights off" is not a strategy against a 75% increase in the price of the thing that makes the coffee.</p>
+
+    <h3>The wage and National Insurance stack</h3>
+
+    <p>From April 2026 the National Living Wage for workers aged 21 and over <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027" rel="noopener">is £12.71 an hour</a>, up 4.1%. That is the figure everyone quotes. It is not the one that hits a café hardest.</p>
+
+    <p>The 18 to 20 rate rose to £10.85 — an increase of <strong>8.5%</strong>, more than double the headline rise, as that rate continues to be brought up towards the main one. The 16 to 17 and apprentice rates went to £8.00, up 6%. Hospitality employs more people in those age brackets than almost any other sector, so the sector-wide effect on a café's wage bill is meaningfully larger than the headline 4.1% suggests. If your team skews young, your increase is nearer the 8.5% than the 4.1%.</p>
+
+    <p>Sitting on top of that is employer National Insurance at 15% on earnings above a secondary threshold of just £5,000 a year — a threshold that came down from £9,100 in April 2025 and has stayed there. The practical effect for hospitality is that part-time and lower-paid staff, who used to fall largely below the threshold, now generate employer National Insurance from very early in their earnings. The Employment Allowance of £10,500 offsets some of this, and if you are eligible and not claiming it, that is the single cheapest thing you will do this year.</p>
+
+    <h3>And the caveat that keeps this honest</h3>
+
+    <p>All of the above argues for a rise. This argues for care about how you do it: your price is landing into softening demand. UK foodservice footfall <a href="https://www.ukhospitality.org.uk/uk-foodservice-records-biggest-footfall-drop-in-two-years/" rel="noopener">fell 2.3% in the first quarter of 2026</a>, the steepest drop since January 2024, with casual dining and pubs down around 8%. Fewer people are coming through the door across the market. That does not mean do not raise; it means the version where you raise and lose nobody requires more thought than the version where you raise and hope.</p>
+
+    <h2>Work out the number before you touch the board</h2>
+
+    <p>Almost every guide to this skips straight to psychology. Do the arithmetic first, because the psychology only works if the number is defensible.</p>
+
+    <p>You are looking for one figure: <strong>how much more it costs you to run the same café for a year than it did last year</strong>. Not a percentage — pounds.</p>
+
+    <ol class="risks">
+      <li><strong>Rates.</strong> New rateable value times the multiplier, minus any relief, minus what you paid last year.</li>
+      <li><strong>Wages.</strong> Rebuild your rota at the April 2026 rates, band by band. Do not apply 4.1% across the board — apply 8.5% to your 18 to 20s and 6% to your under-18s and apprentices, because that is what actually happened.</li>
+      <li><strong>Employer National Insurance</strong> on that new wage bill at 15% above £5,000 per employee, less the Employment Allowance if you can claim it.</li>
+      <li><strong>Energy.</strong> Last twelve months of bills. If your contract renews this year, get a quote now rather than assuming.</li>
+      <li><strong>Goods.</strong> Coffee, milk, cups, lids, pastries. Your suppliers have already told you; it is in the invoices.</li>
+    </ol>
+
+    <p>Add those up. Then divide by the number of drinks you sold last year — your till knows, even if you do not. The result is the amount you would need to add to every single cup to stand still.</p>
+
+    <p>That figure is rarely what you should charge, but it is the only honest starting point. If it comes out at 14p, a 20p rise on most drinks restores your position with a little room. If it comes out at 45p, you have a bigger problem than pricing and the section near the end of this piece is the one you need.</p>
+
+    <div class="callout callout--green">
+      <div class="callout__title">Round up, not down</div>
+      <p>Once you have your number, round to the nearest 10p and go up rather than down. Not to grab margin — because if you land exactly on breakeven you will be doing this again in four months, and doing it twice in a year for reasons your customers cannot see is worse than doing it once for reasons they can.</p>
+    </div>
+
+    <h2>What to move, and what never to move</h2>
+
+    <h3>The anchor drink your regulars price the whole menu by</h3>
+
+    <p>Nobody memorises a menu. They memorise one or two things and infer everything else. In most independents that anchor is a flat white or a regular latte — the drink the majority of your regulars order most mornings. It is the price they would notice on a board across the street, and the only one they could tell you without looking.</p>
+
+    <p>That makes the anchor the most expensive thing on your menu to move, in reputational terms, and the cheapest thing to leave alone. Moving everything around it by 20p while the anchor moves 10p produces most of the revenue with a fraction of the noticing. Moving the anchor by 40p produces a conversation you will be having for a month.</p>
+
+    <p>Work out what your anchor is before you decide anything else. It is whatever you would name if a customer asked "how much is a coffee here?" — and if you are not sure, your baristas are, because they hear the question every day.</p>
+
+    <h3>Where the price-insensitive room actually is</h3>
+
+    <p>There is usually more headroom than people expect, and it is rarely in the drink people came for.</p>
+
+    <p>Extras are the obvious place: the syrup, the extra shot, the oat milk, the takeaway cup. These are chosen deliberately rather than habitually, which means they are compared against the pleasure of having them rather than against a remembered price. A 20p move on an add-on is close to invisible.</p>
+
+    <p>Food is the second place. A customer who buys a pastry with their coffee three times a week is not tracking the pastry price the way they track the coffee price — the coffee is the habit and the pastry is the decision, and decisions get re-made on their own merits each time.</p>
+
+    <p>Larger sizes are the third. If your regular and your large are 40p apart and both go up 20p, the gap holds and nothing about the choice changes. This is also where you find out whether your size ladder was ever priced properly, because a lot of them were set years ago and never revisited.</p>
+
+    <p>What you protect: the anchor drink, and anything a regular buys every single day without thinking. Habit is the thing you are trying not to interrupt.</p>
+
+    <h2>The three ways to phase it</h2>
+
+    <h3>One clean move</h3>
+
+    <p>Everything goes up on the same day, new board, one clear notice. Best when the increase is small — 10p to 20p — and when you have not raised prices in over a year. The advantage is that it is honest and finished. You take one small hit of attention and then it is done, and nobody is watching the board wondering what changes next week.</p>
+
+    <h3>Staged across the menu</h3>
+
+    <p>Food in September, drinks in November, extras quietly in between. This spreads the visible change so nothing lands as a single event. It works, and it comes with a real risk: if it looks like drip-pricing rather than a considered response to costs, you have converted one honest conversation into three suspicious ones. Use this when the total increase is genuinely too large to make in one step, and keep the whole thing inside three months.</p>
+
+    <h3>Reprice by changing what is included</h3>
+
+    <p>The third option is not a price rise at all. The oat milk that was free becomes 40p. The extra shot that was thrown in gets charged. The loyalty stamp card that ran to six moves to eight. Each of these raises the average spend without moving a single number on the board.</p>
+
+    <p>Handle this one with more care than the other two, because it is the only version that can look like something is being taken away. A charge introduced silently on something that used to be free reads as sneaky in a way that an honest 20p on the board does not. If you do it, say it, and say it in the same breath as the reason.</p>
+
+    <h2>What to put on the board, and what your team says when asked</h2>
+
+    <p>This is the part most owners skip, and it is the part that decides the outcome. Attribution determines acceptance: a rise your customers attribute to genuine, external cost increases is judged fair, and a rise they attribute to you wanting more margin is not. The only thing standing between those two readings is whether you told them.</p>
+
+    <p>So tell them. Briefly, once, without apologising and without a lecture on the economy.</p>
+
+    <div class="wording">
+      <div class="wording__label">On the board — copy it, change the details</div>
+      <p class="wording__field">From Monday, most of our prices go up by 20p.</p>
+      <p>We have held our prices since last autumn, but our energy, wages and business rates have all gone up this year and we have run out of room to absorb them. We would rather put 20p on a coffee than cut corners on the coffee. Thank you for sticking with us — it genuinely matters.</p>
+      <p class="wording__note">Four sentences. What is changing, why, what you refused to do instead, and thank you. Put it up a week before the change, not on the morning of it — being told beforehand is respect, being told afterwards is an announcement.</p>
+    </div>
+
+    <p>Then brief your team, because the counter is where this is really decided. A barista who says "yeah, sorry, everything's gone up" has apologised for you and confirmed nothing. A barista who can say it plainly closes the subject in one exchange.</p>
+
+    <div class="wording">
+      <div class="wording__label">At the counter — what your team says</div>
+      <p class="wording__field">"Yes, we put prices up on Monday — 20p on most drinks."</p>
+      <p>"Our energy and staffing costs have gone up a lot this year and we held out as long as we could. We didn't want to make the coffee worse instead. Sorry for the change — thanks for bearing with us."</p>
+      <p class="wording__note">Give them the actual number so they are never caught out. Nobody should be finding out what the new price is from the customer.</p>
+    </div>
+
+    <p>Two things to avoid saying. Do not blame a single villain — "it's the government" or "it's the energy companies" invites an argument at your counter and dates badly. And do not promise it is the last time, because you do not know that, and a broken promise costs more than the rise did.</p>
+
+    <h2>Protecting your regulars through the change</h2>
+
+    <p>Here is the thing worth understanding about the customer you are actually worried about. Your regular is not evaluating your price against the café down the road. They stopped doing that a long time ago — that is what makes them a regular. What a price rise does is briefly reopen a question they had closed, and the danger is not the 20p, it is the reopening.</p>
+
+    <p>Which means the goal is to give them something that makes the question close again quickly, and ideally something they would lose by walking away.</p>
+
+    <p>A loyalty scheme does that better than anything else available to you, for a reason that has nothing to do with the discount. A customer who is four stamps into an eight-stamp card is holding something with accrued value. Switching cafés does not just mean trying a new coffee — it means abandoning progress they have already made. That changes the calculation in a way a 10% off voucher never does, because a voucher is a gift and progress is a possession.</p>
+
+    <p>It also gives you somewhere to put goodwill during the change. A free drink for your top customers in the week the prices move costs you very little and lands as recognition rather than compensation.</p>
+
+    <div class="callout callout--green">
+      <div class="callout__title">One thing to check when your prices move</div>
+      <p>If you run a stamp card, the maths behind it just changed. A "buy 8, get 1 free" card gives away 11% of revenue on those cups, and 11% of a higher price is a bigger number than it was last month. This is the moment to check whether your stamp count still works — we went through <a href="/how-many-stamps-cafe-loyalty-card">how many stamps a café loyalty card should have</a> and the arithmetic behind 6, 8 and 10 separately.</p>
+    </div>
+
+    <p>On timing: the natural moment to reprice is when the menu changes anyway. Autumn is the obvious one — new drinks, new board, new season — and a price change that arrives alongside something new reads as a refresh rather than as a cut. Our <a href="/autumn-cafe-marketing-plan-uk">week-by-week autumn plan for UK independents</a> sets out that calendar if you want to line the two up.</p>
+
+    <h2>When not to raise prices</h2>
+
+    <p>Every piece written on this subject assumes the answer is yes. Sometimes it is not, and an operator who raises prices in the wrong circumstances does real damage that a good notice on the board will not undo.</p>
+
+    <p>Do not raise if the arithmetic says your problem is not price. If your numbers only work at a level your street will not bear, the price was never the constraint — the rent, the site, the opening hours or the menu is. Putting 40p on a flat white to fix a structural problem buys you three months and costs you customers you will need later.</p>
+
+    <p>Do not raise on a menu you have not looked at. Most independents carry items that sell rarely, waste stock, slow the counter down at the busiest moment and earn almost nothing. Cutting three of those can be worth more than a price rise, and no customer ever left over a sandwich that was not there.</p>
+
+    <p>Do not raise if the last change was three months ago and nothing has visibly changed since. Frequency is the one dimension where customers really do keep score, and twice-yearly is about the limit before "costs went up" stops sounding like a reason.</p>
+
+    <p>Do not raise in the week after a genuine failure — a bad run of coffee, a fortnight of closures, a service problem people noticed. Fix the thing first. A price rise landing on top of a recent disappointment gets read as the two being connected, and that reading is very hard to take back.</p>
+
+    <p>And consider the alternatives properly before deciding, because two of them are often stronger than pricing. Changing what is included, rather than what is charged, moves the average spend without moving the board. And a supplier conversation — coffee, milk, packaging, energy contract, card processing rates — is free to have and occasionally recovers more than a 20p rise would.</p>
+
+    <h2>What to watch after you have done it</h2>
+
+    <p>Give it four weeks and look at three things, in this order.</p>
+
+    <ul class="checklist">
+      <li><strong>Transaction count, not takings.</strong> Takings will go up because the prices went up; that tells you nothing. Count how many people came in. That is where a lost regular shows up first.</li>
+      <li><strong>Whether your regulars are still regular.</strong> If you have a loyalty scheme, this is visible. If you do not, your baristas know exactly who they have not seen — ask them at the end of the second week, not the end of the second month.</li>
+      <li><strong>What people actually said.</strong> Not how many complained. Whether the objection was the price or the surprise. If it was the surprise, the notice was not up long enough, and that is a fixable mistake for next time.</li>
+    </ul>
+
+    <p>The last thing, and it is the one worth carrying: a price rise handled openly is not just something to survive. It is a rare moment where you get to demonstrate that you are straight with people. Most cafés waste it. The ones that do not tend to come out the other side with regulars who trust them slightly more than they did before — and that is worth considerably more than 20p.</p>
+
+    <div class="sources">
+      <h2>Sources</h2>
+      <ul>
+        <li>HM Government — <a href="https://www.gov.uk/government/publications/effects-of-the-business-rates-retail-hospitality-and-leisure-multipliers-and-high-value-multiplier/effects-of-the-business-rates-retail-hospitality-and-leisure-multipliers-and-high-value-multiplier" rel="noopener">Effects of the business rates retail, hospitality and leisure multipliers and high-value multiplier</a>, published 26 November 2025. Source for the 2026 to 2027 multipliers: 38.2p small business RHL, 43p standard RHL, 43.2p national small business, 48p national standard, 50.8p high value, and the £3.2 billion transitional relief scheme.</li>
+        <li>HM Revenue &amp; Customs — <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027" rel="noopener">Rates and thresholds for employers 2026 to 2027</a>. Source for the National Living Wage of £12.71, employer National Insurance at 15% above a £5,000 secondary threshold, and the £10,500 Employment Allowance.</li>
+        <li>Low Pay Commission — <a href="https://www.gov.uk/government/publications/the-national-minimum-wage-in-2026/the-national-minimum-wage-in-2026" rel="noopener">The National Minimum Wage in 2026</a>. Source for the age-band increases: 4.1% on the National Living Wage, 8.5% on the 18 to 20 rate to £10.85, and 6% on the 16 to 17 and apprentice rates to £8.00.</li>
+        <li>Office for National Statistics — <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/output/articles/theimpactofhigherenergycostsonukbusinesses/2021to2024" rel="noopener">The impact of higher energy costs on UK businesses, 2021 to 2024</a>, drawing on DESNZ quarterly energy prices. Source for non-domestic electricity moving from 14.81p per kWh in 2021 Q1 to 25.97p in 2024 Q4, around 75% higher, and gas remaining more than double its 2021 level.</li>
+        <li>UKHospitality — <a href="https://www.ukhospitality.org.uk/uk-foodservice-records-biggest-footfall-drop-in-two-years/" rel="noopener">UK foodservice records biggest footfall drop in two years</a>, reporting Meaningful Vision data. Source for the 2.3% fall in UK foodservice footfall in Q1 2026 and the roughly 8% decline in casual dining and pubs.</li>
+      </ul>
+      <p style="font-size:14px;color:rgba(74,44,42,.65);margin-top:16px;">Figures are current at the date of last review. We have deliberately not quoted a national average price for a flat white or a single average rates increase: neither exists in a form traceable to a primary source, and both vary enormously by location. Your own numbers are the only ones that should decide your pricing.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>How do I raise prices at my coffee shop without losing customers?</h3>
+        <p>Move a small amount, move it before you are desperate, and explain it in one plain sentence on the board a week before it happens. Protect the one drink your regulars price the whole menu by, and take more on extras, food and larger sizes where the price is not being tracked. Customers accept a rise they can attribute to real costs and resent one that arrives unexplained — so the notice is not decoration, it is the thing that decides the outcome.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How much should a café increase prices by at once?</h3>
+        <p>Work it out rather than guessing: add up how much more it costs to run the same café for a year — rates, wages at the new April 2026 bands, employer National Insurance, energy, goods — and divide by the number of drinks you sold. That gives the amount needed to stand still. Round up to the nearest 10p. In practice most independents land between 10p and 20p on a drink; if your arithmetic says 40p or more, the problem is probably not your pricing.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Should I tell customers why prices have gone up?</h3>
+        <p>Yes, and it is the single highest-return thing you will do. People judge a price rise by what they believe caused it. Attributed to genuine cost increases, it reads as fair; unexplained, it gets attributed to you wanting more margin. Four sentences on the board a week beforehand is enough: what is changing, why, what you refused to do instead, and thank you. Do not blame a single villain and do not promise it will not happen again.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How often can a café raise its prices?</h3>
+        <p>Once or twice a year is generally accepted; more often than that and customers start keeping score, and "costs went up" stops sounding like a reason. Twice-yearly small moves are considerably easier to absorb than one large move every two years, because a small enough change never gets consciously evaluated at all. The exception is a rise less than three months after the last one with nothing visible having changed in between — that reads as drip-pricing.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Which menu items should a café raise prices on first?</h3>
+        <p>Extras, food and larger sizes. Syrups, extra shots, alternative milks and takeaway cups are chosen deliberately rather than habitually, so a 20p move on them is close to invisible. Pastries and sandwiches are re-decided on each visit rather than remembered. Leave the anchor drink — usually the flat white or regular latte — until last, and move it least: it is the only price most regulars could recite, and it is what they judge the whole menu by.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Did business rates go up for cafés in 2026?</h3>
+        <p>It depends on your property, and you need to check rather than assume. From 1 April 2026 there is a permanently lower multiplier for retail, hospitality and leisure — 38.2p for a rateable value under £51,000, against 43.2p for a comparable non-retail business. But the same date brought a revaluation based on April 2024 rents, replacing values based on April 2021 rents. A lower multiplier applied to a higher rateable value can still mean a bigger bill. Multiply your new rateable value by 0.382 and compare it with last year's bill.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">Give them a reason to stay</span>
+    <h2>A regular part-way to a free coffee does not re-price your menu in their head</h2>
+    <p>A price rise briefly reopens a question your regulars had already closed. A stamp card closes it again — because progress they have already earned is something to lose by going elsewhere. Free for your first venue, and it takes about five minutes to set up.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">Start free →</a>
+      <a href="/baristacard-vs-competitors-comparison" class="btn btn-secondary btn-lg">Compare loyalty apps</a>
+    </div>
+    <div class="final-cta__micro">
+      <span>5-minute setup</span>
+      <span>No credit card</span>
+      <span>First venue free forever</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
