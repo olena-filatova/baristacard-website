@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Subscription vs Loyalty Card: Which Suits Your Caf&eacute;</title>
+<meta name="description" content="An honest comparison of coffee subscriptions and stamp cards for UK independents &mdash; including the break-even maths and the cannibalisation risk.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coffee Subscription vs Loyalty Card: Which Suits Your Caf&eacute;">
+<meta property="og:description" content="An honest comparison of coffee subscriptions and stamp cards for UK independents &mdash; including the break-even maths and the cannibalisation risk.">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;  /* page background */
+    --oat:        #F0E4D4;  /* nav / footer background */
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;  /* button text */
+    --brown:      #4A2C2A;  /* primary text */
+    --brown-deep: #542915;  /* logo / headline ink */
+    --tan:        #C8A27B;  /* primary accent / buttons */
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;  /* included / free accent */
+    --green-dark: #5C8261;
+    --red:        #C1665A;  /* not-included accent */
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 56px 0 48px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 28px; max-width: 640px;
+  }
+  .hero__ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+  .hero__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── VERDICT CARDS ── */
+  .verdicts { background: var(--cream); }
+  .verdicts__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .verdict-card {
+    border-radius: var(--radius-card);
+    padding: 26px 22px;
+    border: 2px solid rgba(74,44,42,.1);
+    background: var(--white);
+  }
+  .verdict-card--winner { border-color: var(--green); box-shadow: var(--shadow-card); }
+  .verdict-card__badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; background: var(--green); color: var(--ivory); margin-bottom: 14px;
+  }
+  .verdict-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: var(--brown-deep); }
+  .verdict-card__price { font-size: 14px; font-weight: 700; color: var(--tan-dark); margin-bottom: 12px; }
+  .verdict-card--winner .verdict-card__price { color: var(--green-dark); }
+  .verdict-card p.verdict-card__desc { font-size: 13px; color: rgba(74,44,42,.7); line-height: 1.6; }
+
+  /* ── MATRIX TABLE ── */
+  .matrix { background: var(--oat); }
+  .matrix__scroll { overflow-x: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-card); background: var(--white); }
+  table.matrix__table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 760px; font-size: 14px; }
+  .matrix__table th, .matrix__table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(74,44,42,.08); white-space: nowrap; }
+  .matrix__table thead th {
+    font-size: 12px; font-weight: 700; letter-spacing: .03em; color: var(--brown);
+    background: var(--oat); position: sticky; top: 0;
+  }
+  .matrix__table thead th.matrix__col--winner { background: rgba(122,158,126,.18); color: var(--green-dark); }
+  .matrix__table td:first-child, .matrix__table th:first-child {
+    text-align: left; font-weight: 500; color: var(--brown-deep);
+    position: sticky; left: 0; background: var(--white); z-index: 2; white-space: normal; min-width: 200px;
+  }
+  .matrix__table thead th:first-child { background: var(--oat); z-index: 3; }
+  .matrix__table td.matrix__col--winner { background: rgba(122,158,126,.08); font-weight: 700; }
+  .matrix__yes { color: var(--green-dark); font-weight: 700; }
+  .matrix__no { color: var(--red); font-weight: 700; }
+  .matrix__table tbody tr:last-child td { border-bottom: none; }
+  .matrix__caption { text-align: center; font-size: 12px; color: rgba(74,44,42,.6); margin-top: 14px; }
+
+  /* ── DEEP DIVE ── */
+  .deep-dive { background: var(--cream); }
+  .deep-dive__grid { display: flex; flex-direction: column; gap: 18px; }
+  .deep-dive__card {
+    display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start;
+    padding: 30px; border-radius: var(--radius-card); background: var(--white); border: 1.5px solid rgba(74,44,42,.08);
+  }
+  .deep-dive__card--winner { background: rgba(122,158,126,.08); border-color: var(--green); }
+  .deep-dive__name { font-size: 22px; font-weight: 700; color: var(--brown-deep); margin-bottom: 4px; }
+  .deep-dive__price { font-size: 13px; font-weight: 700; color: var(--tan-dark); }
+  .deep-dive__card--winner .deep-dive__price { color: var(--green-dark); }
+  .deep-dive__body p { font-size: 14px; color: rgba(74,44,42,.8); line-height: 1.7; margin-bottom: 10px; }
+  .deep-dive__body p:last-child { margin-bottom: 0; }
+  .deep-dive__body strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .verdicts__grid { grid-template-columns: 1fr 1fr; }
+    .deep-dive__card { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .verdicts__grid { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>
+  /* ── ARTICLE PROSE (this page) ── */
+  .prose-section { background: var(--cream); padding-top: 56px; }
+  .prose { max-width: 760px; margin: 0 auto; }
+  .prose h2 {
+    font-size: clamp(24px, 3vw, 32px); font-weight: 900; line-height: 1.25;
+    color: var(--brown-deep); margin: 48px 0 16px;
+  }
+  .prose > h2:first-child { margin-top: 0; }
+  .prose h3 {
+    font-size: 19px; font-weight: 700; color: var(--brown-deep); margin: 30px 0 10px;
+  }
+  .prose p { font-size: 17px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 18px; }
+  .prose strong { color: var(--brown-deep); font-weight: 700; }
+  .prose em { font-style: italic; }
+  .prose a { color: var(--brown-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .prose a:hover { color: var(--tan-dark); }
+  .prose ul { margin: 0 0 20px 22px; }
+  .prose li { font-size: 17px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 12px; }
+  .prose .matrix__scroll { margin: 26px 0 8px; }
+  .prose .matrix__table td { white-space: normal; }
+  .prose .matrix__table td:first-child { min-width: 170px; }
+  .prose p.formula {
+    background: var(--white); border-left: 4px solid var(--tan);
+    border-radius: 0 12px 12px 0; padding: 18px 22px; font-weight: 600;
+    color: var(--brown-deep); margin: 24px 0;
+  }
+  .prose p.matrix__caption { font-size: 13px; margin-bottom: 26px; }
+  @media (max-width: 600px) {
+    .prose p, .prose li { font-size: 16px; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stamp card or coffee subscription? Which model actually suits your caf\u00e9",
+  "description": "An honest comparison of coffee subscriptions and stamp cards for UK independents \u2014 including the break-even maths and the cannibalisation risk.",
+  "inLanguage": "en-GB",
+  "datePublished": "2026-08-26",
+  "dateModified": "2026-08-26",
+  "author": { "@type": "Organization", "name": "BaristaCard", "url": "https://baristacard.com/" },
+  "publisher": { "@type": "Organization", "name": "BaristaCard", "url": "https://baristacard.com/" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://baristacard.com/coffee-subscription-vs-loyalty-card-cafe" },
+  "about": [
+    { "@type": "Thing", "name": "Caf\u00e9 loyalty programmes" },
+    { "@type": "Thing", "name": "Coffee subscriptions" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en-GB",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should my caf\u00e9 run a coffee subscription or a loyalty card?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For most single-site independents, a loyalty card. A loyalty card increases visit frequency among occasional customers and costs you only the ingredients on a redeemed drink. A subscription mainly attracts customers who already visit daily and pay full price, so at typical UK pricing it converts your best accounts onto a discount. Run a subscription if food is a significant share of your revenue and you know your customers' visit frequency well enough to price it above about \u00a340 a month." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should a caf\u00e9 charge for a monthly coffee subscription?",
+      "acceptedAnswer": { "@type": "Answer", "text": "More than customers expect. On a \u00a33.50 cup with about 60p of ingredients, a UK caf\u00e9 needs roughly \u00a345 a month to break even against a three-times-a-week regular who steps up to four visits a week. That figure is about the same whether or not you are VAT-registered, because VAT reduces what you keep from the subscription and from the full-price sales you give up by the same proportion. The \u00a320\u2013\u00a330 pricing the chains have normalised works for them because of scale and food attachment, not because the coffee arithmetic works." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do coffee subscriptions lose money for caf\u00e9s?",
+      "acceptedAnswer": { "@type": "Answer", "text": "They can, easily, and the failure mode is counterintuitive: the scheme loses most money when it sells best. A customer who already visits every weekday is worth around \u00a351 a month in gross profit at full price. Put them on a \u00a325 subscription and you collect \u00a320.83 net of VAT and hand back about \u00a313.20 of coffee \u2014 a loss of roughly \u00a343 a month on that one customer. Subscriptions are profitable on light users, who are the least likely to buy one." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a small independent caf\u00e9 run a subscription like the chains?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Mechanically, yes \u2014 several UK loyalty and payment platforms now offer recurring memberships with a daily cap. Economically, a chain's model does not transfer. Chains run lower cup costs at volume, treat the subscription as a footfall driver for a large food range, and can absorb the coffee margin as a customer-acquisition cost. An independent selling mostly drinks has none of those cushions." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you run a loyalty card and a subscription at the same time?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, but not from day one. Launching both together splits customer attention at the counter and lowers take-up of each. Run the loyalty card first for at least a quarter \u2014 it fails safely and it produces the visit-frequency data you need to price a subscription. Then add the subscription for the heavy-user segment if the numbers support it." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if I have subscription customers at all?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You need to know what share of your customers visit weekly, twice weekly and daily. A paper stamp card cannot tell you this; a digital loyalty scheme can, because it records each visit against a customer. That data is what turns subscription pricing from guesswork into arithmetic." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span>Coffee subscription vs loyalty card
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__tags">
+        <span class="tag">Updated 2026</span>
+        <span class="tag">UK independents</span>
+      </div>
+      <h1 class="hero__headline">Stamp card or coffee subscription? Which model actually suits your café</h1>
+      <p class="hero__sub">
+        The chains made monthly coffee subscriptions normal, and every subscription vendor will tell you recurring revenue is the future. Almost none of them will show you the arithmetic. Here it is — including the specific circumstance in which selling a subscription costs an independent café money on its best customers.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUICK ANSWER ═══ -->
+<section class="quick-answer">
+  <div class="container">
+    <div class="quick-answer__inner">
+      <div class="quick-answer__icon">?</div>
+      <p><strong>Should my café run a coffee subscription or a loyalty card?</strong> For most single-site independents, a stamp card. A loyalty card is designed to move occasional customers up a tier; a subscription is designed to lock in heavy customers who already visit. Sold at the £20–£30 the chains have made customers expect, a subscription <em>loses</em> gross profit on anyone who was already visiting more than about twice a week — which is precisely who buys one. A subscription earns its place when the café makes real money on food, not when it makes money on coffee.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section prose-section">
+  <div class="container">
+    <div class="prose">
+
+      <h2>The short answer: they solve different problems</h2>
+
+      <p>These two schemes get compared as though they are competing answers to one question. They are not. They are answers to two different questions, and the question you have determines the answer you need.</p>
+
+      <p>A stamp card is a <strong>frequency</strong> tool. Its job is to take a customer who comes in twice a week and make them come in three times. It works on the people at the edges of your customer base — the ones who could go elsewhere, and sometimes do.</p>
+
+      <p>A subscription is a <strong>cash-flow and lock-in</strong> tool. Its job is to take money before the month starts and make sure the customer who has paid it walks past your competitor to get to you. It works on the people already at the centre of your customer base.</p>
+
+      <p>If your problem is that people come in once a fortnight, a subscription will not fix it — those customers will never buy one. If your problem is that you cannot forecast next month's takings, a stamp card will not fix that either.</p>
+
+      <h2>How each model actually works</h2>
+
+      <h3>The stamp card: earn, then reward</h3>
+
+      <p>The customer collects a stamp per qualifying purchase and gets a free drink at the end. The mechanism doing the work is the <strong>goal-gradient effect</strong> — the closer a person gets to a reward, the harder they push toward it. Someone with eight stamps out of ten behaves differently from someone with two, and that acceleration near the finish line is where the extra visits come from.</p>
+
+      <p>Money leaves the business only at the moment of redemption, and only as ingredients. You never hand back cash you have already banked. That is a genuinely forgiving cost structure, and it is why stamp cards survive every fashion in loyalty.</p>
+
+      <p>The format question — paper cards versus a digital scheme on the customer's phone — is a separate decision, and one you make <em>after</em> you have settled which model you are running. It changes what you can see about your customers; it does not change the underlying economics of earn-then-reward.</p>
+
+      <h3>The subscription: pay up front, drink down</h3>
+
+      <p>The customer pays a fixed monthly amount and draws down drinks against it, usually capped at one or two a day. Two mechanisms are doing the work, and only one of them appears in the marketing.</p>
+
+      <p>The first is the <strong>prepayment effect</strong>. Someone who has already paid £25 visits more often, partly to justify the outlay. This is real, it is well documented in consumer behaviour, and it is the honest reason subscriptions increase visit frequency. Note what that sentence actually means for you: the mechanism works by <em>increasing the number of drinks you give away</em>.</p>
+
+      <p>The second is <strong>mental accounting</strong>. Once the coffee is prepaid, collecting it stops feeling like a purchase. The customer is standing at your counter in a moment that does not feel like spending — which is exactly the moment they are most likely to add a pastry. Hold on to that one. It turns out to be the whole argument for subscriptions.</p>
+
+      <h2>The comparison table</h2>
+
+      <div class="matrix__scroll">
+        <table class="matrix__table">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Stamp card</th>
+              <th>Coffee subscription</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>What it is designed to change</td><td>Visit frequency</td><td>Share of wallet and cash timing</td></tr>
+            <tr><td>Who it works on</td><td>Occasional and lapsing customers</td><td>Existing heavy customers</td></tr>
+            <tr><td>When you get the money</td><td>At each visit, as normal</td><td>Before the month starts</td></tr>
+            <tr><td>Cost to you</td><td>Ingredients on the free drink only</td><td>Ingredients on every drink, plus the full-price sales you gave up</td></tr>
+            <tr><td>Risk if it goes well</td><td>Low — more visits means more revenue</td><td>High — more visits means more cost</td></tr>
+            <tr><td>Risk if it goes badly</td><td>Cards go in a drawer; you lose nothing</td><td>Refund requests, cancellations, awkward conversations at the counter</td></tr>
+            <tr><td>Counter workload</td><td>One action per visit</td><td>Check membership, check daily cap, handle disputes</td></tr>
+            <tr><td>Admin</td><td>Minimal</td><td>Recurring payments, failed cards, pauses, cancellations</td></tr>
+            <tr><td>Forecastable revenue</td><td class="matrix__no">No</td><td class="matrix__yes">Yes</td></tr>
+            <tr><td>Wins new customers</td><td class="matrix__yes">Sometimes</td><td class="matrix__no">Rarely</td></tr>
+            <tr><td>Fails safely</td><td class="matrix__yes">Yes</td><td class="matrix__no">No</td></tr>
+            <tr><td>Best fit</td><td>Most single-site independents</td><td>High-footfall sites with strong food sales</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="matrix__caption">Both models can work. They are not interchangeable, and the risk profiles are not symmetrical.</p>
+
+      <h2>The cannibalisation problem nobody mentions</h2>
+
+      <p>Here is the scenario that should keep you up at night, and that no subscription vendor's blog post will describe. You launch a £25 monthly subscription. It sells brilliantly. Fifty people buy one in a fortnight.</p>
+
+      <p>Who bought them? The fifty customers who were already in every single morning paying full price. You have just converted your fifty best accounts onto a discount they asked for and you offered.</p>
+
+      <h3>Working out who would actually buy one</h3>
+
+      <p>A subscription is only rational for a customer if they will drink more than its break-even value in coffee. Customers know this. They do the sum in their heads on the spot, and the ones who buy are overwhelmingly the ones for whom the sum is obviously favourable — the daily drinkers.</p>
+
+      <p>This is the opposite of how a stamp card recruits. A stamp card costs the customer nothing to join, so occasional visitors take one; the ones who never come back cost you nothing. A subscription self-selects for exactly the segment you were already monetising at full price.</p>
+
+      <h3>The break-even price for your café</h3>
+
+      <p>Let us do this properly, with UK numbers, and state every assumption out loud.</p>
+
+      <p><strong>Assumptions.</strong> A takeaway flat white sold at <strong>£3.50</strong>, roughly the median for a London independent in 2026. Ingredients and packaging of about <strong>60p</strong> — around 30p of beans for an 18g dose, around 20p of milk including wastage, and around 10p for the cup and lid. The café is <strong>VAT-registered</strong>, and hot drinks are standard-rated at 20% whether the customer sits in or takes away. Substitute your own numbers; the shape of the answer does not change.</p>
+
+      <p>Net of VAT, that £3.50 cup brings in <strong>£2.92</strong>. Take off 60p of ingredients and the café keeps <strong>£2.32</strong> per cup.</p>
+
+      <p>Now the subscription. £25 a month, net of VAT, is <strong>£20.83</strong>. Before you have poured a single coffee, that subscription is worth about <strong>nine full-price cups</strong> to you. Every cup you then serve costs you 60p.</p>
+
+      <p>So the subscription is worth having when:</p>
+
+      <p class="formula">£20.83 − (60p × cups they drink) &gt; £2.32 × (cups they would have bought anyway)</p>
+
+      <p>Run that for three different customers.</p>
+
+      <div class="matrix__scroll">
+        <table class="matrix__table">
+          <thead>
+            <tr>
+              <th>The customer</th>
+              <th>Bought before</th>
+              <th>You kept</th>
+              <th>On a £25 subscription</th>
+              <th>Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Once a week</td>
+              <td>4 cups/month</td>
+              <td>£9.28</td>
+              <td>Profitable up to about 19 cups</td>
+              <td class="matrix__yes">Good deal for you</td>
+            </tr>
+            <tr>
+              <td>Twice a week</td>
+              <td>8 cups/month</td>
+              <td>£18.56</td>
+              <td>Profitable up to about 4 cups</td>
+              <td class="matrix__no">Loses money almost immediately</td>
+            </tr>
+            <tr>
+              <td>Every weekday</td>
+              <td>22 cups/month</td>
+              <td>£51.04</td>
+              <td>Never profitable</td>
+              <td class="matrix__no">Loses about £43 a month</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="matrix__caption">Gross profit on drinks only, before staff and premises costs. Your daily regular is worth £51 a month to you. A £25 subscription pays you £20.83 and then hands out £13.20 of coffee.</p>
+
+      <p>Read that bottom row again. The customer you are most likely to sell a subscription to is the customer it costs you most to sell one to — roughly <strong>£43 a month, each</strong>. Fifty of them is over £2,000 a month of gross profit converted into a discount.</p>
+
+      <p>And here is the number the vendors never publish. For a subscription to leave you no worse off on a three-times-a-week regular who steps up to four visits a week, you would have to charge in the region of <strong>£45 a month</strong>. That is the honest break-even price for a UK independent selling a £3.50 cup. It is also roughly double what customers have been trained by the chains to expect, which is why almost nobody charges it.</p>
+
+      <p>If you are under the <strong>£90,000</strong> VAT registration threshold, every figure above improves by about a sixth, because you keep the whole £3.50 and the whole £25. Note what it does <em>not</em> do: it barely moves the break-even subscription price, which stays around £44. You keep more of the subscription, but the full-price sales you are giving up are worth more too, and the two effects very nearly cancel. Not being VAT-registered makes your café more profitable; it does not make a cheap subscription work.</p>
+
+      <h2>Which customer each model is for</h2>
+
+      <p>Put plainly:</p>
+
+      <ul>
+        <li><strong>A stamp card monetises your occasional customers</strong> by making them less occasional. It has almost no effect on your daily regulars, who were coming anyway — and that is fine, because it costs you almost nothing to leave it running for them.</li>
+        <li><strong>A subscription monetises your heavy customers</strong> — but at a discount to what they were already paying. The only way that trade makes sense is if it buys you something the full-price sale did not: visits you were not getting, from a competitor, or food sales you were not making.</li>
+      </ul>
+
+      <p>Which means the honest question is not "subscription or stamp card". It is: <em>what am I actually buying with the discount?</em></p>
+
+      <h2>Four questions that decide it for you</h2>
+
+      <p><strong>1. Do you know how often your customers currently come in?</strong> Not a feeling — a number. If you cannot say what proportion of your customers visit weekly versus daily, you cannot price a subscription, because every figure in the table above depends on it. This is the single most common reason a café's subscription fails: it was priced against the chains' pricing rather than against its own customer data.</p>
+
+      <p><strong>2. What proportion of your takings is food?</strong> If food is under about a fifth of your revenue, a subscription has nothing to earn its discount back with, and you should not run one. If food is a third or more, the picture changes completely — see below.</p>
+
+      <p><strong>3. Are you losing daily coffee customers to somebody nearby?</strong> A subscription's genuine strength is that it makes walking past you irrational. If there is a competitor 200 metres away taking half of your regulars' weekday coffees, buying those visits back at a discount can be worth it. If you are the only café on the street, you are buying visits you already had.</p>
+
+      <p><strong>4. Can your counter handle it at 8:40am?</strong> Checking a membership and a daily cap during the morning rush is not free. If your queue already backs out of the door, add the friction deliberately, not by accident.</p>
+
+      <p>If you are weighing up loyalty platforms while you work through this, our <a href="/baristacard-vs-competitors-comparison">side-by-side comparison of the main UK loyalty apps</a> covers what each one charges and what it lets you see about your customers.</p>
+
+      <h2>So when does a subscription actually win?</h2>
+
+      <p>It wins in one specific case, and it is worth stating clearly because everything above has been sceptical.</p>
+
+      <p><strong>A subscription is not a coffee product. It is a footfall product.</strong> Its value is not the £25. Its value is that it puts a person in your café twenty-two times a month instead of eight, in a frame of mind where buying the coffee no longer feels like spending money — which is precisely when they add a £3.50 pastry.</p>
+
+      <p>Return to the twice-a-week customer who steps up to daily on a subscription. On drinks alone you have gone backwards. But those extra fourteen visits are fourteen chances at a food sale you were never going to get. On a café's typical food margin, buying something on a third of those visits is enough to turn the whole thing positive.</p>
+
+      <p>So: if you have a proper food offer and the counter space to sell it, a subscription is a legitimate and clever growth lever. If you sell coffee and a few brownies, it is a discount scheme aimed at your best customers, and you should fix frequency first.</p>
+
+      <h2>Can you run both?</h2>
+
+      <p>Eventually, yes. At launch, no.</p>
+
+      <p>Two schemes at one counter compete for the same thirty seconds of a customer's attention and the same line on your menu board. Offered both, a meaningful share of customers pick neither — the well-documented effect of giving people more choices than they want to evaluate while a queue forms behind them. Take-up of both ends up lower than take-up of either would have been alone.</p>
+
+      <p>The sequencing that works: run the stamp card first, for at least a full quarter. It costs you almost nothing, it fails safely, and — crucially — it produces the visit-frequency data you need in order to price a subscription that does not lose money. Then, if the data says you have a heavy-user segment worth locking in and a food offer worth putting them in front of, launch the subscription to that segment specifically.</p>
+
+      <h2>What changes operationally with a subscription</h2>
+
+      <h3>The daily cap and how to enforce it at the counter</h3>
+
+      <p>Every workable coffee subscription has a cap — commonly one drink per visit with a minimum gap of half an hour, or a fixed number per day. Without one, a single customer can supply their whole office.</p>
+
+      <p>Decide two things before you sell the first membership. First, <strong>what the cap is in plain words</strong>, printed where the customer can read it, because every dispute you will have is a dispute about the cap. Second, <strong>who is allowed to override it</strong> — and make sure that is a manager, not a nineteen-year-old on their third shift being leaned on by an irritated customer at 8:40am. The staff cost of a subscription is not the pouring; it is the arguing.</p>
+
+      <h3>Refunds, pauses and cancellations</h3>
+
+      <p>You are now taking recurring payments, which means UK consumer law applies to how you take and stop them. Three things to sort out before launch, not after the first complaint:</p>
+
+      <ul>
+        <li><strong>Cancellation must be as easy as signing up.</strong> If someone joins by tapping a button, they must be able to leave by tapping a button. Making people email you to cancel generates chargebacks and bad reviews, and it is the wrong side of consumer protection expectations.</li>
+        <li><strong>Decide your holiday policy in advance.</strong> Customers go away for two weeks and will ask you to pause. "Yes, up to one month a year" is a good answer. "I'll see what I can do" invites a negotiation you will have thirty times.</li>
+        <li><strong>Write down what happens to a part-used month.</strong> Someone who has drunk eighteen coffees and cancels on the 25th will ask for a refund. Whatever your answer is, it should have been decided in a quiet moment, not at the counter.</li>
+      </ul>
+
+      <p>You will also be storing names, email addresses and payment records, which brings UK GDPR obligations that a paper stamp card never did.</p>
+
+      <h2>The verdict</h2>
+
+      <p>Most single-site independents should fix visit frequency with a loyalty card before attempting recurring revenue — not because subscriptions are a bad idea, but because a subscription priced the way customers expect converts your best-paying regulars onto a discount, and you cannot price it properly without frequency data you probably do not have yet.</p>
+
+      <p>You are the exception if food is a serious part of your takings, you have a nearby competitor splitting your regulars' custom, and you know your visit-frequency numbers well enough to price above £40 a month with a straight face. If that is you, a subscription is a genuinely strong move.</p>
+
+      <h2>Frequently asked questions</h2>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>Should my café run a coffee subscription or a loyalty card?</h3>
+        <p>For most single-site independents, a loyalty card. A loyalty card increases visit frequency among occasional customers and costs you only the ingredients on a redeemed drink. A subscription mainly attracts customers who already visit daily and pay full price, so at typical UK pricing it converts your best accounts onto a discount. Run a subscription if food is a significant share of your revenue and you know your customers' visit frequency well enough to price it above about £40 a month.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How much should a café charge for a monthly coffee subscription?</h3>
+        <p>More than customers expect. On a £3.50 cup with about 60p of ingredients, a UK café needs roughly £45 a month to break even against a three-times-a-week regular who steps up to four visits a week. That figure is about the same whether or not you are VAT-registered, because VAT reduces what you keep from the subscription and from the full-price sales you give up by the same proportion. The £20–£30 pricing the chains have normalised works for them because of scale and food attachment, not because the coffee arithmetic works.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Do coffee subscriptions lose money for cafés?</h3>
+        <p>They can, easily, and the failure mode is counterintuitive: the scheme loses most money when it sells best. A customer who already visits every weekday is worth around £51 a month in gross profit at full price. Put them on a £25 subscription and you collect £20.83 net of VAT and hand back about £13.20 of coffee — a loss of roughly £43 a month on that one customer. Subscriptions are profitable on light users, who are the least likely to buy one.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Can a small independent café run a subscription like the chains?</h3>
+        <p>Mechanically, yes — several UK loyalty and payment platforms now offer recurring memberships with a daily cap. Economically, a chain's model does not transfer. Chains run lower cup costs at volume, treat the subscription as a footfall driver for a large food range, and can absorb the coffee margin as a customer-acquisition cost. An independent selling mostly drinks has none of those cushions.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Can you run a loyalty card and a subscription at the same time?</h3>
+        <p>Yes, but not from day one. Launching both together splits customer attention at the counter and lowers take-up of each. Run the loyalty card first for at least a quarter — it fails safely and it produces the visit-frequency data you need to price a subscription. Then add the subscription for the heavy-user segment if the numbers support it.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How do I know if I have subscription customers at all?</h3>
+        <p>You need to know what share of your customers visit weekly, twice weekly and daily. A paper stamp card cannot tell you this; a digital loyalty scheme can, because it records each visit against a customer. That data is what turns subscription pricing from guesswork into arithmetic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">Start with the frequency data</span>
+    <h2>Most cafés should fix visit frequency before they sell recurring revenue.</h2>
+    <p>BaristaCard shows you how often your customers actually return — start free and find out whether you have subscription customers at all.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">Get Started Free →</a>
+      <a href="/baristacard-vs-competitors-comparison" class="btn btn-secondary btn-lg">Compare loyalty apps</a>
+    </div>
+    <div class="final-cta__micro">
+      <span>5-minute setup</span>
+      <span>No credit card</span>
+      <span>First venue free forever</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
