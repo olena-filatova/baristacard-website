@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caf&eacute; Loyalty Metrics: 5 Numbers for Your First 90 Days</title>
+<meta name="description" content="The five loyalty numbers a caf&eacute; should track, what each threshold means, and the specific fix when one looks wrong.">
+<link rel="canonical" href="https://baristacard.com/cafe-loyalty-metrics-first-90-days">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Caf&eacute; Loyalty Metrics: 5 Numbers for Your First 90 Days">
+<meta property="og:description" content="The five loyalty numbers a caf&eacute; should track, what each threshold means, and the specific fix when one looks wrong.">
+<meta property="og:url" content="https://baristacard.com/cafe-loyalty-metrics-first-90-days">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;  /* page background */
+    --oat:        #F0E4D4;  /* nav / footer background */
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;  /* button text */
+    --brown:      #4A2C2A;  /* primary text */
+    --brown-deep: #542915;  /* logo / headline ink */
+    --tan:        #C8A27B;  /* primary accent / buttons */
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;  /* included / free accent */
+    --green-dark: #5C8261;
+    --red:        #C1665A;  /* not-included accent */
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 56px 0 48px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 28px; max-width: 640px;
+  }
+  .hero__ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+  .hero__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── VERDICT CARDS ── */
+  .verdicts { background: var(--cream); }
+  .verdicts__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .verdict-card {
+    border-radius: var(--radius-card);
+    padding: 26px 22px;
+    border: 2px solid rgba(74,44,42,.1);
+    background: var(--white);
+  }
+  .verdict-card--winner { border-color: var(--green); box-shadow: var(--shadow-card); }
+  .verdict-card__badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; background: var(--green); color: var(--ivory); margin-bottom: 14px;
+  }
+  .verdict-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: var(--brown-deep); }
+  .verdict-card__price { font-size: 14px; font-weight: 700; color: var(--tan-dark); margin-bottom: 12px; }
+  .verdict-card--winner .verdict-card__price { color: var(--green-dark); }
+  .verdict-card p.verdict-card__desc { font-size: 13px; color: rgba(74,44,42,.7); line-height: 1.6; }
+
+  /* ── MATRIX TABLE ── */
+  .matrix { background: var(--oat); }
+  .matrix__scroll { overflow-x: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-card); background: var(--white); }
+  table.matrix__table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 760px; font-size: 14px; }
+  .matrix__table th, .matrix__table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(74,44,42,.08); white-space: nowrap; }
+  .matrix__table thead th {
+    font-size: 12px; font-weight: 700; letter-spacing: .03em; color: var(--brown);
+    background: var(--oat); position: sticky; top: 0;
+  }
+  .matrix__table thead th.matrix__col--winner { background: rgba(122,158,126,.18); color: var(--green-dark); }
+  .matrix__table td:first-child, .matrix__table th:first-child {
+    text-align: left; font-weight: 500; color: var(--brown-deep);
+    position: sticky; left: 0; background: var(--white); z-index: 2; white-space: normal; min-width: 200px;
+  }
+  .matrix__table thead th:first-child { background: var(--oat); z-index: 3; }
+  .matrix__table td.matrix__col--winner { background: rgba(122,158,126,.08); font-weight: 700; }
+  .matrix__yes { color: var(--green-dark); font-weight: 700; }
+  .matrix__no { color: var(--red); font-weight: 700; }
+  .matrix__table tbody tr:last-child td { border-bottom: none; }
+  .matrix__caption { text-align: center; font-size: 12px; color: rgba(74,44,42,.6); margin-top: 14px; }
+
+  /* ── DEEP DIVE ── */
+  .deep-dive { background: var(--cream); }
+  .deep-dive__grid { display: flex; flex-direction: column; gap: 18px; }
+  .deep-dive__card {
+    display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start;
+    padding: 30px; border-radius: var(--radius-card); background: var(--white); border: 1.5px solid rgba(74,44,42,.08);
+  }
+  .deep-dive__card--winner { background: rgba(122,158,126,.08); border-color: var(--green); }
+  .deep-dive__name { font-size: 22px; font-weight: 700; color: var(--brown-deep); margin-bottom: 4px; }
+  .deep-dive__price { font-size: 13px; font-weight: 700; color: var(--tan-dark); }
+  .deep-dive__card--winner .deep-dive__price { color: var(--green-dark); }
+  .deep-dive__body p { font-size: 14px; color: rgba(74,44,42,.8); line-height: 1.7; margin-bottom: 10px; }
+  .deep-dive__body p:last-child { margin-bottom: 0; }
+  .deep-dive__body strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .verdicts__grid { grid-template-columns: 1fr 1fr; }
+    .deep-dive__card { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .verdicts__grid { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>
+  /* ── ARTICLE PROSE (this page) ── */
+  .prose-section { background: var(--cream); padding-top: 56px; }
+  .prose { max-width: 760px; margin: 0 auto; }
+  .prose h2 {
+    font-size: clamp(24px, 3vw, 32px); font-weight: 900; line-height: 1.25;
+    color: var(--brown-deep); margin: 48px 0 16px;
+  }
+  .prose > h2:first-child { margin-top: 0; }
+  .prose h3 {
+    font-size: 19px; font-weight: 700; color: var(--brown-deep); margin: 30px 0 10px;
+  }
+  .prose p { font-size: 17px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 18px; }
+  .prose strong { color: var(--brown-deep); font-weight: 700; }
+  .prose em { font-style: italic; }
+  .prose a { color: var(--brown-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .prose a:hover { color: var(--tan-dark); }
+  .prose ul { margin: 0 0 20px 22px; }
+  .prose li { font-size: 17px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 12px; }
+  .prose .matrix__scroll { margin: 26px 0 8px; }
+  .prose .matrix__table td { white-space: normal; }
+  .prose .matrix__table td:first-child { min-width: 170px; }
+  .prose p.formula {
+    background: var(--white); border-left: 4px solid var(--tan);
+    border-radius: 0 12px 12px 0; padding: 18px 22px; font-weight: 600;
+    color: var(--brown-deep); margin: 24px 0;
+  }
+  .prose p.matrix__caption { font-size: 13px; margin-bottom: 26px; }
+  @media (max-width: 600px) {
+    .prose p, .prose li { font-size: 16px; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your first 90 days of loyalty data: five numbers that matter",
+  "description": "The five loyalty numbers a café should track, what each threshold means, and the specific fix when one looks wrong.",
+  "inLanguage": "en-GB",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "author": {
+    "@type": "Organization",
+    "name": "BaristaCard",
+    "url": "https://baristacard.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BaristaCard",
+    "url": "https://baristacard.com/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://baristacard.com/cafe-loyalty-metrics-first-90-days"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Café loyalty programmes"
+    },
+    {
+      "@type": "Thing",
+      "name": "Loyalty programme measurement"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en-GB",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if my café's loyalty programme is working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Look at five numbers in order: sign-up rate among customers actually offered it, completion rate, redemption rate, change in visit frequency for members before and after they joined, and cost per redemption against gross profit per visit. The fourth is the one that comes closest to telling you whether behaviour changed. Do not use the members-versus-non-members comparison your dashboard shows first — it mostly measures who chose to sign up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good redemption rate for a coffee shop loyalty card?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no published café benchmark worth quoting, so treat this as a working rule of thumb rather than data. Below about 40% of earned rewards being claimed, something is getting in the way — people forget, rewards expire, or claiming is awkward at a busy counter. Above about 85%, check who is redeeming: a small group redeeming fast and repeatedly means the scheme is rewarding customers who were already coming in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What percentage of customers should join a café loyalty scheme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Measure it against the people your team actually offers it to, not against every customer through the door — otherwise you are measuring your rota, not your scheme. As a rule of thumb, under 20% of those asked points at how the offer is worded rather than at the scheme itself. Over 50% usually means your team is only offering it to people they recognise, which builds selection bias into everything you measure afterwards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you measure the ROI of a loyalty programme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set the cost of a redemption against the gross profit on an extra visit. On a £3.50 cup with 60p of ingredients, you keep about £2.32 per full-price sale after VAT, and a free drink costs you 60p — so a ten-stamp card is roughly a 2% discount, and it breaks even at about one additional visit for every four rewards given away. The arithmetic almost always works, which is why the harder question is whether the scheme changed anyone's behaviour at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do loyalty members spend more than non-members?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mostly because they already did. People sign up at cafés they already visit, so the gap between members and non-members largely reflects who chose to join. Research analysing loyalty programmes across twenty supermarket chains, using methods designed to separate joining from being the type of person who joins, found a real but small effect — seven times smaller than the naïve comparison implied. There is something there. It is not what the dashboard shows you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should I wait before judging a loyalty scheme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At least one full completion cycle, and preferably two. If an ordinary customer needs ten weeks to fill a card, anything measured at 30 days is noise. Ninety days is enough to read sign-up rate and early frequency changes; completion and redemption rates need longer, or need to be measured only on cards started in your first month. Change one thing per quarter, or you will never know which change did what."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Café loyalty programme metrics",
+  "inLanguage": "en-GB",
+  "url": "https://baristacard.com/cafe-loyalty-metrics-first-90-days",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "Sign-up rate",
+      "description": "The share of customers who join the loyalty scheme when they are actually offered it, over a defined period. Measured against people asked, not against everyone through the door."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Completion rate",
+      "description": "The share of started loyalty cards that reach the reward, measured over a window at least as long as an ordinary customer needs to fill one."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Redemption rate",
+      "description": "Rewards claimed as a share of rewards earned. Distinct from completion rate, because a customer can finish a card and never claim the drink."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Change in visit frequency",
+      "description": "Visits per week for a member in the four weeks before joining compared with the four weeks after, averaged across an intake. Each customer acts as their own control."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Cost per redemption",
+      "description": "The cost to the café of one claimed reward, set against the gross profit on a full-price sale, to give the number of additional visits needed to break even."
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span>Your first 90 days of loyalty data
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__tags">
+        <span class="tag">Updated 2026</span>
+        <span class="tag">UK independents</span>
+      </div>
+      <h1 class="hero__headline">Your first 90 days of loyalty data: five numbers that matter</h1>
+      <p class="hero__sub">
+        Three months in, you have a dashboard and no framework. You can see 340 members and a redemption rate of 22%, and nothing tells you whether that is good, bad or meaningless. Here is what each number means, what a bad one looks like, and the specific thing to change when one of them is wrong.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUICK ANSWER ═══ -->
+<section class="quick-answer">
+  <div class="container">
+    <div class="quick-answer__inner">
+      <div class="quick-answer__icon">?</div>
+      <p><strong>How do I know if my café's loyalty programme is working?</strong> Look at five numbers, in this order: sign-up rate, completion rate, redemption rate, change in visit frequency for members before and after they joined, and cost per redemption against incremental spend. Ignore the comparison everyone reaches for first — members versus non-members — because members were already your regulars before they joined, and that gap mostly measures who signed up rather than what the scheme did.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section prose-section">
+  <div class="container">
+    <div class="prose">
+
+      <h2>The short answer: the five numbers, in order</h2>
+
+      <p>Each one gets a full section below, with a threshold and the specific thing to change. In brief:</p>
+
+      <ul>
+        <li><strong>Sign-up rate at the counter</strong> — what share of the people you offer it to actually join. Diagnoses the ask, not the scheme.</li>
+        <li><strong>Completion rate</strong> — what share of started cards reach the reward. Diagnoses the distance to the reward.</li>
+        <li><strong>Redemption rate</strong> — what share of earned rewards get claimed. A very low number and a very high number are both worth looking at, for opposite reasons.</li>
+        <li><strong>Change in visit frequency, member before versus after</strong> — the only one of the five that comes close to telling you whether the scheme changed anyone's behaviour.</li>
+        <li><strong>Cost per redemption against incremental spend</strong> — whether the arithmetic works. It almost always does, and that turns out to be the interesting part.</li>
+      </ul>
+
+      <p>Before any of them, though, the comparison you have to stop making.</p>
+
+      <h2>Why the obvious comparison is the wrong one</h2>
+
+      <h3>Members always look better, and mostly it is not the scheme</h3>
+
+      <p>Open any loyalty dashboard and the first thing it shows you is members versus non-members. Members visit more. Members spend more. The gap is usually large and always flattering, and it is very close to worthless as evidence that the scheme is working.</p>
+
+      <p>The reason is simple once said out loud. Nobody signs up for a coffee loyalty card at a café they visit twice a year. The people who join are the people who were already coming in, and they joined <em>because</em> they were already coming in. So when you compare members with non-members, most of what you are measuring is who chose to sign up — not what happened to them afterwards.</p>
+
+      <p>This is not a hunch. <a href="https://research.rug.nl/en/publications/do-loyalty-programs-really-enhance-behavioral-loyalty-an-empirica">Researchers analysing loyalty programmes across twenty supermarket chains</a>, using statistical methods designed specifically to separate the effect of joining from the effect of being the sort of person who joins, found that membership did have a real positive effect on share of wallet — but that the effect was <strong>seven times smaller</strong> than the naïve comparison suggested. Seven times. The raw member-versus-non-member gap was overwhelmingly self-selection wearing the costume of a result.</p>
+
+      <p>Two things follow. First, your scheme is almost certainly doing less than your dashboard implies. Second — and this is the more useful half — it is probably still doing something, and the something is worth measuring properly rather than celebrating badly. There is also a plainly human reason this comparison is so sticky: you have already paid for the scheme, so you are looking for evidence it works. Naming that in advance is most of the defence against it.</p>
+
+      <h3>The two comparisons you can actually make</h3>
+
+      <p>You do not have a control group and you are not going to get one. You have two comparisons that require no analyst and no spreadsheet gymnastics:</p>
+
+      <p><strong>A member against their own past.</strong> Take everyone who joined in month one. How often were they coming in during the four weeks before they joined, and how often in the four weeks after? Each person acts as their own control. It is not perfect — someone who joins in the week they change jobs and start walking past you every morning will flatter the number — but across a few dozen people that noise largely cancels, and what remains is a far more honest signal than any member-versus-non-member chart.</p>
+
+      <p><strong>One intake against the next.</strong> Compare the people who joined in month one with the people who joined in month three, measured over the same length of time from their own start date. If your later intake behaves worse, you have exhausted your keenest customers and are now signing up more marginal ones — which is normal, expected, and something you should know before you conclude the scheme is losing steam.</p>
+
+      <h2>Number 1 — Sign-up rate at the counter</h2>
+
+      <p><strong>What it is:</strong> the share of customers who join when offered, over a defined period. If your team offered it a hundred times last week and eighteen people joined, that is 18%.</p>
+
+      <p><strong>The threshold</strong> (a working rule of thumb, not a published benchmark): below about 20% among people actually asked, the problem is the ask. Above about 50%, your team is offering it selectively — almost certainly only to regulars — which quietly guarantees the selection bias described above.</p>
+
+      <p><strong>What to change:</strong> a low number is nearly always a scripting problem rather than a scheme problem. "Are you on our loyalty card?" invites the word no. "Shall I put that first stamp on for you?" does not. If you cannot tell how often it is being offered at all, that is the actual finding, and it is a rota-and-training fix, not a scheme redesign.</p>
+
+      <h3>What good looks like, and what to change if it is low</h3>
+
+      <p>The single highest-leverage change available here is giving people a head start. In <a href="https://academic.oup.com/jcr/article/32/4/504/1796110">a field experiment run over nine months at a car wash</a>, customers given a card needing eight stamps completed it about 19% of the time. Customers given a ten-stamp card with two stamps already filled in — identical effort, eight more purchases either way — completed it <strong>34%</strong> of the time. Nearly double, for a change that costs nothing and gives away nothing.</p>
+
+      <p>That finding belongs at sign-up, not just at design time. A card handed over with the first stamp already on it is not a gimmick; it is the difference between something in a wallet and something in a bin.</p>
+
+      <h2>Number 2 — Completion rate</h2>
+
+      <p><strong>What it is:</strong> the share of started cards that reach the reward, measured over a window long enough to be fair. Ninety days is not long enough for a ten-stamp card and a twice-weekly customer; use six months or measure only cards started in your first month.</p>
+
+      <p><strong>The threshold:</strong> the closest thing to a real benchmark is the experiment above — 19% for a plain card and 34% for a pre-stamped one, over nine months in a real business. If you are materially below 19%, your reward is too far away. If you are well above 34%, it may be too close, and you are giving away drinks to people who needed no encouragement.</p>
+
+      <p><strong>What to change:</strong> shorten the distance, or fake the start. Customers speed up as they get closer to a reward — <a href="https://journals.sagepub.com/doi/abs/10.1509/jmkr.43.1.39">a café study of a genuine buy-ten-get-one-free programme</a> found members buying more frequently the nearer they got, and buying roughly two extra coffees over the life of a card as a result. The corollary is that the early stamps are where you lose people, because that is where the pull is weakest. Cutting a ten-stamp card to eight does less for you than starting a ten-stamp card at two.</p>
+
+      <p>One more finding from that café study, because it will show up in your data and look like a problem. Customers slow down immediately after claiming a reward, then accelerate again as the next one approaches. A dip in visits right after a redemption is the scheme working normally, not a customer going cold.</p>
+
+      <h2>Number 3 — Redemption rate (and why very high is a warning)</h2>
+
+      <p><strong>What it is:</strong> rewards claimed as a share of rewards earned. Note that this is not the same as completion rate — a customer can finish a card and never claim the drink.</p>
+
+      <p><strong>The threshold:</strong> below roughly 40% of earned rewards being claimed, your redemption process has friction — people have forgotten, or the reward has expired, or claiming it is awkward at a busy counter. Above roughly 85%, look at <em>who</em> is redeeming. If it is a small group redeeming repeatedly and fast, you have a scheme that is very efficiently rewarding people who were coming in anyway.</p>
+
+      <p><strong>What to change:</strong> a low number is fixed with a reminder and a clear expiry policy, not with a bigger reward. A very high number concentrated among heavy users is the signal to look at whether a different model fits those customers better — that is the point at which <a href="/coffee-subscription-vs-loyalty-card-cafe">a subscription is worth the arithmetic</a>, though the answer is usually still no for a single site.</p>
+
+      <p>Worth saying plainly: an unclaimed reward is not free money. It is a customer who did the work and got nothing, and that is a worse outcome for you than the sixty pence the drink would have cost.</p>
+
+      <h2>Number 4 — Change in visit frequency, member before vs after</h2>
+
+      <p><strong>What it is:</strong> for each member, visits per week in the four weeks before joining versus the four weeks after. Averaged across an intake. This is the number closest to answering the question you actually care about.</p>
+
+      <p><strong>The threshold:</strong> a real effect looks modest. Going from 1.8 visits a week to 2.1 is a genuine result and roughly what the honest literature would lead you to expect. A jump from 1.5 to 3.0 is not a triumph — it is a sign that your "before" window is wrong, most often because you only have data on people from the moment they joined and are comparing against an incomplete picture of their past.</p>
+
+      <p><strong>What to change:</strong> if the change is flat or negative across a whole intake, the scheme is labelling loyalty rather than creating it. That is a real finding and not a disaster — a card that costs you almost nothing and creates no new behaviour is a mild waste, not a wound. But it is the point at which the interesting question becomes retention rather than frequency, and the customers to look at are the ones who stopped coming: <a href="/win-back-lapsed-cafe-customers">the lapsed-regular problem</a> is a different mechanism and needs a different tool.</p>
+
+      <h2>Number 5 — Cost per redemption against incremental spend</h2>
+
+      <p><strong>What it is:</strong> what one claimed reward actually costs you, set against the extra trade needed to cover it.</p>
+
+      <p>Run the numbers on a typical UK independent and the result is more reassuring than most owners expect. Take a £3.50 flat white with about 60p of ingredients. Net of VAT you keep £2.92, so your gross profit on a full-price cup is about £2.32. On a ten-stamp card, the customer buys ten and you give one away, and the giveaway costs you the ingredients: 60p.</p>
+
+      <p class="formula">A ten-stamp card is a 2% discount. 60p against £29.17 of net revenue on the ten paid cups — around 2.1% of revenue, or 2.6% of gross profit.</p>
+
+      <p>That is the whole cost of the scheme, and it changes the question. At £2.32 of gross profit per extra visit and 60p per redemption, you need roughly <strong>one additional visit for every four rewards you give away</strong> to break even. Not one per reward — one per four.</p>
+
+      <p><strong>The threshold:</strong> if your cost per redemption exceeds about a quarter of the gross profit on a single full-price sale, your reward is too generous — that usually means a large or food item rather than a drink. Otherwise the arithmetic works and will keep working.</p>
+
+      <p><strong>What to change:</strong> almost certainly nothing about the cost. The honest reading of number five is that a well-designed stamp card is close to impossible to lose money on, which means the real question was never "is it profitable" but "is it doing anything at all" — which is what numbers one to four are for. If you are not VAT-registered the figures move slightly in your favour, to around 1.7% of revenue, and the conclusion does not change.</p>
+
+
+      <p class="formula" style="border-left-color:var(--green);">
+        BaristaCard reports all five of these numbers from day one, with no spreadsheet.
+        <a href="/auth/register">See your first 90 days — start free.</a>
+      </p>
+
+      <h2>The 90-day review: a one-page checklist</h2>
+
+      <ul>
+        <li>Sign-up rate among customers actually offered it — under 20% is a scripting problem; over 50% means your team is only asking regulars.</li>
+        <li>Completion rate over a fair window — under 19% means the reward is too far away.</li>
+        <li>Redemption rate — under 40% is friction; over 85% among a small group means you are rewarding existing habit.</li>
+        <li>Visit frequency, four weeks before joining versus four weeks after, averaged across your first intake. Expect a modest change or none.</li>
+        <li>Cost per redemption against gross profit per visit — under a quarter and the arithmetic is safe.</li>
+        <li>Month-one intake versus month-three intake, measured over the same elapsed time each. A decline is normal, not failure.</li>
+        <li>One thing to change, not five. Pick the worst number and fix only that, so that next quarter you can tell what caused what.</li>
+      </ul>
+
+      <h2>Three numbers not worth your attention</h2>
+
+      <p><strong>Total members.</strong> It only goes up, so it can never tell you anything is wrong. A café with 900 members and 40 active ones has a worse scheme than one with 200 members and 120 active, and the headline number says the opposite.</p>
+
+      <p><strong>Members versus non-members, in any form.</strong> Covered at length above. Seven times overstated in the best study we have of the question.</p>
+
+      <p><strong>App opens, scans, or any engagement metric that is not a visit.</strong> A customer who looks at their stamps four times a week and comes in once is not more loyal than one who never opens it and comes in three times. The scheme exists to sell coffee.</p>
+
+      <h2>When to change the scheme and when to leave it alone</h2>
+
+      <p>Change something when a number crosses a threshold above <em>and</em> you can name what you would expect to happen. Change one thing at a time and give it a full quarter, because a stamp card measured over less than the time it takes an ordinary customer to complete one is not measured at all.</p>
+
+      <p>Leave it alone when the numbers are unremarkable. An unremarkable loyalty scheme costs you around 2% and gives your regulars a small reason to walk past someone else's door. That is a perfectly good outcome, and chasing it with monthly tinkering mostly destroys your ability to tell what any of it did.</p>
+
+      <p>The one situation that genuinely warrants a rethink is a high redemption rate concentrated in a handful of heavy users alongside a flat frequency change. That combination means the scheme is efficiently subsidising people who needed no subsidy — and that is a design question, not a data question.</p>
+
+
+      <h2>Sources</h2>
+
+      <ul>
+        <li><strong>The seven-times overstatement.</strong> Leenheer, van Heerde, Bijmolt and Smidts, "Do loyalty programs really enhance behavioral loyalty? An empirical analysis accounting for self-selecting members", <em>International Journal of Research in Marketing</em>, volume 24, issue 1, 2007, pages 31–47. Panel data from a representative sample of Dutch households across seven grocery loyalty programmes and twenty supermarket chains. The membership effect on share of wallet was positive and significant, and seven times smaller than a model ignoring self-selection implied. <a href="https://research.rug.nl/en/publications/do-loyalty-programs-really-enhance-behavioral-loyalty-an-empirica">Read it</a></li>
+        <li><strong>The 19% versus 34% completion figures.</strong> Nunes and Drèze, "The Endowed Progress Effect: How Artificial Advancement Increases Effort", <em>Journal of Consumer Research</em>, volume 32, issue 4, March 2006, pages 504–512. A car wash field experiment over nine months comparing an eight-stamp card with a ten-stamp card carrying two stamps already filled in — identical effort required either way. <a href="https://academic.oup.com/jcr/article/32/4/504/1796110">Read it</a></li>
+        <li><strong>Purchase acceleration and the post-reward dip.</strong> Kivetz, Urminsky and Zheng, "The Goal-Gradient Hypothesis Resurrected: Purchase Acceleration, Illusionary Goal Progress, and Customer Retention", <em>Journal of Marketing Research</em>, volume 43, issue 1, 2006, pages 39–58. A field study of a real café buy-ten-get-one-free card, plus supporting experiments. <a href="https://journals.sagepub.com/doi/abs/10.1509/jmkr.43.1.39">Read it</a></li>
+        <li><strong>The cost arithmetic.</strong> Worked here from a £3.50 cup with 60p of ingredients at 20% VAT — the same figures used across our other café pricing pieces. Every threshold in this article that is not attributed to one of the studies above is a working rule of thumb derived from that arithmetic and stated as such, not a published benchmark. No reliable café-specific benchmarks for sign-up or redemption rates exist in the public record; anyone quoting one to you should be asked where it came from.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>How do I know if my café's loyalty programme is working?</h3>
+        <p>Look at five numbers in order: sign-up rate among customers actually offered it, completion rate, redemption rate, change in visit frequency for members before and after they joined, and cost per redemption against gross profit per visit. The fourth is the one that comes closest to telling you whether behaviour changed. Do not use the members-versus-non-members comparison your dashboard shows first — it mostly measures who chose to sign up.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What is a good redemption rate for a coffee shop loyalty card?</h3>
+        <p>There is no published café benchmark worth quoting, so treat this as a working rule of thumb rather than data. Below about 40% of earned rewards being claimed, something is getting in the way — people forget, rewards expire, or claiming is awkward at a busy counter. Above about 85%, check who is redeeming: a small group redeeming fast and repeatedly means the scheme is rewarding customers who were already coming in.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What percentage of customers should join a café loyalty scheme?</h3>
+        <p>Measure it against the people your team actually offers it to, not against every customer through the door — otherwise you are measuring your rota, not your scheme. As a rule of thumb, under 20% of those asked points at how the offer is worded rather than at the scheme itself. Over 50% usually means your team is only offering it to people they recognise, which builds selection bias into everything you measure afterwards.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How do you measure the ROI of a loyalty programme?</h3>
+        <p>Set the cost of a redemption against the gross profit on an extra visit. On a £3.50 cup with 60p of ingredients, you keep about £2.32 per full-price sale after VAT, and a free drink costs you 60p — so a ten-stamp card is roughly a 2% discount, and it breaks even at about one additional visit for every four rewards given away. The arithmetic almost always works, which is why the harder question is whether the scheme changed anyone's behaviour at all.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Why do loyalty members spend more than non-members?</h3>
+        <p>Mostly because they already did. People sign up at cafés they already visit, so the gap between members and non-members largely reflects who chose to join. Research analysing loyalty programmes across twenty supermarket chains, using methods designed to separate joining from being the type of person who joins, found a real but small effect — seven times smaller than the naïve comparison implied. There is something there. It is not what the dashboard shows you.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How long should I wait before judging a loyalty scheme?</h3>
+        <p>At least one full completion cycle, and preferably two. If an ordinary customer needs ten weeks to fill a card, anything measured at 30 days is noise. Ninety days is enough to read sign-up rate and early frequency changes; completion and redemption rates need longer, or need to be measured only on cards started in your first month. Change one thing per quarter, or you will never know which change did what.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">See your first 90 days</span>
+    <h2>BaristaCard reports all five of these numbers from day one, with no spreadsheet.</h2>
+    <p>Sign-up rate, completion, redemption, visit frequency before and after joining, and what each reward actually costs you. Start free and find out what your scheme is really doing.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">Get Started Free →</a>
+      <a href="/baristacard-vs-competitors-comparison" class="btn btn-secondary btn-lg">Compare loyalty apps</a>
+    </div>
+    <div class="final-cta__micro">
+      <span>5-minute setup</span>
+      <span>No credit card</span>
+      <span>First venue free forever</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
