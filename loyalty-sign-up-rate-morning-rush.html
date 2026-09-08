@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fix Low Caf&eacute; Loyalty Sign-Up Rates (2026 Guide)</title>
+<meta name="description" content="Loyalty sign-ups stalling after launch? Here is why it happens during the morning rush &mdash; and four fixes that keep the queue moving.">
+<link rel="canonical" href="https://baristacard.com/loyalty-sign-up-rate-morning-rush">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fix Low Caf&eacute; Loyalty Sign-Up Rates (2026 Guide)">
+<meta property="og:description" content="Loyalty sign-ups stalling after launch? Here is why it happens during the morning rush &mdash; and four fixes that keep the queue moving.">
+<meta property="og:url" content="https://baristacard.com/loyalty-sign-up-rate-morning-rush">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;  /* page background */
+    --oat:        #F0E4D4;  /* nav / footer background */
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;  /* button text */
+    --brown:      #4A2C2A;  /* primary text */
+    --brown-deep: #542915;  /* logo / headline ink */
+    --tan:        #C8A27B;  /* primary accent / buttons */
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;  /* included / free accent */
+    --green-dark: #5C8261;
+    --red:        #C1665A;  /* not-included accent */
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 56px 0 48px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 28px; max-width: 640px;
+  }
+  .hero__ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+  .hero__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── VERDICT CARDS ── */
+  .verdicts { background: var(--cream); }
+  .verdicts__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .verdict-card {
+    border-radius: var(--radius-card);
+    padding: 26px 22px;
+    border: 2px solid rgba(74,44,42,.1);
+    background: var(--white);
+  }
+  .verdict-card--winner { border-color: var(--green); box-shadow: var(--shadow-card); }
+  .verdict-card__badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; background: var(--green); color: var(--ivory); margin-bottom: 14px;
+  }
+  .verdict-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: var(--brown-deep); }
+  .verdict-card__price { font-size: 14px; font-weight: 700; color: var(--tan-dark); margin-bottom: 12px; }
+  .verdict-card--winner .verdict-card__price { color: var(--green-dark); }
+  .verdict-card p.verdict-card__desc { font-size: 13px; color: rgba(74,44,42,.7); line-height: 1.6; }
+
+  /* ── MATRIX TABLE ── */
+  .matrix { background: var(--oat); }
+  .matrix__scroll { overflow-x: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-card); background: var(--white); }
+  table.matrix__table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 760px; font-size: 14px; }
+  .matrix__table th, .matrix__table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(74,44,42,.08); white-space: nowrap; }
+  .matrix__table thead th {
+    font-size: 12px; font-weight: 700; letter-spacing: .03em; color: var(--brown);
+    background: var(--oat); position: sticky; top: 0;
+  }
+  .matrix__table thead th.matrix__col--winner { background: rgba(122,158,126,.18); color: var(--green-dark); }
+  .matrix__table td:first-child, .matrix__table th:first-child {
+    text-align: left; font-weight: 500; color: var(--brown-deep);
+    position: sticky; left: 0; background: var(--white); z-index: 2; white-space: normal; min-width: 200px;
+  }
+  .matrix__table thead th:first-child { background: var(--oat); z-index: 3; }
+  .matrix__table td.matrix__col--winner { background: rgba(122,158,126,.08); font-weight: 700; }
+  .matrix__yes { color: var(--green-dark); font-weight: 700; }
+  .matrix__no { color: var(--red); font-weight: 700; }
+  .matrix__table tbody tr:last-child td { border-bottom: none; }
+  .matrix__caption { text-align: center; font-size: 12px; color: rgba(74,44,42,.6); margin-top: 14px; }
+
+  /* ── DEEP DIVE ── */
+  .deep-dive { background: var(--cream); }
+  .deep-dive__grid { display: flex; flex-direction: column; gap: 18px; }
+  .deep-dive__card {
+    display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start;
+    padding: 30px; border-radius: var(--radius-card); background: var(--white); border: 1.5px solid rgba(74,44,42,.08);
+  }
+  .deep-dive__card--winner { background: rgba(122,158,126,.08); border-color: var(--green); }
+  .deep-dive__name { font-size: 22px; font-weight: 700; color: var(--brown-deep); margin-bottom: 4px; }
+  .deep-dive__price { font-size: 13px; font-weight: 700; color: var(--tan-dark); }
+  .deep-dive__card--winner .deep-dive__price { color: var(--green-dark); }
+  .deep-dive__body p { font-size: 14px; color: rgba(74,44,42,.8); line-height: 1.7; margin-bottom: 10px; }
+  .deep-dive__body p:last-child { margin-bottom: 0; }
+  .deep-dive__body strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .verdicts__grid { grid-template-columns: 1fr 1fr; }
+    .deep-dive__card { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .verdicts__grid { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>
+  /* ── ARTICLE PROSE (this page) ── */
+  .prose-section { background: var(--cream); padding-top: 56px; }
+  .prose { max-width: 760px; margin: 0 auto; }
+  .prose h2 {
+    font-size: clamp(24px, 3vw, 32px); font-weight: 900; line-height: 1.25;
+    color: var(--brown-deep); margin: 48px 0 16px;
+  }
+  .prose > h2:first-child { margin-top: 0; }
+  .prose h3 {
+    font-size: 19px; font-weight: 700; color: var(--brown-deep); margin: 30px 0 10px;
+  }
+  .prose p { font-size: 17px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 18px; }
+  .prose strong { color: var(--brown-deep); font-weight: 700; }
+  .prose em { font-style: italic; }
+  .prose a { color: var(--brown-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .prose a:hover { color: var(--tan-dark); }
+  .prose ul { margin: 0 0 20px 22px; }
+  .prose li { font-size: 17px; line-height: 1.75; color: rgba(74,44,42,.85); margin-bottom: 12px; }
+  .prose .matrix__scroll { margin: 26px 0 8px; }
+  .prose .matrix__table td { white-space: normal; }
+  .prose .matrix__table td:first-child { min-width: 170px; }
+  .prose p.formula {
+    background: var(--white); border-left: 4px solid var(--tan);
+    border-radius: 0 12px 12px 0; padding: 18px 22px; font-weight: 600;
+    color: var(--brown-deep); margin: 24px 0;
+  }
+  .prose p.matrix__caption { font-size: 13px; margin-bottom: 26px; }
+  @media (max-width: 600px) {
+    .prose p, .prose li { font-size: 16px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why your loyalty sign-ups stall in the morning rush (and how to fix it)",
+  "description": "Sign-up rates fall after launch week because the busiest hour is the hour you are least able to explain anything. What the queue research says, and four fixes that survive a queue.",
+  "inLanguage": "en-GB",
+  "datePublished": "2026-09-08",
+  "dateModified": "2026-09-08",
+  "author": { "@type": "Organization", "name": "BaristaCard", "url": "https://baristacard.com" },
+  "publisher": { "@type": "Organization", "name": "BaristaCard", "url": "https://baristacard.com" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://baristacard.com/loyalty-sign-up-rate-morning-rush" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en-GB",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why are my café's loyalty sign-ups so low?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost always because of when you are asking rather than what you are offering. Your busiest hour is the hour your team has least room to explain anything, so the offer quietly stops being made — and a sign-up rate measured against everyone through the door mostly measures how often it was mentioned. Count offers as well as joins for one week before you change the scheme. If nine in ten customers were never asked, you do not have an adoption problem, you have a rota and a script problem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get more customers to join my loyalty programme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Move the joining away from the till, and give people a head start when they join. Signing up should be something a customer can finish while waiting for a flat white, or later from the receipt, rather than something that holds the queue. And a card handed over with the first stamp already on it is completed far more often than an empty one needing the same number of purchases — in a nine-month field experiment, 34% against 19%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a loyalty app slow down the till?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Collecting a stamp should not — it is a tap or a scan of a few seconds. Joining is the slow part, because it involves a phone, a keyboard and a decision. The reason this matters more than the seconds suggest is that research on retail queues found customers judge a queue by how many people are standing in it and do not adjust enough for how fast it is moving. A sign-up that adds one visible person to the line costs you more than the same delay hidden behind the counter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take customers to adopt a new loyalty scheme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Expect a burst in launch week and a fall after it, and do not read the fall as failure. The first wave is your regulars, who were always going to join. What follows is the true ongoing rate, and it is the number worth improving. Judge the scheme on at least one full card cycle: if an ordinary customer needs ten weeks to fill a card, nothing measured at thirty days means very much."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I offer a discount to get people to sign up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A free-drink discount at sign-up buys joins from people who would have joined anyway and trains everyone else to wait for offers. A stamp costs you nothing today, is worth something only if the customer comes back, and works better: it starts the card moving, which is the thing that predicts completion. If you want to spend money, spend it on the first stamp being free rather than on the first coffee being free."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span>Why loyalty sign-ups stall in the morning rush
+  </div>
+</div>
+
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__tags">
+        <span class="tag">Updated 2026</span>
+        <span class="tag">UK independents</span>
+      </div>
+      <h1 class="hero__headline">Why your loyalty sign-ups stall in the morning rush (and how to fix it)</h1>
+      <p class="hero__sub">
+        Launch week goes well. Three weeks later the joins have dried up and nobody can say why. The usual conclusion — customers do not want it — is almost always wrong. The likelier answer is that your busiest hour is the hour you are least able to explain anything, and that is also the hour most of your customers come in.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUICK ANSWER ═══ -->
+<section class="quick-answer">
+  <div class="container">
+    <div class="quick-answer__inner">
+      <div class="quick-answer__icon">?</div>
+      <p><strong>Why are my caf&eacute;'s loyalty sign-ups so low?</strong> Usually because of <em>when</em> you are asking, not <em>what</em> you are offering. The morning rush is when most of your customers arrive and when your team has least room to explain anything, so the offer quietly stops being made — and a queue that grows by one visible person costs you more than the seconds suggest. Count how often it is actually offered before you change anything about the scheme.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section prose-section">
+  <div class="container">
+    <div class="prose">
+
+      <h2>The short version</h2>
+
+      <ul>
+        <li><strong>The launch-week drop is normal.</strong> Your regulars join first. What comes after is your real ongoing rate, and that is the number to work on.</li>
+        <li><strong>Measure offers, not footfall.</strong> A sign-up rate against everyone through the door mostly measures how often anyone mentioned it.</li>
+        <li><strong>The queue is the constraint, and it is worse than it looks.</strong> Customers judge a queue by how many people are in it, not by how fast it moves.</li>
+        <li><strong>So move joining off the till</strong> rather than trying to make joining at the till faster.</li>
+        <li><strong>Give a head start.</strong> A card with the first stamp already on it gets finished far more often than an empty one needing the same number of purchases.</li>
+      </ul>
+
+      <h2>The real reason adoption drops after launch week</h2>
+
+      <p>In launch week everyone is enthusiastic. The posters are new, the team is talking about it, and the people joining are your regulars — the customers who were already coming in four times a week and would have signed up for almost anything you put in front of them.</p>
+
+      <p>Then that pool empties. By week three the only people left to sign up are occasional customers and strangers, who need a reason and a sentence of explanation, and the person best placed to give them that sentence is currently steaming milk with three orders backed up. The rate does not collapse. It reverts to what it was always going to be once the easy joins were spent.</p>
+
+      <p>This matters because of what most owners do next. They conclude the scheme is not appealing and they change the scheme — more stamps, a bigger reward, a redesigned card. That fixes a problem they do not have, and it usually costs margin. Before changing anything, find out whether the offer is being made at all.</p>
+
+      <h3>The one-week count that settles it</h3>
+
+      <p>For one week, have the team mark a tally every time they actually offer the scheme to someone who is not already a member. A pen and a scrap of paper by the till is enough. At the end of the week you have the only sign-up rate worth reading: <strong>joins divided by offers</strong>, not joins divided by customers.</p>
+
+      <p>The result is usually one of two things, and they need opposite responses. If most customers were never asked, you have a rota and script problem, and the scheme is fine. If most were asked and few joined, then — and only then — is it worth looking at the offer itself. A rate under roughly 20% among people genuinely asked points at the wording. Over roughly 50% usually means your team is only offering it to faces they recognise, which quietly builds bias into every number you measure afterwards.</p>
+
+      <h2>What is actually happening at the till between 8 and 9.30</h2>
+
+      <p>There is no trustworthy published figure for what share of a UK independent's trade lands in the morning peak — the numbers circulating online come from content sites without primary sources behind them, so treat any specific percentage with suspicion. You already have the real answer in your own till data: pull last month's transactions by hour and look. For most sites the shape is stark, and it means the hour that decides your week is also the hour with no slack in it.</p>
+
+      <p>Here is the part that is genuinely counter-intuitive, and it is the reason "just make the sign-up quicker" is the wrong fix. Researchers combining video recognition of a store's queue with its till data found that waiting has a non-linear effect on whether people buy at all, and — crucially — that <a href="https://pubsonline.informs.org/doi/10.1287/mnsc.1120.1686">customers focus mostly on the length of the queue, without adjusting enough for the speed at which the line moves</a>.</p>
+
+      <p>Read that again with your own door in mind. The person deciding whether to come in is counting heads. They cannot see that your queue is moving briskly, and they do not correct for it. So a sign-up that adds twenty seconds at the counter does not cost you twenty seconds. It costs you one more visible body in the line, for as long as that body is standing there, in front of everyone still deciding whether to join the back of it.</p>
+
+      <p>That reframes the whole problem. The goal is not a faster sign-up. The goal is a sign-up that never occupies a place in the queue.</p>
+
+      <h2>Four low-friction sign-up methods that survive a queue</h2>
+
+      <h3>1. Join while waiting, not while paying</h3>
+
+      <p>The gap between ordering and collecting is dead time the customer is already spending in your shop. A small sign at the collection point — join here, first stamp on us — lets someone sign up with their phone while standing still, without holding anyone up. Nothing is added to the transaction, and no place in the queue is occupied.</p>
+
+      <p>This is the single highest-value change on the list, because it converts your worst constraint into your best opportunity: the busiest hour is also the hour with the most people standing around waiting for drinks.</p>
+
+      <h3>2. Put it on the receipt or the confirmation</h3>
+
+      <p>A short link on the receipt costs nothing at the counter and reaches every single customer, including the ones your team never got round to asking. Take-up per receipt is low, but it applies to everybody, every day, and it keeps working on the mornings when the team is under water and stops offering entirely.</p>
+
+      <h3>3. One tap, no download, no account</h3>
+
+      <p>Every step between wanting to join and being joined loses people, and an app download during a morning rush loses nearly all of them. If joining requires finding the App Store, waiting for a download and creating a password, it will not happen at 8.15am — it will not happen at all. A wallet pass or a link that adds the card in one tap is a different proposition entirely. This is the whole reason BaristaCard works without an app.</p>
+
+      <h3>4. Let the team offer it at quiet moments too</h3>
+
+      <p>Nothing says the offer has to be made at the peak. The 10.30 customer having a coffee at a table has time, will listen and may well be the occasional visitor you most want to convert. Explicitly telling the team "ask when it is quiet, skip it when it is not" removes the awkwardness that otherwise stops them asking at all.</p>
+
+      <h3>And the thing to do at the moment of joining</h3>
+
+      <p>Give a head start. In <a href="https://academic.oup.com/jcr/article/32/4/504/1796110">a field experiment with 300 car-wash customers over nine months</a>, people given a card needing eight stamps completed it 19% of the time. People given a ten-stamp card with two stamps already filled in — identical effort, eight more purchases either way — completed it <strong>34%</strong> of the time. Nearly double, from a change that gives away nothing.</p>
+
+      <p>The lesson belongs at sign-up, not just at card design. A card that leaves the counter with the first stamp already on it is a card that has started. An empty one is a decision the customer has not yet made.</p>
+
+      <h2>Scripts: what to say in under five seconds</h2>
+
+      <p>Most low sign-up rates are a wording problem, and the fix is free. The standard version — "Are you on our loyalty card?" — is a yes-or-no question with a socially easy no, asked of someone who is thinking about their order. It invites the answer you do not want.</p>
+
+      <p>Two changes fix most of it. Assume the join rather than requesting it, and hand over something rather than asking for something:</p>
+
+      <ul>
+        <li><strong>Instead of</strong> "Do you want to join our loyalty scheme?" <strong>try</strong> "Shall I put your first stamp on that?"</li>
+        <li><strong>Instead of</strong> "Are you on our loyalty card?" <strong>try</strong> "You're two off a free one if you start today — want me to set it up while your coffee's going?"</li>
+        <li><strong>When it is genuinely too busy</strong>, hand the receipt over with "Your free coffee's on there if you scan it" and move on. Four words, no queue time.</li>
+      </ul>
+
+      <p>None of this is manipulation. You are offering something with real value at the one moment the customer is thinking about coffee — the trick is only that the sentence should not put a decision in front of someone who is already holding up a line.</p>
+
+      <h2>How to measure whether it is working</h2>
+
+      <p>Change one thing at a time, and give it a fortnight. Four numbers tell you what happened:</p>
+
+      <ul>
+        <li><strong>Offers per shift.</strong> The tally count. If this does not move, nothing else will.</li>
+        <li><strong>Joins per offer.</strong> The honest sign-up rate. This is what a script change should shift.</li>
+        <li><strong>Joins outside the peak hour.</strong> If the collection-point sign and the receipt link are working, joins should spread out across the day rather than clustering when someone remembered to ask.</li>
+        <li><strong>Second-visit rate among new joiners.</strong> The share of people who come back and collect a second stamp within a fortnight. This catches the failure mode where you get plenty of joins and none of them mean anything.</li>
+      </ul>
+
+      <p>That last one is worth guarding. It is easy to raise sign-ups by signing up people who never return, and a scheme full of one-stamp cards is worse than a smaller scheme full of moving ones. If you want the fuller picture of what to watch once the scheme is bedded in, that is covered in <a href="/cafe-loyalty-metrics-first-90-days">the five numbers to look at in your first 90 days</a>.</p>
+
+      <p>One honest caveat about all of this. The queue research above was conducted in a supermarket setting rather than a caf&eacute;, and the head-start experiment was run at a car wash, not a coffee counter. Both are well-built studies of real customers spending real money, and both point the same way — but neither was done behind your till. Treat them as strong reasons to try something specific, then let your own four numbers settle the argument.</p>
+
+      <h2>Where to start tomorrow</h2>
+
+      <p>If you do one thing, count offers for a week. If you do two, put a join-here sign at the collection point. If you do three, change the sentence — and start every new card with a stamp already on it.</p>
+
+      <p>None of it costs money, and none of it requires touching the scheme itself.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Common questions</span>
+      <h2>Loyalty sign-up rates, answered</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>Why are my caf&eacute;'s loyalty sign-ups so low?</h3>
+        <p>Almost always because of when you are asking rather than what you are offering. Your busiest hour is the hour your team has least room to explain anything, so the offer quietly stops being made — and a sign-up rate measured against everyone through the door mostly measures how often it was mentioned. Count offers as well as joins for one week before you change the scheme. If nine in ten customers were never asked, you do not have an adoption problem, you have a rota and a script problem.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How do I get more customers to join my loyalty programme?</h3>
+        <p>Move the joining away from the till, and give people a head start when they join. Signing up should be something a customer can finish while waiting for a flat white, or later from the receipt, rather than something that holds the queue. And a card handed over with the first stamp already on it is completed far more often than an empty one needing the same number of purchases — in a nine-month field experiment, 34% against 19%.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Does a loyalty app slow down the till?</h3>
+        <p>Collecting a stamp should not — it is a tap or a scan of a few seconds. Joining is the slow part, because it involves a phone, a keyboard and a decision. The reason this matters more than the seconds suggest is that research on retail queues found customers judge a queue by how many people are standing in it and do not adjust enough for how fast it is moving. A sign-up that adds one visible person to the line costs you more than the same delay hidden behind the counter.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How long does it take customers to adopt a new loyalty scheme?</h3>
+        <p>Expect a burst in launch week and a fall after it, and do not read the fall as failure. The first wave is your regulars, who were always going to join. What follows is the true ongoing rate, and it is the number worth improving. Judge the scheme on at least one full card cycle: if an ordinary customer needs ten weeks to fill a card, nothing measured at thirty days means very much.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Should I offer a discount to get people to sign up?</h3>
+        <p>A free-drink discount at sign-up buys joins from people who would have joined anyway and trains everyone else to wait for offers. A stamp costs you nothing today, is worth something only if the customer comes back, and works better: it starts the card moving, which is the thing that predicts completion. If you want to spend money, spend it on the first stamp being free rather than on the first coffee being free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">No app, no download, no queue</span>
+    <h2>BaristaCard signs a customer up in one tap — while their coffee is still being made.</h2>
+    <p>A wallet card that adds itself in seconds, a first stamp you can put on at sign-up, and a joins-per-offer number you can actually read. Start free and stop losing sign-ups to your own morning rush.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">Get Started Free →</a>
+      <a href="/baristacard-vs-competitors-comparison" class="btn btn-secondary btn-lg">Compare loyalty apps</a>
+    </div>
+    <div class="final-cta__micro">
+      <span>5-minute setup</span>
+      <span>No credit card</span>
+      <span>First venue free forever</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
