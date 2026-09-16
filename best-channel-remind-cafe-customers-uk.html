@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallet Pass vs SMS vs Email: Best Caf&eacute; Channel</title>
+<meta name="description" content="Wallet pass, SMS or email &mdash; which one actually brings caf&eacute; regulars back? A practical comparison for UK independents choosing how to re-engage.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wallet Pass vs SMS vs Email: Best Caf&eacute; Channel">
+<meta property="og:description" content="Wallet pass, SMS or email &mdash; which one actually brings caf&eacute; regulars back? A practical comparison for UK independents choosing how to re-engage.">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Wallet pass, SMS or email: which channel actually brings caf\u00e9 regulars back",
+  "description": "A comparison of the three ways a UK independent caf\u00e9 can message enrolled loyalty customers \u2014 wallet pass notifications, SMS and email \u2014 covering what Apple and Google actually permit, what SMS costs per send, and what email open rates really look like in food and drink.",
+  "inLanguage": "en-GB",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": { "@type": "Organization", "name": "BaristaCard", "url": "https://baristacard.com" },
+  "publisher": { "@type": "Organization", "name": "BaristaCard", "url": "https://baristacard.com" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://baristacard.com/best-channel-remind-cafe-customers-uk" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en-GB",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best way to remind loyalty customers to come back to my caf\u00e9?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the wallet pass they already added for anything tied to their own progress, such as a stamp card that is one away from a free coffee. It costs nothing per message, it goes only to people who chose to keep the card, and it needs no app download. Keep email for the once-a-month news that is not urgent, and keep SMS for the one or two moments a year that genuinely justify interrupting someone, because it is the only one of the three that costs you money every time you press send."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SMS or email better for caf\u00e9 marketing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Email is better for routine messages and SMS is better for genuinely time-critical ones. In food and drink, Klaviyo's 2026 benchmarks put campaign emails at a 31.2% open rate and a 1.7% click rate, and automated emails at 33% and 5.8%. SMS has no equivalent measured open rate at all, because text messages carry no tracking pixel; the 98% figure quoted across the industry cannot be traced to a primary source. SMS also costs roughly 1.8p to 5p per message in the UK, so a list of 300 costs about six to fifteen pounds every time you send. Under UK rules both need the same permission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do wallet pass notifications actually work for loyalty cards?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They work within limits that most loyalty vendors do not spell out. Apple's own guidance says a change message interrupts the user and is appropriate only for time-sensitive information, so a pass notification is meant to report a real change to the card rather than carry an advert. Google Wallet caps you at three push-triggering messages per pass in any 24 hours. An Apple pass can also hold up to ten locations that make it surface on the lock screen near your shop. Customers can switch all of it off. Used for reward progress rather than promotion, it is the cheapest and least annoying of the three."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need permission to text or email my caf\u00e9 loyalty customers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Under the Privacy and Electronic Communications Regulations you must not send marketing emails or texts to individuals without consent. There is a narrow exception, the soft opt-in, for your own existing customers, but only if you gave them a clear chance to opt out when you collected their details and you give them that chance in every message afterwards. The rule is the same for email and for SMS. A wallet pass is different in character: the customer added it to their phone themselves and can delete it in one tap, but the messages you attach to it are still subject to the same general marketing and data protection duties."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;  /* page background */
+    --oat:        #F0E4D4;  /* nav / footer background */
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;  /* button text */
+    --brown:      #4A2C2A;  /* primary text */
+    --brown-deep: #542915;  /* logo / headline ink */
+    --tan:        #C8A27B;  /* primary accent / buttons */
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;  /* included / free accent */
+    --green-dark: #5C8261;
+    --red:        #C1665A;  /* not-included accent */
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 56px 0 48px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 28px; max-width: 640px;
+  }
+  .hero__ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+  .hero__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── VERDICT CARDS ── */
+  .verdicts { background: var(--cream); }
+  .verdicts__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .verdict-card {
+    border-radius: var(--radius-card);
+    padding: 26px 22px;
+    border: 2px solid rgba(74,44,42,.1);
+    background: var(--white);
+  }
+  .verdict-card--winner { border-color: var(--green); box-shadow: var(--shadow-card); }
+  .verdict-card__badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; background: var(--green); color: var(--ivory); margin-bottom: 14px;
+  }
+  .verdict-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: var(--brown-deep); }
+  .verdict-card__price { font-size: 14px; font-weight: 700; color: var(--tan-dark); margin-bottom: 12px; }
+  .verdict-card--winner .verdict-card__price { color: var(--green-dark); }
+  .verdict-card p.verdict-card__desc { font-size: 13px; color: rgba(74,44,42,.7); line-height: 1.6; }
+
+  /* ── MATRIX TABLE ── */
+  .matrix { background: var(--oat); }
+  .matrix__scroll { overflow-x: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-card); background: var(--white); }
+  table.matrix__table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 760px; font-size: 14px; }
+  .matrix__table th, .matrix__table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(74,44,42,.08); white-space: nowrap; }
+  .matrix__table thead th {
+    font-size: 12px; font-weight: 700; letter-spacing: .03em; color: var(--brown);
+    background: var(--oat); position: sticky; top: 0;
+  }
+  .matrix__table thead th.matrix__col--winner { background: rgba(122,158,126,.18); color: var(--green-dark); }
+  .matrix__table td:first-child, .matrix__table th:first-child {
+    text-align: left; font-weight: 500; color: var(--brown-deep);
+    position: sticky; left: 0; background: var(--white); z-index: 2; white-space: normal; min-width: 200px;
+  }
+  .matrix__table thead th:first-child { background: var(--oat); z-index: 3; }
+  .matrix__table td.matrix__col--winner { background: rgba(122,158,126,.08); font-weight: 700; }
+  .matrix__yes { color: var(--green-dark); font-weight: 700; }
+  .matrix__no { color: var(--red); font-weight: 700; }
+  .matrix__table tbody tr:last-child td { border-bottom: none; }
+  .matrix__caption { text-align: center; font-size: 12px; color: rgba(74,44,42,.6); margin-top: 14px; }
+
+  /* ── DEEP DIVE ── */
+  .deep-dive { background: var(--cream); }
+  .deep-dive__grid { display: flex; flex-direction: column; gap: 18px; }
+  .deep-dive__card {
+    display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start;
+    padding: 30px; border-radius: var(--radius-card); background: var(--white); border: 1.5px solid rgba(74,44,42,.08);
+  }
+  .deep-dive__card--winner { background: rgba(122,158,126,.08); border-color: var(--green); }
+  .deep-dive__name { font-size: 22px; font-weight: 700; color: var(--brown-deep); margin-bottom: 4px; }
+  .deep-dive__price { font-size: 13px; font-weight: 700; color: var(--tan-dark); }
+  .deep-dive__card--winner .deep-dive__price { color: var(--green-dark); }
+  .deep-dive__body p { font-size: 14px; color: rgba(74,44,42,.8); line-height: 1.7; margin-bottom: 10px; }
+  .deep-dive__body p:last-child { margin-bottom: 0; }
+  .deep-dive__body strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .verdicts__grid { grid-template-columns: 1fr 1fr; }
+    .deep-dive__card { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .verdicts__grid { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>
+  /* ── PAGE-SPECIFIC: article worksheets ── */
+  .hero__micro { font-size: 13px; color: rgba(74,44,42,.6); margin-top: 14px; }
+  .hero__headline { max-width: 20ch; }
+  .deep-dive__card--flag { border-left: 4px solid var(--tan); }
+  .worksheet .matrix__table td { font-variant-numeric: tabular-nums; }
+  .worksheet .matrix__table td:first-child { min-width: 180px; }
+  .worksheet .matrix__table tr.total td { font-weight: 700; color: var(--brown-deep); background: rgba(122,158,126,.10); }
+  .worksheet .matrix__table tr.total td:first-child { background: rgba(240,250,240,1); }
+  .worksheet + .worksheet { padding-top: 0; }
+  .rates-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+  .rate-card { background: var(--white); border: 1.5px solid rgba(74,44,42,.08); border-radius: var(--radius-card); padding: 22px; }
+  .rate-card__band { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 6px; }
+  .rate-card__rate { font-size: 30px; font-weight: 900; color: var(--brown-deep); line-height: 1.1; }
+  .rate-card__was { font-size: 13px; color: rgba(74,44,42,.65); margin-top: 6px; }
+  .content-link { color: var(--brown-deep); }
+  @media (max-width: 900px) { .rates-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 720px) {
+    .hero__headline { max-width: none; }
+    .deep-dive__card { grid-template-columns: 1fr; gap: 14px; padding: 24px; }
+  }
+  @media (max-width: 480px) { .rates-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; Wallet pass, SMS or email
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="eyebrow">Re-engagement &middot; UK independents &middot; 2026</span>
+      <h1 class="hero__headline">Wallet pass, SMS or email: which channel actually brings caf&eacute; regulars back</h1>
+      <p class="hero__sub">Getting someone to join your loyalty scheme takes thirty seconds at the till. Getting them to think about you again three weeks later is the hard part, and it is a different problem with a different answer. We went through what Apple and Google actually permit you to send to a wallet pass, what a text really costs a caf&eacute;-sized list, and what email open rates look like in food and drink &mdash; then worked out which message belongs on which channel.</p>
+      <p class="hero__micro">Last updated 16 September 2026 &middot; UK &middot; Figures from Apple, Google, Klaviyo and the ICO</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK ANSWER -->
+<div class="quick-answer">
+  <div class="container">
+    <div class="quick-answer__inner">
+      <div class="quick-answer__icon">?</div>
+      <p><strong>What is the best way to remind loyalty customers to come back?</strong> There is no single winner, and anyone selling you one is selling you their own product. The <strong>wallet pass</strong> is the only channel that is free per message and already welcome, because the customer put the card on their own phone &mdash; but Apple intends it for real changes to the card, not adverts, and Google caps you at <strong>three</strong> push messages a day. <strong>Email</strong> is cheap and measurable, and in food and drink about <strong>a third</strong> of people open it. <strong>SMS</strong> is the only one that costs you money every single send, at roughly <strong>1.8p to 5p</strong> a message. Put reward progress on the pass, put the monthly news in email, and save SMS for the two or three moments a year that genuinely deserve to interrupt someone.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHY ENROLLING ISN'T RE-ENGAGING -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The actual problem</span>
+      <h2>Signing someone up is not the same as staying in their head</h2>
+      <p>Most caf&eacute; loyalty schemes do not fail at the counter. They fail in the twenty-one days afterwards.</p>
+    </div>
+    <div class="deep-dive__grid">
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Enrolment is a one-off act</div>
+          <div class="deep-dive__price">Thirty seconds</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Someone scans a code, a card lands on their phone, and they feel mildly pleased. Then they walk out and the card joins nine others they have forgotten about. Nothing about that moment creates a reason to return; it only creates the <em>means</em> to be reminded. Which is why sign-up numbers are the most flattering and least useful figure in loyalty &mdash; we wrote about squeezing more of them out of a busy till in <a class="content-link" href="/loyalty-sign-up-rate-morning-rush.html">why your loyalty sign-ups stall in the morning rush</a>, but a bigger list changes nothing on its own.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Being remembered is a repeated act</div>
+          <div class="deep-dive__price">Little and often</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Familiarity is built by small, frequent, unremarkable contact rather than by occasional big pushes. That is the argument for a channel that can touch someone lightly and often without costing you anything or irritating them &mdash; and the argument against blasting a discount at everyone once a quarter because it is the only tool you have. The channel that can be gentle and frequent wins by default, because the other two cannot be used that way without a cost.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card deep-dive__card--flag">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">And you have to know who left</div>
+          <div class="deep-dive__price">The prior question</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>All of this assumes you can tell a regular from someone who came in once in March. If you cannot, the channel question is academic &mdash; you will end up sending the same message to everyone, which is the least effective thing any of these three can do. The timing of that message matters as much as the medium, and we have covered it separately in <a class="content-link" href="/win-back-lapsed-cafe-customers.html">the 21-day window</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERDICTS -->
+<section class="verdicts section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Short version</span>
+      <h2>The three channels, honestly</h2>
+      <p>Each one is good at something the other two are bad at. None of them is good at everything.</p>
+    </div>
+    <div class="verdicts__grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="verdict-card verdict-card--winner">
+        <span class="verdict-card__badge">Best default</span>
+        <h3>Wallet pass</h3>
+        <div class="verdict-card__price">&pound;0 per message</div>
+        <p class="verdict-card__desc">Already on their phone, already permitted, no app to download, nothing to pay per send. In exchange you accept real limits on what you are allowed to say and how often. Best for anything tied to the customer&rsquo;s own progress.</p>
+      </div>
+      <div class="verdict-card">
+        <h3>Email</h3>
+        <div class="verdict-card__price">Near &pound;0 at caf&eacute; list sizes</div>
+        <p class="verdict-card__desc">Room to say more than one sentence, properly measurable, and free or nearly free for a few hundred addresses. About a third get opened in food and drink. Best for the monthly thing nobody needs to read today.</p>
+      </div>
+      <div class="verdict-card">
+        <h3>SMS</h3>
+        <div class="verdict-card__price">1.8p&ndash;5p per message</div>
+        <p class="verdict-card__desc">The only one that reliably reaches someone within minutes, and the only one with a bill attached. Also the easiest to overuse. Best kept for two or three genuinely time-critical sends a year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WALLET PASS DETAIL -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Channel one</span>
+      <h2>Wallet pass: what Apple and Google actually let you do</h2>
+      <p>This is the part loyalty vendors tend to skip. The platforms have written rules, and they are narrower than the sales pitch.</p>
+    </div>
+    <div class="deep-dive__grid">
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Apple: only for things that have genuinely changed</div>
+          <div class="deep-dive__price">Time-sensitive only</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>A pass notification on iPhone is triggered by the pass itself changing. Apple&rsquo;s developer guidance is blunt about the bar: change messages &ldquo;interrupt the user and must be read immediately&rdquo; and are &ldquo;typically appropriate only for information that is time sensitive&rdquo;. Its example of something that does <em>not</em> merit one is updating a season ticket for the next game. The same guidance says to send pushes &ldquo;only when the pass has changed&rdquo; and warns: &ldquo;Don&rsquo;t send unnecessary pushes.&rdquo;</p>
+          <p>Read plainly, that rules out using the pass as an advertising channel and rules in using it to report something real: a stamp added, a reward unlocked, an offer about to expire. Which, conveniently, is also the thing customers actually respond to.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Google: three a day, hard cap</div>
+          <div class="deep-dive__price">3 per pass / 24h</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Google Wallet allows a message to be attached to a pass that also fires a push notification. Both message and update notifications are capped at three per pass in any 24-hour period, explicitly to stop businesses spamming. Google is somewhat more relaxed than Apple about promotional content within that cap, so the two platforms behave differently for the same customer base &mdash; something to remember before you promise yourself a daily nudge.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">The location trick, and its limit</div>
+          <div class="deep-dive__price">Up to 10 places</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>An Apple pass can carry up to ten locations. When the phone is near one of them, the pass can surface on the lock screen with a short message you wrote in advance. For a single-site caf&eacute; this is close to free advertising at the exact moment it is useful: someone walking past at half eight sees their card. For a small group, ten sites is plenty. The cap exists to spare the battery, so if you ever run more than ten venues you have to choose the best ten.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card deep-dive__card--flag">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">They can switch you off</div>
+          <div class="deep-dive__price">One tap</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>On both platforms the customer can disable notifications for a pass, or delete the pass entirely, without telling you and without any friction. That is the real governor on this channel, and it is a healthier one than a rulebook: the pass survives exactly as long as it is useful. Treat it as a privilege that can be revoked silently and you will land on roughly the right frequency by yourself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SMS DETAIL -->
+<section class="matrix section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Channel two</span>
+      <h2>SMS: the bill, and the statistic that is not real</h2>
+      <p>Text is the only one of the three with a per-message cost. It is worth knowing what that comes to before you build a habit around it.</p>
+    </div>
+    <div class="matrix__scroll">
+      <table class="matrix__table">
+        <thead>
+          <tr>
+            <th>Enrolled customers</th>
+            <th>One send at 2p</th>
+            <th>One send at 4p</th>
+            <th>Monthly at 3p</th>
+            <th>A year, monthly, at 3p</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>200</td>
+            <td>&pound;4.00</td>
+            <td>&pound;8.00</td>
+            <td>&pound;6.00</td>
+            <td>&pound;72</td>
+          </tr>
+          <tr>
+            <td>500</td>
+            <td>&pound;10.00</td>
+            <td>&pound;20.00</td>
+            <td>&pound;15.00</td>
+            <td>&pound;180</td>
+          </tr>
+          <tr>
+            <td>1,000</td>
+            <td>&pound;20.00</td>
+            <td>&pound;40.00</td>
+            <td>&pound;30.00</td>
+            <td>&pound;360</td>
+          </tr>
+          <tr>
+            <td>2,000</td>
+            <td>&pound;40.00</td>
+            <td>&pound;80.00</td>
+            <td>&pound;60.00</td>
+            <td>&pound;720</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="matrix__caption">UK domestic SMS typically runs 1.8p to 5p a message depending on provider and volume. Our own arithmetic, at illustrative rates.</p>
+    <div class="deep-dive__grid" style="margin-top:28px;">
+      <div class="deep-dive__card deep-dive__card--flag">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Long messages cost double</div>
+          <div class="deep-dive__price">160 characters</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>A text is billed per 160-character segment. Go one character over and you are paying for two, and when a message is split the usable length per segment drops to 153 because part of each one is spent joining them back together. Use an emoji or a curly apostrophe and the whole message switches to a different encoding where the limit falls to 70 characters. A cheerful sign-off can quietly double your bill across a list of a thousand people.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Nobody can measure an SMS open</div>
+          <div class="deep-dive__price">The 98% claim</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>You will see &ldquo;98% of texts are opened&rdquo; everywhere, usually on a page selling SMS. It is not a measurement. Email carries a tracking pixel; a text message carries nothing, and neither the carrier nor the handset reports whether anyone read it. The figure is an inference from delivery receipts and reply rates that hardened into a fact through repetition. We have left it out of our own numbers, as we did in <a class="content-link" href="/win-back-lapsed-cafe-customers.html">our win-back guide</a>, and you should discount any vendor quoting it at you.</p>
+          <p>What is genuinely true about SMS is narrower and still useful: it arrives on the lock screen within seconds, and almost nobody has a filtered text inbox. Immediacy is real. A 98% readership is not established.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">The annoyance is asymmetric</div>
+          <div class="deep-dive__price">STOP is permanent</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>An ignored email costs you nothing. An unwanted text costs you the customer&rsquo;s patience, and the exit is one word long. Because texting feels personal, an unwelcome one feels like a small breach rather than a bit of clutter, and the reply is usually STOP rather than a shrug. You do not get that permission back. Spend it two or three times a year on things that could not have waited.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL DETAIL -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Channel three</span>
+      <h2>Email: cheaper and better than its reputation</h2>
+      <p>Caf&eacute; owners tend to write email off as ignored. The measured figures for food and drink are a good deal better than that.</p>
+    </div>
+    <div class="rates-grid">
+      <div class="rate-card">
+        <div class="rate-card__band">Campaign open rate</div>
+        <div class="rate-card__rate">31.2%</div>
+        <div class="rate-card__was">Food &amp; beverage &middot; Klaviyo 2026</div>
+      </div>
+      <div class="rate-card">
+        <div class="rate-card__band">Campaign click rate</div>
+        <div class="rate-card__rate">1.7%</div>
+        <div class="rate-card__was">The one-to-everyone send</div>
+      </div>
+      <div class="rate-card">
+        <div class="rate-card__band">Automated open rate</div>
+        <div class="rate-card__rate">33%</div>
+        <div class="rate-card__was">Triggered by something</div>
+      </div>
+      <div class="rate-card">
+        <div class="rate-card__band">Automated click rate</div>
+        <div class="rate-card__rate">5.8%</div>
+        <div class="rate-card__was">More than 3&times; a campaign</div>
+      </div>
+    </div>
+    <div class="deep-dive__grid" style="margin-top:28px;">
+      <div class="deep-dive__card deep-dive__card--winner">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">The interesting number is the gap</div>
+          <div class="deep-dive__price">5.8% vs 1.7%</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Open rates barely differ between a newsletter to everyone and an automated email triggered by something that person did &mdash; 33% against 31.2%. Click rates differ enormously: 5.8% against 1.7%, better than three times as many. The lesson is not &ldquo;email works&rdquo; or &ldquo;email doesn&rsquo;t&rdquo;. It is that an email prompted by the individual&rsquo;s own behaviour does roughly three times the work of the same email sent to the whole list.</p>
+          <p>That is the same principle that makes the wallet pass effective, arriving by a different route. Relevance is doing the work in both cases; the channel is just the pipe.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">At your list size it is free</div>
+          <div class="deep-dive__price">Hundreds, not thousands</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Every mainstream email tool has a free tier that comfortably covers a few hundred contacts and a send or two a month. Unlike SMS, the cost does not scale with how often you press send, so there is no financial reason to ration it &mdash; only an attention reason. Email is also the only one of the three where you can say more than a sentence, include a picture of the thing, and have it still be there tomorrow.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Where it genuinely is weak</div>
+          <div class="deep-dive__price">Today&rsquo;s news</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Roughly two thirds of your list will not open any given email, and the ones who do may not do so for a day or more. So email is the wrong tool for anything that expires this afternoon. &ldquo;We are closing at two today&rdquo; is not an email. &ldquo;Here is what is on for October&rdquo; is exactly an email.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIX BY MESSAGE TYPE -->
+<section class="matrix section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The actual answer</span>
+      <h2>Match the channel to the message, not to the customer</h2>
+      <p>The question &ldquo;which channel is best&rdquo; has no answer. &ldquo;Which channel for this message&rdquo; has an obvious one nearly every time.</p>
+    </div>
+    <div class="matrix__scroll">
+      <table class="matrix__table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">What you want to say</th>
+            <th>Wallet pass</th>
+            <th>Email</th>
+            <th>SMS</th>
+            <th style="text-align:left;">Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:left;">One stamp from a free coffee</td>
+            <td class="matrix__yes">Yes</td>
+            <td class="matrix__no">No</td>
+            <td class="matrix__no">No</td>
+            <td style="text-align:left;white-space:normal;">A real change to their card. Free, welcome, and exactly what the pass is for.</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">Reward earned, come and claim it</td>
+            <td class="matrix__yes">Yes</td>
+            <td class="matrix__no">No</td>
+            <td class="matrix__no">No</td>
+            <td style="text-align:left;white-space:normal;">Personal, timely, tied to their own progress. Never send this to a whole list.</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">Not seen you in three weeks</td>
+            <td class="matrix__yes">Yes</td>
+            <td class="matrix__yes">Yes</td>
+            <td class="matrix__no">No</td>
+            <td style="text-align:left;white-space:normal;">Pass first because it is free; email if they never added one. Not worth a text.</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">New autumn menu, October events</td>
+            <td class="matrix__no">No</td>
+            <td class="matrix__yes">Yes</td>
+            <td class="matrix__no">No</td>
+            <td style="text-align:left;white-space:normal;">Needs room, pictures and no urgency. Apple would call this an unnecessary push.</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">Christmas opening hours</td>
+            <td class="matrix__no">No</td>
+            <td class="matrix__yes">Yes</td>
+            <td class="matrix__yes">Yes</td>
+            <td style="text-align:left;white-space:normal;">Email a fortnight out, text the day before. One of your two or three SMS a year.</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">Closed today, burst pipe</td>
+            <td class="matrix__no">No</td>
+            <td class="matrix__no">No</td>
+            <td class="matrix__yes">Yes</td>
+            <td style="text-align:left;white-space:normal;">The one case where paying per message and interrupting people is clearly right.</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">20% off everything this week</td>
+            <td class="matrix__no">No</td>
+            <td class="matrix__yes">Yes</td>
+            <td class="matrix__no">No</td>
+            <td style="text-align:left;white-space:normal;">Pure promotion, so not what a pass notification is for. And discounting your whole menu is rarely the fix &mdash; see <a class="content-link" href="/loyalty-reward-margin-maths.html">reward maths</a>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="matrix__caption">Read the pattern rather than the rows: anything about <em>them</em> goes on the pass, anything about <em>you</em> goes in an email, and anything that stops being true by this evening is the only thing worth a text.</p>
+  </div>
+</section>
+
+<!-- CONSENT -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Before you send anything</span>
+      <h2>The permission rules are the same for email and text</h2>
+      <p>People assume SMS is more tightly regulated than email. In the UK they sit under the same rule.</p>
+    </div>
+    <div class="deep-dive__grid">
+      <div class="deep-dive__card deep-dive__card--flag">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Consent, or the soft opt-in</div>
+          <div class="deep-dive__price">PECR</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>The Privacy and Electronic Communications Regulations say you must not send marketing emails or texts to individuals without their consent. &ldquo;Electronic mail&rdquo; covers email, text, picture messages, voicemail, in-app messages and social media DMs alike, so there is no clever channel that sidesteps it. The narrow exception, the soft opt-in, lets you message your own existing customers &mdash; but only if you gave them a clear chance to opt out when you took their details <em>and</em> you give them one in every message since. It does not cover people who have never bought from you, and it does not cover a list you bought.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Why the pass sits differently</div>
+          <div class="deep-dive__price">They added it</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>A wallet pass is something the customer chose to put on their own phone, can mute in one tap and delete in two. That is a cleaner permission than most marketing lists ever get, and it is part of why the channel feels less intrusive. It does not put you outside your general data protection duties, and the platforms have their own rules on top &mdash; but it does mean the pass is the one channel where you are unlikely to be doing something the customer did not ask for.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Get this right once</div>
+          <div class="deep-dive__price">Then stop worrying</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>It is a sign-up form, a tick box and an unsubscribe link, not a legal project. We have written the caf&eacute;-shaped version of the whole thing in <a class="content-link" href="/cafe-loyalty-scheme-gdpr-uk.html">caf&eacute; loyalty schemes and UK GDPR</a>. Read it before your first send rather than after your first complaint.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETTING IT UP -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Doing it</span>
+      <h2>Setting this up without hiring a marketer</h2>
+      <p>Three afternoons, spread over three months. Nothing here needs an agency.</p>
+    </div>
+    <div class="deep-dive__grid">
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Month 1: turn the free one on properly</div>
+          <div class="deep-dive__price">An afternoon</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Check your loyalty tool is actually issuing Apple and Google Wallet passes rather than only a web page, because a pass is the whole basis of this. Set the lock-screen location for your shop. Make sure a stamp being added and a reward being earned both update the card. Then add the card to your own phone and go and buy a coffee from yourself, so you see what the customer sees. Most owners find something wrong at this step, and it costs nothing to fix.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Month 2: one email, once a month</div>
+          <div class="deep-dive__price">Half an hour a month</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Free tier, a few hundred addresses, one short email on the same day each month: what is new, what is on, one photograph. Put the opt-out in from the first send. Do not try to build a sequence. Write three of them in one sitting if you would rather not think about it again until the winter, and judge it after three months rather than after one.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Month 3: decide if you need SMS at all</div>
+          <div class="deep-dive__price">Probably not yet</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Write down the moments in the last year when you genuinely needed everyone to know something within the hour. If the list is empty, you do not need SMS, and the money is better spent elsewhere &mdash; we costed the wider bill in <a class="content-link" href="/hidden-cost-cafe-loyalty-app.html">the hidden cost of a caf&eacute; loyalty app</a>. If the list has two or three entries, set up a pay-as-you-go account with no monthly fee, put &pound;20 on it, and leave it there until one of those moments comes round.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Questions</span>
+      <h2>Frequently asked</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>What is the best way to remind loyalty customers to come back to my caf&eacute;?</h3>
+        <p>Use the wallet pass they already added for anything tied to their own progress, such as a stamp card that is one away from a free coffee. It costs nothing per message, it goes only to people who chose to keep the card, and it needs no app download. Keep email for the once-a-month news that is not urgent, and keep SMS for the one or two moments a year that genuinely justify interrupting someone, because it is the only one of the three that costs you money every time you press send.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Is SMS or email better for caf&eacute; marketing?</h3>
+        <p>Email is better for routine messages and SMS is better for genuinely time-critical ones. In food and drink, Klaviyo&rsquo;s 2026 benchmarks put campaign emails at a 31.2% open rate and a 1.7% click rate, and automated emails at 33% and 5.8%. SMS has no equivalent measured open rate at all, because text messages carry no tracking pixel; the 98% figure quoted across the industry cannot be traced to a primary source. SMS also costs roughly 1.8p to 5p per message in the UK, so a list of 300 costs about six to fifteen pounds every time you send. Under UK rules both need the same permission.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Do wallet pass notifications actually work for loyalty cards?</h3>
+        <p>They work within limits that most loyalty vendors do not spell out. Apple&rsquo;s own guidance says a change message interrupts the user and is appropriate only for time-sensitive information, so a pass notification is meant to report a real change to the card rather than carry an advert. Google Wallet caps you at three push-triggering messages per pass in any 24 hours. An Apple pass can also hold up to ten locations that make it surface on the lock screen near your shop. Customers can switch all of it off. Used for reward progress rather than promotion, it is the cheapest and least annoying of the three.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Do I need permission to text or email my caf&eacute; loyalty customers?</h3>
+        <p>Yes. Under the Privacy and Electronic Communications Regulations you must not send marketing emails or texts to individuals without consent. There is a narrow exception, the soft opt-in, for your own existing customers, but only if you gave them a clear chance to opt out when you collected their details and you give them that chance in every message afterwards. The rule is the same for email and for SMS. A wallet pass is different in character: the customer added it to their phone themselves and can delete it in one tap, but the messages you attach to it are still subject to the same general marketing and data protection duties.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Where the numbers come from</span>
+      <h2>Sources</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <p>Apple&rsquo;s rules on when a pass push is appropriate, and the &ldquo;don&rsquo;t send unnecessary pushes&rdquo; guidance &mdash; <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/PassKit_PG/Updating.html">Wallet Developer Guide: Updating a Pass, Apple</a>. The ten-location limit on a pass &mdash; <a href="https://developer.apple.com/documentation/walletpasses/pass/locations-data.dictionary">Pass.Locations, Apple Developer Documentation</a>. Google Wallet&rsquo;s cap of three push-triggering messages per pass per 24 hours &mdash; <a href="https://developers.google.com/wallet/retail/loyalty-cards/use-cases/trigger-push-notifications">Trigger Push Notifications, Google Wallet API</a>, and the practical comparison of the two platforms in <a href="https://help.passkit.com/en/articles/11905171-understanding-push-notifications-for-apple-and-google-wallet-passes">PassKit&rsquo;s notification guide</a>. Food and beverage email open, click and flow figures &mdash; <a href="https://www.klaviyo.com/uk/blog/email-marketing-benchmarks-open-click-and-conversion-rates">Klaviyo email marketing benchmarks, February 2026</a>, drawn from their analysis of more than 205,000 brands. UK consent rules for marketing by email and text, and the soft opt-in &mdash; <a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/">Electronic mail marketing, Information Commissioner&rsquo;s Office</a>. On the &ldquo;98% SMS open rate&rdquo; figure having no measurable basis &mdash; <a href="https://www.rallycorp.com/blog/90-sms-open-rates-are-a-myth">Rally Corp</a>, whose account of where the number came from matches our own attempt to trace it. UK SMS pricing of roughly 1.8p to 5p a message &mdash; published UK bulk SMS rate guides, September 2026; the cost table above is our own arithmetic at illustrative rates and your provider&rsquo;s quote is the one that counts. The 160, 153 and 70 character segment lengths are the standard GSM message encodings. BaristaCard plan details &mdash; <a href="/pricing">our pricing page</a>. Nothing here is legal advice; for anything contentious the ICO&rsquo;s own guidance is the authority.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">BaristaCard</span>
+    <h2>The free channel only works if the card is on the phone</h2>
+    <p class="hero__sub" style="margin:0 auto 26px;">BaristaCard issues Apple and Google Wallet loyalty cards that update in real time as stamps are added, and lets you send announcements to your customers from the same place &mdash; so the cheapest way to stay in someone&rsquo;s head is the one you already have. Try BaristaCard free: the Starter plan is &pound;0 for your first venue, with no set-up fees and no card required.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">Try BaristaCard free</a>
+      <a href="/features" class="btn btn-secondary btn-lg">See the features</a>
+    </div>
+    <p class="final-cta__micro">No set-up fees &middot; No credit card required &middot; Cancel anytime</p>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
