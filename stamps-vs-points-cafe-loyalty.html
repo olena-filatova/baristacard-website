@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stamps vs Points: Best Loyalty Model for a UK Caf&eacute;</title>
+<meta name="description" content="Stamp cards or points? A practical comparison for UK independent caf&eacute;s: which drives more repeat visits, which suits your menu, and when to use both.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stamps vs Points: Best Loyalty Model for a UK Caf&eacute;">
+<meta property="og:description" content="Stamp cards or points? A practical comparison for UK independent caf&eacute;s: which drives more repeat visits, which suits your menu, and when to use both.">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stamps or Points? Choosing the Right Loyalty Model for Your Café",
+  "description": "A stamp rewards a visit and a point rewards a pound. Which suits your café depends on your basket mix, not on fashion — and the biggest UK chain's scheme is not what it is usually described as.",
+  "datePublished": "2026-09-29",
+  "dateModified": "2026-09-29",
+  "inLanguage": "en-GB",
+  "author": { "@type": "Organization", "name": "BaristaCard" },
+  "publisher": { "@type": "Organization", "name": "BaristaCard" },
+  "about": [
+    { "@type": "Thing", "name": "Café loyalty programme" },
+    { "@type": "Thing", "name": "Digital stamp card" },
+    { "@type": "Thing", "name": "Points-based loyalty" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are stamp cards or points better for a café?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most independent cafés, stamps. A stamp rewards a visit and a point rewards a pound, so the two are identical when almost every transaction is about the same size — which is the case in a drink-led café — and the stamp wins on simplicity because the customer can see how close they are without doing any arithmetic. Points earn their keep when your transaction sizes vary a lot, typically a brunch-led or food-heavy venue, because a stamp scheme there pays your cheapest customers several times the rate it pays your most valuable ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did Costa switch from points to stamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In effect, yes, and it has never switched back. Costa replaced its old points scheme in 2022 with a buy-eight-get-one-free model plus a birthday treat, and The Drum reported that total transactions grew 16% after the relaunch. What Costa Club runs today is still a stamp card: its own site says you collect a Bean with every coffee and after ten the next one is free. The word Beans makes it sound like a currency, but one bean per drink and a fixed number for a reward is a stamp card by any other name."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many points should a coffee be worth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Work backwards from what you are willing to give away, not from a round number. Decide the percentage of takings you can afford to return — most café stamp schemes land somewhere around 8 to 11% — then set the reward threshold so the maths comes out there. At one point per pound and a £3.60 drink as the reward, 40 points returns 9% and 36 points returns 10%. Starbucks in the UK uses 10 Stars per £1 and redemption tiers from 150 Stars upwards, which is the same decision dressed in bigger numbers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use stamps and points together?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can, and a brunch-led café is the case where it makes sense: stamps on the drinks, a spend-based scheme on the food. But run one reward per mechanic and no more. The most common way a hybrid fails is not the maths, it is that staff cannot explain it in one sentence at the till during a queue, so it stops being offered. If you cannot describe the whole scheme to a new starter in fifteen seconds, simplify it before you launch it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a digital stamp card better than paper?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For the café, yes, mainly because of what it tells you. A paper card is cheap and everyone understands it, but it is anonymous, easy to forge with a borrowed stamp and it disappears with the customer's wallet. A digital card on the phone lets you see how many people are halfway through a card, who has stopped coming and whether the scheme is actually changing behaviour — none of which paper can answer. The mechanic is identical either way, so switching from paper to digital is not the same decision as switching from stamps to points."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;  /* page background */
+    --oat:        #F0E4D4;  /* nav / footer background */
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;  /* button text */
+    --brown:      #4A2C2A;  /* primary text */
+    --brown-deep: #542915;  /* logo / headline ink */
+    --tan:        #C8A27B;  /* primary accent / buttons */
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;  /* included / free accent */
+    --green-dark: #5C8261;
+    --red:        #C1665A;  /* not-included accent */
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 56px 0 48px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 28px; max-width: 640px;
+  }
+  .hero__ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+  .hero__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── VERDICT CARDS ── */
+  .verdicts { background: var(--cream); }
+  .verdicts__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .verdict-card {
+    border-radius: var(--radius-card);
+    padding: 26px 22px;
+    border: 2px solid rgba(74,44,42,.1);
+    background: var(--white);
+  }
+  .verdict-card--winner { border-color: var(--green); box-shadow: var(--shadow-card); }
+  .verdict-card__badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; background: var(--green); color: var(--ivory); margin-bottom: 14px;
+  }
+  .verdict-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: var(--brown-deep); }
+  .verdict-card__price { font-size: 14px; font-weight: 700; color: var(--tan-dark); margin-bottom: 12px; }
+  .verdict-card--winner .verdict-card__price { color: var(--green-dark); }
+  .verdict-card p.verdict-card__desc { font-size: 13px; color: rgba(74,44,42,.7); line-height: 1.6; }
+
+  /* ── MATRIX TABLE ── */
+  .matrix { background: var(--oat); }
+  .matrix__scroll { overflow-x: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-card); background: var(--white); }
+  table.matrix__table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 760px; font-size: 14px; }
+  .matrix__table th, .matrix__table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(74,44,42,.08); white-space: nowrap; }
+  .matrix__table thead th {
+    font-size: 12px; font-weight: 700; letter-spacing: .03em; color: var(--brown);
+    background: var(--oat); position: sticky; top: 0;
+  }
+  .matrix__table thead th.matrix__col--winner { background: rgba(122,158,126,.18); color: var(--green-dark); }
+  .matrix__table td:first-child, .matrix__table th:first-child {
+    text-align: left; font-weight: 500; color: var(--brown-deep);
+    position: sticky; left: 0; background: var(--white); z-index: 2; white-space: normal; min-width: 200px;
+  }
+  .matrix__table thead th:first-child { background: var(--oat); z-index: 3; }
+  .matrix__table td.matrix__col--winner { background: rgba(122,158,126,.08); font-weight: 700; }
+  .matrix__yes { color: var(--green-dark); font-weight: 700; }
+  .matrix__no { color: var(--red); font-weight: 700; }
+  .matrix__table tbody tr:last-child td { border-bottom: none; }
+  .matrix__caption { text-align: center; font-size: 12px; color: rgba(74,44,42,.6); margin-top: 14px; }
+
+  /* ── DEEP DIVE ── */
+  .deep-dive { background: var(--cream); }
+  .deep-dive__grid { display: flex; flex-direction: column; gap: 18px; }
+  .deep-dive__card {
+    display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start;
+    padding: 30px; border-radius: var(--radius-card); background: var(--white); border: 1.5px solid rgba(74,44,42,.08);
+  }
+  .deep-dive__card--winner { background: rgba(122,158,126,.08); border-color: var(--green); }
+  .deep-dive__name { font-size: 22px; font-weight: 700; color: var(--brown-deep); margin-bottom: 4px; }
+  .deep-dive__price { font-size: 13px; font-weight: 700; color: var(--tan-dark); }
+  .deep-dive__card--winner .deep-dive__price { color: var(--green-dark); }
+  .deep-dive__body p { font-size: 14px; color: rgba(74,44,42,.8); line-height: 1.7; margin-bottom: 10px; }
+  .deep-dive__body p:last-child { margin-bottom: 0; }
+  .deep-dive__body strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .verdicts__grid { grid-template-columns: 1fr 1fr; }
+    .deep-dive__card { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .verdicts__grid { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>
+  /* ── PAGE-SPECIFIC: article hero + comparison table ── */
+  .hero__micro { font-size: 13px; color: rgba(74,44,42,.6); margin-top: 14px; }
+  .hero__headline { max-width: 18ch; }
+  .deep-dive__card + .deep-dive__card { margin-top: 0; }
+  .deep-dive__card--flag { border-left: 4px solid var(--tan); }
+  /* Scoped to this page's own id — the shared template id would tint rows in
+     the wrong table here (the last row is not the answer row on this page). */
+  #worksheet-mechanic .matrix__table { min-width: 680px; }
+  #worksheet-mechanic .matrix__table td { font-variant-numeric: tabular-nums; }
+  #worksheet-mechanic .matrix__table td:first-child { white-space: normal; min-width: 180px; text-align: left; font-weight: 600; }
+  #worksheet-mechanic .matrix__table td:nth-child(2),
+  #worksheet-mechanic .matrix__table td:nth-child(3) { white-space: normal; text-align: left; }
+  @media (max-width: 720px) {
+    .hero__headline { max-width: none; }
+    .deep-dive__card { grid-template-columns: 1fr; gap: 14px; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Home</a> › <a href="/blog">Blog</a> › Stamps or points
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="eyebrow">Loyalty mechanics · UK independents</span>
+      <h1 class="hero__headline">Stamps or Points? Choosing the Right Loyalty Model for Your Caf&eacute;</h1>
+      <p class="hero__sub">Everyone tells you the chains run points and the independents run stamps. Look at what the biggest chain in Britain actually runs and that turns out not to be true &mdash; which is useful, because it means the question is not what is fashionable. It is what your basket mix can carry.</p>
+      <p class="hero__micro">Last updated 29 September 2026 · UK independents · Worked examples are illustrative, not averages</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK ANSWER -->
+<div class="quick-answer">
+  <div class="container">
+    <div class="quick-answer__inner">
+      <div class="quick-answer__icon">?</div>
+      <p><strong>Is a stamp card or a points system better for a coffee shop loyalty programme?</strong> For most independents, stamps. A stamp rewards a <strong>visit</strong>; a point rewards a <strong>pound</strong>. When nearly every transaction is about the same size &mdash; a drink-led caf&eacute; &mdash; the two are arithmetically identical, and the stamp wins because the customer can see how close they are without doing sums. Points earn their place when your transaction sizes vary widely, because a stamp scheme in a brunch-led venue quietly pays your cheapest customers several times the rate it pays your best ones.</p>
+    </div>
+  </div>
+</div>
+
+<!-- THE COSTA POINT -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Start here</span>
+      <h2>The chains did not choose points either</h2>
+      <p>This is the bit most comparison articles get wrong, and it changes how you should read the whole debate.</p>
+    </div>
+    <div class="deep-dive__grid">
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">What Costa did in 2022</div>
+          <div class="deep-dive__price">Dropped points</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Costa replaced its points scheme with a free drink for every eight bought, plus a slice of cake on your birthday. <em>The Drum</em> reported that total transactions grew <strong>16%</strong> after the relaunch, that over <strong>70%</strong> of Costa Coffee Club transactions were by then made through the app, and that redemptions of free coffee accounted for <strong>8%</strong> of all transactions.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card deep-dive__card--flag">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">What Costa runs today</div>
+          <div class="deep-dive__price">Buy 10, get 1</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Still a stamp card. Costa&rsquo;s own page says it plainly: &ldquo;Collect Beans with every coffee you buy &mdash; after 10, your next one&rsquo;s on us.&rdquo; One bean per drink, a fixed number for a reward. The word <em>Beans</em> makes it sound like a currency. The mechanic underneath is the eight-box card from the caf&eacute; on the corner, with two more boxes.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">Who does run real points</div>
+          <div class="deep-dive__price">Starbucks</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Starbucks UK is the genuine points scheme: &ldquo;Collect Stars based on how much you spend &mdash; for every &pound;1, collect 10 Stars&rdquo;, with rewards starting at <strong>150 Stars</strong> and running to <strong>1,150</strong>. Note what Starbucks sells that Costa sells less of: food, and bigger baskets. The mechanic follows the menu, not the marketing.</p>
+        </div>
+      </div>
+      <div class="deep-dive__card">
+        <div class="deep-dive__head">
+          <div class="deep-dive__name">The lesson for you</div>
+          <div class="deep-dive__price">Menu first</div>
+        </div>
+        <div class="deep-dive__body">
+          <p>Two of the biggest coffee businesses in the country sat down with the same question and came to opposite answers, because they are selling different things. Nobody is going to hand you a rule that works for both. The rest of this page is how to work out which one you are.</p>
+        </div>
+      </div>
+    </div>
+    <p class="matrix__caption">One honest caveat on that 16%: it is a single company&rsquo;s relaunch, reported in 2022, and the scheme changed alongside a heavy push on the app. It is the best UK caf&eacute; evidence in public, and it is still one data point, not a law.</p>
+  </div>
+</section>
+
+<!-- THE ONE-LINE RULE -->
+<section class="section" style="background:var(--oat);">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The whole difference</span>
+      <h2>A stamp rewards a visit. A point rewards a pound.</h2>
+      <p>Everything else &mdash; fairness, cost, fraud, how easy it is to explain &mdash; falls out of that one sentence.</p>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>Why that is the same thing in a drink-led caf&eacute;</h3>
+        <p>If nine transactions in ten are one coffee at &pound;3.60, then a visit <em>is</em> a fixed number of pounds. A stamp scheme and a points scheme will hand back almost exactly the same money to almost exactly the same people. At that point the only thing left to choose on is which one the customer understands, and it is not close.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Why it stops being the same thing the moment you add brunch</h3>
+        <p>Say a stamp is a stamp, whatever the transaction. Your &pound;3.60 flat white regular earns a free drink after <strong>&pound;36</strong> of spend &mdash; a return of about <strong>10%</strong>. Your &pound;12 brunch regular earns the same free drink after <strong>&pound;120</strong> &mdash; a return of <strong>3%</strong>. You are paying your cheapest customer more than three times the rate you pay your most valuable one, and neither of them can see it. A spend-based scheme returns the same percentage to both, which is what people mean when they say points are fairer.</p>
+      </div>
+      <div class="faq__item">
+        <h3>And why that is not automatically an argument for points</h3>
+        <p>Rewarding visits <em>on purpose</em> is a perfectly good strategy: frequency is the thing most independent caf&eacute;s are actually short of, and a scheme that pays for the eleventh visit rather than the eleventh pound is aimed squarely at it. The mistake is not choosing stamps. The mistake is choosing stamps without knowing that is what you have chosen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AT A GLANCE -->
+<section class="matrix section" id="worksheet-mechanic">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Side by side</span>
+      <h2>Stamps vs points at a glance</h2>
+      <p>The honest version, including the places where stamps lose.</p>
+    </div>
+    <div class="matrix__scroll">
+      <table class="matrix__table">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Stamps</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>What it rewards</td>
+            <td>A visit. Ten visits, one reward, whatever was in the basket.</td>
+            <td>A pound. The same percentage back regardless of what was bought.</td>
+          </tr>
+          <tr>
+            <td>Explaining it at the till</td>
+            <td>One sentence, no arithmetic. A new starter can do it on day one.</td>
+            <td>Needs a conversion rate and a threshold. Most customers never learn either.</td>
+          </tr>
+          <tr>
+            <td>Fairness to big baskets</td>
+            <td>Poor. A &pound;12 basket earns what a &pound;3.60 one earns.</td>
+            <td>Good. That is the entire reason points exist.</td>
+          </tr>
+          <tr>
+            <td>Cost control</td>
+            <td>Predictable per visit. Less predictable as a share of takings.</td>
+            <td>Predictable as a share of takings. Less predictable per visit.</td>
+          </tr>
+          <tr>
+            <td>Motivation</td>
+            <td>Strong near the end. A part-filled card is a visible, close goal.</td>
+            <td>Weak at the start. A balance of 40 out of 400 does not feel near anything.</td>
+          </tr>
+          <tr>
+            <td>Fraud risk</td>
+            <td>On paper, high &mdash; a borrowed stamp fills a card in seconds. On a phone, low.</td>
+            <td>Low either way, because it is tied to the transaction value.</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Drink-led caf&eacute;s. Most independents, most of the time.</td>
+            <td>Brunch, deli and food-led venues where spend per visit varies widely.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="matrix__caption">Two rows people usually get backwards. Stamps are <em>not</em> automatically cheaper &mdash; set both schemes to return the same percentage and they cost the same; they just hand it to different customers. And a free drink does not cost you the price of the milk: it costs somewhere between the ingredients and the full menu price, depending on whether it displaces a sale you would otherwise have made. We have <a href="/loyalty-reward-margin-maths.html">gone through that properly in the reward maths piece</a>.</p>
+  </div>
+</section>
+
+<!-- WHY CARDS GET FINISHED -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Why it works</span>
+      <h2>Why customers finish stamp cards and abandon points balances</h2>
+      <p>Two well-documented quirks of how people think, and one of them is the reason Starbucks has a 150-Star tier at all.</p>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>People speed up as they get close to a goal</h3>
+        <p>This is the goal-gradient effect, and a stamp card is almost a perfect illustration of it. Eight empty boxes is an abstraction. Six filled boxes and two empty ones is an errand for Thursday. The card does the persuading for you, and it does it in the customer&rsquo;s pocket rather than in your marketing. Points balances rarely produce that feeling, because the customer has no intuition for how far 380 is from 500.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Abstract currencies get discounted in the customer&rsquo;s head</h3>
+        <p>People are poor at valuing anything that is not in pounds, and they resolve the uncertainty by assuming the worst. A balance worth 38p feels like nothing; 380 Stars feels like something, which is precisely why chains rename their points. Notice that Starbucks does not stop at the rename: it shows rewards from <strong>150 Stars</strong> up, so there is always a nearby goal, as well as tiers at 350, 600 and 1,150 for people who want to save. That is a points scheme buying back the one thing a stamp card gets for free.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What this means if you go with points anyway</h3>
+        <p>Do the two things the chains do. Put your lowest reward close enough that a normal customer can reach it inside a fortnight, and show the balance as distance rather than as a number &mdash; &ldquo;two more coffees&rdquo;, not &ldquo;380 points&rdquo;. A points scheme that only ever shows a total is a stamp card with the boxes painted over.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE TILL TEST -->
+<section class="section" style="background:var(--oat);">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Fifteen minutes with your till</span>
+      <h2>Which suits your caf&eacute;? Three questions, answered from your own data</h2>
+      <p>Pull a week of transactions &mdash; a normal week, not half term &mdash; and answer these in order. The first one settles it for most people.</p>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>1. What share of your transactions are a single drink?</h3>
+        <p>Count transactions, not items. If more than roughly <strong>70%</strong> of them are one drink and nothing else, stop here and run stamps: your visits and your pounds are the same measurement, and simplicity wins the tie. Between 40% and 70%, read on. Below 40% you are a food business that also sells coffee, and the next two questions matter more.</p>
+      </div>
+      <div class="faq__item">
+        <h3>2. How wide is your spend per visit?</h3>
+        <p>Find your median transaction, then the level that a tenth of your transactions sit above. Divide the second by the first. <strong>Under 2</strong> and a stamp treats everyone roughly alike. <strong>Over 3</strong> and a stamp scheme is quietly running a redistribution: it returns triple the percentage to your smallest baskets. At that spread, either move to points or split the scheme, which is the next section.</p>
+      </div>
+      <div class="faq__item">
+        <h3>3. Do you need more visits, or bigger baskets?</h3>
+        <p>These pull in opposite directions and you cannot have both from one mechanic. Stamps buy frequency: the reward arrives sooner the more often someone comes, whatever they spend. Points buy basket size: the reward arrives sooner the more they spend, however rarely they come. Independent caf&eacute;s are usually short of frequency, which is the quiet reason stamps keep winning here. If your problem is that people come often and spend &pound;3.60, points will not fix it either &mdash; that is a menu question, not a loyalty one.</p>
+      </div>
+    </div>
+    <p class="matrix__caption">If your answers disagree with each other, follow question one. A scheme that is technically fairer and that nobody joins returns nothing at all.</p>
+  </div>
+</section>
+
+<!-- HYBRID -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The middle option</span>
+      <h2>The hybrid: stamps on coffee, spend-based on food</h2>
+      <p>The right answer for a brunch-led venue, and the wrong answer for almost everyone else.</p>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>When it is genuinely right</h3>
+        <p>You have two distinct customer behaviours in one room: a morning trade buying one coffee, and a weekend trade spending &pound;25 on brunch for two. One mechanic cannot serve both without under-rewarding one of them. Run the stamp card on drinks, where it works, and a spend-based reward on food, where it works, and accept that you now have two things to explain.</p>
+      </div>
+      <div class="faq__item">
+        <h3>One reward per mechanic. No tiers.</h3>
+        <p>The temptation with a hybrid is to add levels &mdash; bronze, silver, a bonus on Tuesdays. Resist all of it. More options do not feel more generous to a customer standing in a queue; they feel like work, and the usual response to a decision that feels like work is to not make it. Two schemes, one reward each, described in two sentences. That is the ceiling.</p>
+      </div>
+      <div class="faq__item">
+        <h3>The test that actually predicts failure</h3>
+        <p>Hybrids rarely fail on the arithmetic. They fail because a part-time member of staff cannot explain the scheme during a morning rush, so they stop mentioning it, and a loyalty scheme nobody is offered is a loyalty scheme nobody joins. Before you launch, ask a new starter to describe it to you in fifteen seconds. If they cannot, that is your answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SWITCHING -->
+<section class="section" style="background:var(--oat);">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">If you are changing</span>
+      <h2>How to switch models without upsetting the people who already have a card</h2>
+      <p>The people most annoyed by a change are the ones who were most loyal to the old scheme. They are also the ones you can least afford to lose.</p>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>Honour everything outstanding, and round in their favour</h3>
+        <p>Publish the conversion before you switch, not after, and make it slightly generous. Six stamps becoming six stamps&rsquo; worth is the minimum; six stamps becoming seven costs you very little and buys the whole conversation. Set an end date for old cards far enough out that a normal customer will reach it without hurrying &mdash; eight to twelve weeks is usually plenty.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Never devalue quietly</h3>
+        <p>Costa&rsquo;s scheme was eight drinks for a free one in 2022 and is ten today. That is a 25% devaluation, it is reported to have happened in 2023, and customers still bring it up. A chain can absorb that. A caf&eacute; with four hundred regulars cannot. If you have to make the reward harder to reach, say so plainly, say why, and say it before it happens.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Change one thing at a time</h3>
+        <p>Switching mechanic and moving from paper to a phone in the same week means that when something goes wrong &mdash; and something will &mdash; you will not know which change caused it. Move the mechanic first or the format first, give it a month, then do the other.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Questions</span>
+      <h2>Frequently asked</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>Are stamp cards or points better for a caf&eacute;?</h3>
+        <p>For most independent caf&eacute;s, stamps. A stamp rewards a visit and a point rewards a pound, so the two are identical when almost every transaction is about the same size &mdash; which is the case in a drink-led caf&eacute; &mdash; and the stamp wins on simplicity because the customer can see how close they are without doing any arithmetic. Points earn their keep when your transaction sizes vary a lot, typically a brunch-led or food-heavy venue, because a stamp scheme there pays your cheapest customers several times the rate it pays your most valuable ones.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Did Costa switch from points to stamps?</h3>
+        <p>In effect, yes, and it has never switched back. Costa replaced its old points scheme in 2022 with a buy-eight-get-one-free model plus a birthday treat, and <em>The Drum</em> reported that total transactions grew 16% after the relaunch. What Costa Club runs today is still a stamp card: its own site says you collect a Bean with every coffee and after ten the next one is free. The word Beans makes it sound like a currency, but one bean per drink and a fixed number for a reward is a stamp card by any other name.</p>
+      </div>
+      <div class="faq__item">
+        <h3>How many points should a coffee be worth?</h3>
+        <p>Work backwards from what you are willing to give away, not from a round number. Decide the percentage of takings you can afford to return &mdash; most caf&eacute; stamp schemes land somewhere around 8 to 11% &mdash; then set the reward threshold so the maths comes out there. At one point per pound and a &pound;3.60 drink as the reward, 40 points returns 9% and 36 points returns 10%. Starbucks in the UK uses 10 Stars per &pound;1 and redemption tiers from 150 Stars upwards, which is the same decision dressed in bigger numbers.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Can I use stamps and points together?</h3>
+        <p>You can, and a brunch-led caf&eacute; is the case where it makes sense: stamps on the drinks, a spend-based scheme on the food. But run one reward per mechanic and no more. The most common way a hybrid fails is not the maths, it is that staff cannot explain it in one sentence at the till during a queue, so it stops being offered. If you cannot describe the whole scheme to a new starter in fifteen seconds, simplify it before you launch it.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Is a digital stamp card better than paper?</h3>
+        <p>For the caf&eacute;, yes, mainly because of what it tells you. A paper card is cheap and everyone understands it, but it is anonymous, easy to forge with a borrowed stamp and it disappears with the customer&rsquo;s wallet. A digital card on the phone lets you see how many people are halfway through a card, who has stopped coming and whether the scheme is actually changing behaviour &mdash; none of which paper can answer. The mechanic is identical either way, so switching from paper to digital is not the same decision as switching from stamps to points.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What about a coffee subscription instead?</h3>
+        <p>A third option, and a different question: a subscription sells frequency up front rather than rewarding it afterwards, which changes your cash flow as much as your marketing. It suits a caf&eacute; with a dependable weekday trade and enough capacity to absorb heavier users. We have compared it with a stamp card in <a href="/coffee-subscription-vs-loyalty-card-cafe.html">the subscription piece</a>. And if your worry is specifically that younger customers ignore the card, <a href="/gen-z-cafe-loyalty-programme-uk.html">the data on Gen Z and loyalty</a> is not what most people expect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Where the numbers come from</span>
+      <h2>Sources</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <p>Costa&rsquo;s 2022 move from points to a buy-eight-get-one-free scheme, the 16% growth in total transactions, the 70% of Costa Coffee Club transactions made via the app and free-coffee redemptions at 8% of all transactions &mdash; <a href="https://www.thedrum.com/news/freebies-pay-costa-coffee-reveals-revamped-loyalty-scheme-grew-transactions-16" rel="nofollow">The Drum, 29 August 2022</a>. Costa Club&rsquo;s current mechanic, the birthday cake, the extra Bean for a reusable cup and the referral bonus &mdash; <a href="https://www.costa.co.uk/costa-club" rel="nofollow">Costa&rsquo;s own Costa Club page</a>, checked 29 September 2026, which states &ldquo;Collect Beans with every coffee you buy &mdash; after 10, your next one&rsquo;s on us.&rdquo; The reported increase from eight beans to ten in August 2023 is not stated on Costa&rsquo;s site; it comes from <a href="https://guides.supercardsapp.com/uk/costa-coffee/" rel="nofollow">a third-party guide to the scheme</a>, and what we can verify directly is only that the threshold was eight in 2022 and is ten now. Starbucks UK earning rate of 10 Stars per &pound;1, redemption tiers at 150, 350, 600 and 1,150 Stars and Gold level at 2,500 Stars &mdash; <a href="https://www.starbucks.co.uk/rewards" rel="nofollow">Starbucks UK Rewards</a>, checked 29 September 2026. The goal-gradient effect and the discounting of abstract currencies are long-established findings in behavioural research, described here in plain terms rather than cited to a single paper. Every per-cup, percentage and threshold figure using a &pound;3.60 drink or a &pound;12 basket is our own illustrative worked example, chosen to show the shape of the arithmetic &mdash; they are not averages, and you should run them on your own prices. This page is general business information, not accounting advice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">BaristaCard</span>
+    <h2>If the answer is stamps, make the stamps work harder</h2>
+    <p class="hero__sub" style="margin:0 auto 26px;">BaristaCard runs digital stamp cards in a Wallet pass, with the frequency mechanics a paper card cannot have: streaks, scratch-card surprises, a crown for your most frequent regular, and Coffee Beans earned for every card completed. To be straight with you, it does not currently run a spend-per-pound points scheme &mdash; so if your till data says points, this is not yet the tool for that. If it says stamps, which for most independents it will, your first venue is free.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">Start free</a>
+      <a href="/baristacard-vs-competitors-comparison.html" class="btn btn-secondary btn-lg">Compare the options</a>
+    </div>
+    <p class="final-cta__micro">First venue free · No set-up fees · No credit card required</p>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
