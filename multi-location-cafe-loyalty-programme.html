@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running One Loyalty Scheme Across Two or Three Café Sites</title>
+<meta name="description" content="Opening a second café? What actually changes in BaristaCard when you add a venue — the £9 step, the 30-day analytics trap, and the one setup choice to make before you open.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Running One Loyalty Scheme Across Two or Three Café Sites">
+<meta property="og:description" content="Opening a second café? What actually changes in BaristaCard when you add a venue — the £9 step, the 30-day analytics trap, and the one setup choice to make before you open.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS (matched to live baristacard.com) ── */
+  :root {
+    --cream:      #FAF3EA;  /* page background */
+    --oat:        #F0E4D4;  /* nav / footer background */
+    --white:      #FFFFFF;
+    --ivory:      #FFF9F2;  /* button text */
+    --brown:      #4A2C2A;  /* primary text */
+    --brown-deep: #542915;  /* logo / headline ink */
+    --tan:        #C8A27B;  /* primary accent / buttons */
+    --tan-dark:   #B78E63;
+    --green:      #7A9E7E;  /* included / free accent */
+    --green-dark: #5C8261;
+    --red:        #C1665A;  /* not-included accent */
+
+    --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --radius-btn: 16px;
+    --radius-card: 24px;
+
+    --shadow-card: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--tan-dark);
+  }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--brown-deep);
+    margin: 10px 0 14px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: rgba(74,44,42,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-btn);
+    padding: 13px 26px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--tan); color: var(--ivory); box-shadow: 0 8px 18px rgba(200,162,123,.35); }
+  .btn-primary:hover { background: var(--tan-dark); }
+  .btn-secondary { background: var(--white); color: var(--brown-deep); border: 1.5px solid rgba(74,44,42,.18); }
+  .btn-secondary:hover { border-color: var(--brown-deep); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,228,212,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,44,42,.08);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav__logo-mark {
+    width: 30px; height: 30px; border-radius: 12px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__logo-mark span { width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; }
+  .nav__logo-text { font-size: 19px; font-weight: 700; color: var(--brown-deep); letter-spacing: -.01em; }
+  .nav__links { display: flex; align-items: center; gap: 30px; list-style: none; }
+  .nav__links a { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__links a:hover { color: var(--brown-deep); }
+  .nav__actions { display: flex; align-items: center; gap: 14px; }
+  .nav__signin { font-size: 14px; font-weight: 500; color: var(--brown); text-decoration: none; }
+  .nav__signin:hover { color: var(--brown-deep); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { padding: 18px 0 0; font-size: 13px; color: rgba(74,44,42,.65); }
+  .breadcrumb a { color: rgba(74,44,42,.65); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--brown-deep); }
+  .breadcrumb span { color: rgba(74,44,42,.3); margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero { padding: 56px 0 48px; }
+  .hero__inner { max-width: 800px; }
+  .hero__tags { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    background: rgba(200,162,123,.18); color: var(--tan-dark);
+  }
+  .hero__headline {
+    font-size: clamp(32px, 4.2vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+  .hero__sub {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(74,44,42,.75); margin-bottom: 28px; max-width: 640px;
+  }
+  .hero__ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+  .hero__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── QUICK ANSWER ── */
+  .quick-answer { background: var(--oat); border-top: 1px solid rgba(74,44,42,.08); border-bottom: 1px solid rgba(74,44,42,.08); padding: 26px 0; }
+  .quick-answer__inner { display: flex; align-items: flex-start; gap: 14px; }
+  .quick-answer__icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--brown-deep); color: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+  }
+  .quick-answer p { font-size: 15px; color: rgba(74,44,42,.85); line-height: 1.65; }
+  .quick-answer strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── VERDICT CARDS ── */
+  .verdicts { background: var(--cream); }
+  .verdicts__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .verdict-card {
+    border-radius: var(--radius-card);
+    padding: 26px 22px;
+    border: 2px solid rgba(74,44,42,.1);
+    background: var(--white);
+  }
+  .verdict-card--winner { border-color: var(--green); box-shadow: var(--shadow-card); }
+  .verdict-card__badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; background: var(--green); color: var(--ivory); margin-bottom: 14px;
+  }
+  .verdict-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: var(--brown-deep); }
+  .verdict-card__price { font-size: 14px; font-weight: 700; color: var(--tan-dark); margin-bottom: 12px; }
+  .verdict-card--winner .verdict-card__price { color: var(--green-dark); }
+  .verdict-card p.verdict-card__desc { font-size: 13px; color: rgba(74,44,42,.7); line-height: 1.6; }
+
+  /* ── MATRIX TABLE ── */
+  .matrix { background: var(--oat); }
+  .matrix__scroll { overflow-x: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-card); background: var(--white); }
+  table.matrix__table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 760px; font-size: 14px; }
+  .matrix__table th, .matrix__table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(74,44,42,.08); white-space: nowrap; }
+  .matrix__table thead th {
+    font-size: 12px; font-weight: 700; letter-spacing: .03em; color: var(--brown);
+    background: var(--oat); position: sticky; top: 0;
+  }
+  .matrix__table thead th.matrix__col--winner { background: rgba(122,158,126,.18); color: var(--green-dark); }
+  .matrix__table td:first-child, .matrix__table th:first-child {
+    text-align: left; font-weight: 500; color: var(--brown-deep);
+    position: sticky; left: 0; background: var(--white); z-index: 2; white-space: normal; min-width: 200px;
+  }
+  .matrix__table thead th:first-child { background: var(--oat); z-index: 3; }
+  .matrix__table td.matrix__col--winner { background: rgba(122,158,126,.08); font-weight: 700; }
+  .matrix__yes { color: var(--green-dark); font-weight: 700; }
+  .matrix__no { color: var(--red); font-weight: 700; }
+  .matrix__table tbody tr:last-child td { border-bottom: none; }
+  .matrix__caption { text-align: center; font-size: 12px; color: rgba(74,44,42,.6); margin-top: 14px; }
+
+  /* ── DEEP DIVE ── */
+  .deep-dive { background: var(--cream); }
+  .deep-dive__grid { display: flex; flex-direction: column; gap: 18px; }
+  .deep-dive__card {
+    display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start;
+    padding: 30px; border-radius: var(--radius-card); background: var(--white); border: 1.5px solid rgba(74,44,42,.08);
+  }
+  .deep-dive__card--winner { background: rgba(122,158,126,.08); border-color: var(--green); }
+  .deep-dive__name { font-size: 22px; font-weight: 700; color: var(--brown-deep); margin-bottom: 4px; }
+  .deep-dive__price { font-size: 13px; font-weight: 700; color: var(--tan-dark); }
+  .deep-dive__card--winner .deep-dive__price { color: var(--green-dark); }
+  .deep-dive__body p { font-size: 14px; color: rgba(74,44,42,.8); line-height: 1.7; margin-bottom: 10px; }
+  .deep-dive__body p:last-child { margin-bottom: 0; }
+  .deep-dive__body strong { color: var(--brown-deep); font-weight: 700; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--oat); }
+  .faq__list { display: flex; flex-direction: column; gap: 14px; max-width: 780px; margin: 0 auto; }
+  .faq__item { background: var(--white); border-radius: var(--radius-card); padding: 22px 26px; border: 1px solid rgba(74,44,42,.08); }
+  .faq__item h3 { font-size: 17px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; }
+  .faq__item p { font-size: 14px; color: rgba(74,44,42,.75); line-height: 1.65; }
+
+  /* ── FINAL CTA ── */
+  .final-cta { background: var(--cream); text-align: center; padding: 88px 0; }
+  .final-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.15; color: var(--brown-deep); margin: 10px 0 14px; }
+  .final-cta p { font-size: 16px; color: rgba(74,44,42,.7); margin-bottom: 32px; }
+  .final-cta__ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .final-cta__micro { font-size: 13px; color: rgba(74,44,42,.55); display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .final-cta__micro span::before { content: '✓ '; color: var(--green-dark); font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--oat); color: var(--brown); padding: 52px 0 28px; }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer__brand p { font-size: 14px; line-height: 1.65; color: rgba(74,44,42,.65); margin-top: 12px; max-width: 260px; }
+  .footer__logo { font-size: 18px; font-weight: 700; color: var(--brown-deep); text-decoration: none; }
+  .footer__col h4 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tan-dark); margin-bottom: 14px; }
+  .footer__links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__links a { font-size: 14px; color: rgba(74,44,42,.65); text-decoration: none; }
+  .footer__links a:hover { color: var(--brown-deep); }
+  .footer__bottom { border-top: 1px solid rgba(74,44,42,.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: rgba(74,44,42,.5); }
+  .footer__bottom a { color: rgba(74,44,42,.5); text-decoration: none; }
+  .footer__bottom a:hover { color: var(--brown-deep); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .verdicts__grid { grid-template-columns: 1fr 1fr; }
+    .deep-dive__card { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .verdicts__grid { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can customers use the same loyalty card at more than one of my café locations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends how you set your venues up, and it is a decision worth making deliberately. By default each venue on BaristaCard carries its own QR codes and its own loyalty deals, so a customer collecting at your first site starts a fresh card at your second. Cafés with several locations can instead share one stamp card across their sites, so a customer collects and redeems at any of them. Either way the customer keeps one BaristaCard identity and their Coffee Beans accumulate in a single place. Decide which model you want before site two opens, because moving people across afterwards means asking regulars to start again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does adding a second café site cost anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free Starter plan covers one venue. The moment you add a second you move to Basic at £9 a month, which covers up to five venues. Premium is £29 a month for up to ten, and Enterprise covers unlimited venues. For most owners opening a second shop, £9 a month is the smallest line in the entire expansion budget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What breaks when a café opens a second site with the same loyalty scheme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four things, in roughly this order: reward rules drift apart because each venue is configured separately; your historical data disappears if you were on the free plan, which only keeps the last 30 days; staff at the new site learn the scheme from whoever happens to be on shift; and your broadcast allowance is counted per venue, so your two sites talk to customers separately unless you deliberately send the same message twice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see all my café locations in one dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All venues are managed from a single dashboard, and the Basic plan adds multi-location analytics and a centralised dashboard view on top of the per-venue numbers. Full analytics history also arrives with Basic, which matters more than it sounds if you have been running on the free plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my staff work across both of my café sites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on the £9 Basic plan. Staff across locations is listed as a Premium feature, at £29 a month. If you plan to move baristas between your sites, or you have one manager covering both, budget for Premium rather than Basic from the start."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark"><span></span></div>
+        <span class="nav__logo-text">BARISTACARD</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/features">Features</a></li>
+        <li><a href="/gamification">Gamification</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="/auth/sign-in" class="nav__signin">Sign In</a>
+        <a href="/auth/register" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <p class="eyebrow">FOR OWNERS OPENING SITE TWO</p>
+      <h1 class="hero__headline">Running one loyalty scheme across two or three café sites</h1>
+      <p class="hero__sub">Everything that changes when you add a second venue — the £9 step, the 30-day analytics trap that catches people who upgrade too late, and the one setup choice you want to make before the doors open.</p>
+      <div class="hero__ctas">
+        <a href="/auth/register" class="btn btn-primary btn-lg">Get Started Free</a>
+        <a href="/pricing" class="btn btn-secondary btn-lg">See Pricing</a>
+      </div>
+      <p class="hero__micro">First venue free forever · Second site from £9/month · No setup fees</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container" style="max-width:780px;">
+    <p class="eyebrow">THE SHORT VERSION</p>
+    <h2>Four things change the day you add a second venue</h2>
+    <p>Most guides to multi-site loyalty are written for franchise groups with a head office. This one is written for the owner who is about to open shop number two and wants to know exactly what shifts, what it costs, and what to decide before the doors open.</p>
+    <p>Here is the whole thing in four lines. Your plan changes from free to <strong>£9 a month</strong>. Your analytics history stops being capped at 30 days, which is the quiet reason to upgrade <em>before</em> you open rather than after. Each venue gets its own QR codes and its own deals unless you deliberately choose otherwise. And your staff do not automatically work across both sites — that sits on the £29 plan, not the £9 one.</p>
+    <p>The rest of this page is the detail behind those four, and the order to do them in.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white);">
+  <div class="container" style="max-width:780px;">
+    <h2>1. The £9 step, and why timing it early saves your data</h2>
+    <p>BaristaCard's Starter plan is genuinely free and genuinely permanent, but it covers <strong>one venue</strong>. Add a second and you move to Basic at £9 a month, which covers up to five. Premium at £29 covers up to ten, and Enterprise is for unlimited sites.</p>
+    <p>Against the cost of opening a second café, £9 a month is a rounding error, so the interesting question is not whether to pay it but when. The answer is: before you open, not after. The free plan keeps the <strong>last 30 days</strong> of analytics. Full analytics history arrives with Basic.</p>
+    <p>That means if site one has been running free for two years, you do not have two years of loyalty data sitting there waiting. You have a month. The moment you want to answer "how did site two's first quarter compare with site one's", you need the history already unlocked. Upgrading in the month before you open costs you £9 and preserves the comparison. Upgrading afterwards costs the same £9 and gives you nothing to compare against.</p>
+    <p>This is the single most expensive mistake available to you in this whole process, and it costs nine pounds to avoid.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:780px;">
+    <h2>2. Decide now whether the two sites share one card</h2>
+    <p>This is the decision that is genuinely hard to reverse, so make it deliberately rather than by default.</p>
+    <p>On BaristaCard, each venue you add carries <strong>its own QR codes and its own loyalty deals</strong>. Left alone, that means a regular who has collected seven stamps at your original shop walks into your new one and starts at zero. Cafés running several locations can instead share a single stamp card across their sites, so a customer collects at one and redeems at another. Whichever you pick, the customer keeps one BaristaCard identity and their Coffee Beans accumulate in one place regardless.</p>
+    <p>There is a real argument on both sides, and the right answer depends on what your second site actually is.</p>
+    <p><strong>Share one card</strong> if your two sites serve overlapping people — a town-centre shop and a station kiosk two streets apart, where the same commuter uses both depending on the morning. Splitting them punishes your best customers for your expansion, and they will notice. One card says the relationship is with your brand, not with a building.</p>
+    <p><strong>Keep them separate</strong> if the sites are genuinely different businesses — a roastery café and a lunch-trade unit across town with almost no shared customers, different price points, different reward economics. Here a single card mostly transfers value from the busy site to the quiet one and tells you very little.</p>
+    <p>Decide before you open. Changing your mind later means asking loyal customers to start again, which is exactly the conversation a loyalty scheme exists to avoid.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white);">
+  <div class="container" style="max-width:780px;">
+    <h2>3. Make the reward rules identical, even if the cards are separate</h2>
+    <p>Separate stamp cards are a defensible choice. Separate <em>rules</em> are not.</p>
+    <p>Because each venue is configured on its own, nothing stops site one running buy-nine-get-one and site two running buy-seven-get-one. It happens by accident constantly — a new manager sets up the second venue, picks what seems reasonable, and now you have two schemes.</p>
+    <p>The customer-facing cost is immediate and larger than the maths suggests. A regular who notices that the other branch is more generous does not conclude that the other branch is more generous. They conclude that you were quietly getting one over on them at the first one. A loyalty scheme runs entirely on the belief that the deal is the deal, and inconsistency between your own sites is the fastest way to spend that belief.</p>
+    <p>So write your reward rules down once — stamps required, what the reward is, which deal types you use, whether scratch cards are on — and configure the second venue from that written list rather than from memory. Five minutes of admin, and it removes the single most common complaint multi-site owners get.</p>
+    <p>The one thing that can legitimately differ is price, if your sites genuinely charge differently. Reward <em>effort</em> should not.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:780px;">
+    <h2>4. Staff across sites is a £29 feature, not a £9 one</h2>
+    <p>Worth knowing before you plan your rota rather than after. Basic at £9 gives you up to five venues, multi-location analytics and a centralised dashboard. <strong>Staff across locations</strong> is listed on Premium, at £29 a month.</p>
+    <p>If your two sites have entirely separate teams who never cross over, Basic is fine. If you move baristas between sites to cover shifts, or one manager runs both, you want Premium — and it is better to start there than to discover the gap on a Saturday when someone cannot scan at the site they have been sent to.</p>
+    <p>Either way, there is a training point that no plan solves for you. At one site, the scheme is learned by osmosis from you. At two, the new site learns it from whoever opened that morning. Write the scanning routine down on one side of paper — how to scan, what to say when someone asks how many stamps they have, what to do when a reward is due, who to ask when something looks wrong — and put it by the till at both sites. The second site should learn the scheme from the same page the first one did, not from a summary of a summary.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white);">
+  <div class="container" style="max-width:780px;">
+    <h2>5. Broadcasts are counted per venue</h2>
+    <p>A detail that surprises people. On the free plan you get one broadcast a week. On Basic you get three a week <em>per venue</em>, and on Premium two a day per venue.</p>
+    <p>Per venue sounds generous, and in volume it is. What it means in practice is that your sites talk to their customers separately. If you want both sets of regulars to hear about the same Christmas opening hours, that is two sends, written twice, each going to the customers of one venue.</p>
+    <p>Treat that as a feature rather than a nuisance and it becomes one. Your station kiosk and your sit-down café genuinely do have different audiences with different reasons to come in, and a message written for one usually reads slightly wrong to the other. The owners who get the most out of this stop trying to write one announcement for everybody.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:780px;">
+    <h2>A checklist for opening site two</h2>
+    <p><strong>Four weeks before.</strong> Upgrade to Basic, or Premium if staff will cross between sites. This unlocks full analytics history while site one is still your only data, so you have a real baseline to compare against.</p>
+    <p><strong>Three weeks before.</strong> Decide shared card or separate cards, and write the reason down. Write out your reward rules on one page.</p>
+    <p><strong>Two weeks before.</strong> Set the second venue up from that written page. Check the stamp requirement, the reward, the deal types and the scratch card setting against site one, line by line.</p>
+    <p><strong>One week before.</strong> Print the scanning routine for the new till. Walk the new team through a full cycle on a real phone — scan, stamp, reward, new card — before they do it with a customer watching.</p>
+    <p><strong>Opening week.</strong> Send a broadcast from the original venue telling your existing regulars the new site exists and whether their card works there. Be straight about it. If cards are separate, say so and give them a reason to start the second one.</p>
+    <p><strong>Thirty days after.</strong> Open the multi-location view and compare the two sites on the same metrics. This is the thing you upgraded early to be able to do.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white);">
+  <div class="container" style="max-width:780px;">
+    <h2>The honest summary</h2>
+    <p>Running one scheme across two or three sites is not technically difficult on BaristaCard. All your venues sit in one dashboard, the paid plans add multi-location analytics, and the cost of the second site is nine pounds a month.</p>
+    <p>What makes it go wrong is almost never the software. It is configuring the second venue from memory instead of from a written list, discovering after opening that the free plan only kept 30 days of history, and assuming staff carry across sites when that sits a tier up. All three are decided in the fortnight before you open, and all three are free to get right.</p>
+  </div>
+</section>
+
+
+<section class="faq section">
+  <div class="container" style="max-width:780px;">
+    <div class="section-header">
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <h3>Can customers use the same loyalty card at more than one of my café locations?</h3>
+        <p>It depends how you set your venues up, and it is a decision worth making deliberately. By default each venue on BaristaCard carries its own QR codes and its own loyalty deals, so a customer collecting at your first site starts a fresh card at your second. Cafés with several locations can instead share one stamp card across their sites, so a customer collects and redeems at any of them. Either way the customer keeps one BaristaCard identity and their Coffee Beans accumulate in a single place. Decide which model you want before site two opens, because moving people across afterwards means asking regulars to start again.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Does adding a second café site cost anything?</h3>
+        <p>Yes. The free Starter plan covers one venue. The moment you add a second you move to Basic at £9 a month, which covers up to five venues. Premium is £29 a month for up to ten, and Enterprise covers unlimited venues. For most owners opening a second shop, £9 a month is the smallest line in the entire expansion budget.</p>
+      </div>
+      <div class="faq__item">
+        <h3>What breaks when a café opens a second site with the same loyalty scheme?</h3>
+        <p>Four things, in roughly this order: reward rules drift apart because each venue is configured separately; your historical data disappears if you were on the free plan, which only keeps the last 30 days; staff at the new site learn the scheme from whoever happens to be on shift; and your broadcast allowance is counted per venue, so your two sites talk to customers separately unless you deliberately send the same message twice.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Can I see all my café locations in one dashboard?</h3>
+        <p>Yes. All venues are managed from a single dashboard, and the Basic plan adds multi-location analytics and a centralised dashboard view on top of the per-venue numbers. Full analytics history also arrives with Basic, which matters more than it sounds if you have been running on the free plan.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Can my staff work across both of my café sites?</h3>
+        <p>Not on the £9 Basic plan. Staff across locations is listed as a Premium feature, at £29 a month. If you plan to move baristas between your sites, or you have one manager covering both, budget for Premium rather than Basic from the start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Adding your second café?</h2>
+    <p>BaristaCard manages every venue from one dashboard, with multi-location analytics from £9 a month. Your first venue stays free.</p>
+    <div class="final-cta__ctas">
+      <a href="/auth/register" class="btn btn-primary btn-lg">Get Started Free</a>
+      <a href="/pricing" class="btn btn-secondary btn-lg">Compare Plans</a>
+    </div>
+    <p class="final-cta__micro">No credit card required · Cancel anytime</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">BaristaCard</a>
+        <p>Free digital loyalty cards for coffee shops. Build customer loyalty, track rewards, and grow your café — without the cost.</p>
+      </div>
+      <div class="footer__col">
+        <h4>For Café Owners</h4>
+        <ul class="footer__links">
+          <li><a href="/auth/register">Get Started Free</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Compare</h4>
+        <ul class="footer__links">
+          <li><a href="/compare/loopy-loyalty">vs Loopy Loyalty</a></li>
+          <li><a href="/compare/stamp-me">vs Stamp Me</a></li>
+          <li><a href="/compare/square-loyalty">vs Square Loyalty</a></li>
+          <li><a href="/compare/perkstar">vs Perkstar</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul class="footer__links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BaristaCard. All rights reserved.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
